@@ -1,0 +1,31 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="查看采集主题" border="normal" use="com.uniwin.webkey.infoExtra.infosubject.ViewSubject" closable="true" width="600px" height="550px">
+
+<vbox>
+<grid width="100%" fixedLayout="true">
+	<columns><column width="20%"/><column/></columns>
+	<rows>
+		<row>
+			<label>采集主题：</label>
+			<textbox id="subjectTitlle" width="99%" constraint="no empty" />
+		</row>
+	    <row>
+			<label>采集网址及内容：</label>
+			<textbox id="suburl" width="99%" constraint="no empty" maxlength="1000" rows="18" multiline="true"/>
+		</row>
+		<row height="100px">
+			<label>意见和建议：</label>
+			<textbox multiline="true" rows="10" width="99%" id="subjectCon" />
+		</row>
+		<row></row>
+	</rows>
+</grid>
+<separator/>
+<div align="center">
+	<toolbarbutton label="" id="close" image="/images/content/btn-close.gif"/>
+</div>
+</vbox>
+
+</window>
+</zk>

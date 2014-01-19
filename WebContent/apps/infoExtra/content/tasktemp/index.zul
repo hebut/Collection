@@ -1,0 +1,18 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+
+  <window use="com.uniwin.webkey.infoExtra.tasktemp.TasktypeTreeComposer"  height="100%" width="100%">
+  <borderlayout sclass="wihte-border-layout">
+			<west title="${c:l('newspub.zul.chanelTree')}" id="leftPage" 
+			sclass="main-west" size="19%" flex="true" collapsible="true">
+			
+				 <tree id="taskTree"   height="100%" zclass="z-filetree" sclass="new-tree"  
+							 rows="16" context="menu" multiple="true" pageSize="16" mold="paging" /> 
+			
+			</west>
+			<center id="taskCen" flex="true">
+			</center>
+		</borderlayout>
+	</window>
+
+</zk>

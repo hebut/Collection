@@ -1,0 +1,28 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style src="${c:l('webindex.zul.css')}${themeName}${c:l('webindex.zul.cssfile')}"></style>
+	<window border="none" width="100%" height="100%"   zclass="yy" use="com.uniwin.webkey.system.ui.WelcomeWin" id="welcomeWin_page">
+		
+		<div sclass="quik_head" id="workbenchSeting">
+			<hbox sclass="ico" spacing="1">
+				<div sclass="gray">
+					${c:l('webindex.zul.welcomeconcent')}
+				</div>
+				<toolbarbutton label="${c:l('webindex.zul.customizetable')}" onClick="welcomeWin_page.showWelcomeaddList()" style="color:red" />
+				<toolbarbutton label="${c:l('webindex.zul.savetable')}" onClick="welcomeWin_page.saveWelcomePageCustomer()" style="color:red" />
+			</hbox>
+		</div>
+
+		<hbox width="100%" height="100%" >
+			<portallayout id="portalContent" height="100%">
+				<portalchildren id="leftColumPortchildren" style="padding: 2px" width="33%" height="100%">
+				</portalchildren>
+				<portalchildren id="centerPortchildren" style="padding: 2px" width="33%" height="100%">
+				</portalchildren>
+				<portalchildren id="rightColumPortchildren" style="padding: 2px" width="33%" height="100%">
+				</portalchildren>
+			</portallayout>
+		</hbox>
+	</window>
+</zk>

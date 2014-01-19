@@ -1,0 +1,57 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window  id="win" title="批量导入分类" border="normal"
+		use="com.uniwin.webkey.infoExtra.task.ImportTypeWindow" width="600" >	
+		<grid>
+			<columns>
+				<column width="30%" align="center" />
+				<column width="70%" />
+			</columns>
+			<rows>
+				<row visible="false">
+					<label value="选择文件："  />
+					<hbox>
+						<button id="upchanel" label="上传本地文件" >
+                         </button>
+					</hbox>
+				</row>
+				<row visible="false">
+					<label value="1.上传文件必须为文本文件；" width="100%"  />
+				</row>
+				<row>
+					<label value="要求：" />
+					<label value="1.文本要求每行一个分类；" />
+				</row>
+				<row>
+					<space spacing="40" />
+					<label value="2.不能有空行；" />
+				</row>
+				<row>
+					<space spacing="40" />
+					<label value="3.子类相对于父类使用空格缩进(半角状态下为两个空格，全角状态为一个空格)；"/>
+				</row>
+				<row>
+					<space spacing="40" />
+					<label
+						value="4.在下面的示例中直接更改内容，然后点击“下一步”提交，浏览效果。" />
+				</row>
+				<row>
+						<label value="示例:"/>
+						<hbox>
+							<textbox id="clist"  multiline="true" height="200" width="300"></textbox>
+						</hbox>
+				</row>
+				<row spans="2">
+					<hbox pack="center" >
+						<hbox align="center" width="100%">
+							<toolbarbutton id="next" image="/images/content/3/xyb.gif"/>
+							<space spacing="10"></space>
+							<toolbarbutton id="cancel" image="/images/content/3/qx.gif"/>
+						</hbox>
+					</hbox>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

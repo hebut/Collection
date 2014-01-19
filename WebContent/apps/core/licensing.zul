@@ -1,0 +1,31 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="${c:l('role.zul.licensing')}" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window border="normal" id="licensing_wind" style="overflow:auto;" zclass="z-panel-children"
+		use="com.uniwin.webkey.util.ui.RoleLicensingWin" width="100%" height="100%">
+		<div sclass="new-west-body-color">
+			<grid width="100%" zclass="mygrid" style="border:0;">
+				<rows>
+					<row style="border:0;">
+						<tree id="noOpera" height="100%" width="100%" zclass="z-filetree" sclass="new-tree"
+							style="border:0;background:#FFFFFF;" use="com.uniwin.webkey.tree.ui.RoleTree">
+						</tree>
+					</row>
+				</rows>
+			</grid>
+		</div>
+		<div align="center">
+			<image type="save" id="save_permission" visible="${rolePermission_save }"
+				onClick="licensing_wind.permissionUpdata()" />
+		</div>
+		<zscript><![CDATA[ 
+		                  if(licensing_wind.getSessionRole()!=null){
+		                	  if(licensing_wind.getSessionRole().getState()==2010){
+		                	  save_permission.setVisible(licensing_wind.getSessionRole().getState()!=2010);  
+		                	  }
+		                  }
+
+		]]></zscript>
+	</window>
+</zk>

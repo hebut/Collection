@@ -1,0 +1,49 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="反馈信息" border="normal"
+		use="com.uniwin.webkey.core.ui.WktmessagesBrowseWin"
+		id="wktmessagesBrowseWin" width="400px;">
+		<grid zclass="mygrid" sclass="win-grid">
+			<rows>
+				<row>
+					<div align="right">
+						<label value="反馈标题:" />
+					</div>
+					<div align="left" width="300px" style="width:300px;word-wrap:break-word;overflow:hidden;">
+						<label id="KM_TITLE"
+							value="${wktmessagesBrowseWin.wktmessages.KM_TITLE}">
+						</label>
+					</div>
+				</row>
+				<row align="left">
+					<div align="right">
+						<label value="反馈内容:" />
+					</div>
+					<div align="left" style="width:300px;word-wrap:break-word;overflow:hidden;">
+						<label id="KM_CONTENT"
+							value="${wktmessagesBrowseWin.wktmessages.KM_CONTENT}">
+						</label>
+					</div>
+				</row>
+				<row align="left">
+					<div align="right">
+						<label value="回复内容:" />
+					</div>
+					<div align="left" style="width:300px;word-wrap:break-word;overflow:hidden;">
+						<label id="KR_CONTENT"
+							value="${wktmessagesBrowseWin.wktreply.KR_CONTENT}">
+						</label>
+					</div>
+				</row>
+				<row spans="2" align="center">
+					<div>
+						<image type="quit"
+							onClick="wktmessagesBrowseWin.detach()" tooltiptext="退出"
+							style="cursor:pointer;" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

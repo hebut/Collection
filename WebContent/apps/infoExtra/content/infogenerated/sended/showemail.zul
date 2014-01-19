@@ -1,0 +1,47 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window   border="normal" width="60%"  closable="true" 
+sizable="true"  title="查看邮件" use="com.uniwin.webkey.infoExtra.infogenerated.InfoEmailShow">
+	<caption image="/css/img/win-ico.gif">
+		<toolbar align="end">
+		<button label="关  闭" style="font-size:14px;color:blue;font-weight:bold" id="close"  visible="false"/>
+		</toolbar>
+	</caption>
+	  <grid width="100%">
+	     <columns>
+	       <column width="10%"></column>
+	       <column></column>
+	     </columns>
+	     <rows>
+			<row>
+				<label value="标题:" />
+				<hbox width="100%">
+					<label id="mailSubject" width="95%" />
+				</hbox>
+			</row>
+			<row>
+				<label value="时间:" />
+				<hbox width="100%">
+					<label id="mailDate" width="95%" />
+				</hbox>
+			</row>			
+			<row id="inner">
+				<label value="收件人 :"
+					width="50px" />
+				<div>
+					<label id="mToInner" width="95%"  />
+				</div>
+			</row>
+			<row>
+			   <label value="正文:"
+					width="50px" />
+				<hbox width="100%">
+				   <html id="emailHTML">
+				      
+				   </html>
+				</hbox>					
+			</row>
+	     </rows>
+	  </grid>
+</window>
+</zk>

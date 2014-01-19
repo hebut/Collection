@@ -1,0 +1,30 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="忘记密码" border="0" width="300px" sclass="newin"
+		use="com.uniwin.webkey.core.ui.ForgetPassWin" id="forgetPass">
+		<grid zclass="pop-grid" align="center">
+			<rows>
+				<row zclass="pop-grid-rows">
+					<div>
+						<label value="密码提示问题："></label>
+						<textbox id="passQuestion"></textbox>
+					</div>
+				</row>
+				<row zclass="pop-grid-rows">
+					<div>
+						<label value="密码问题答案："></label>
+						<textbox id="passAnswer"></textbox>
+					</div>
+				</row>
+				<row zclass="pop-grid-rows">
+					<div align="center">
+						<separator></separator>
+						<image src="/images/system/01.png"
+							hover="/images/system/02.png" onClick="forgetPass.login();">
+						</image>
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

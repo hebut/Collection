@@ -1,0 +1,43 @@
+<?page id="tempGroupListEdit" title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+<window id="tempGroupListWindow"  border="none"  sclass="newin" width="100%" height="100%"
+        use="com.uniwin.webkey.system.parameters.template.win.TempGroupListWindow" > 
+			 <div>
+		         <panel width="100%" border="none" visible="true">
+						<panelchildren style="padding:3px;" >
+						        <div width="100%" align="right">
+									<separator height="4px"></separator>
+							        ${c:l('newspub.zul.point')}${c:l('template.ui.haveHeader')}
+								  	<image type="add" id="newTemple" />
+									<image type="del" id="delTemple" />
+									<separator height="4px"></separator>
+							    </div>
+		   						  <hbox pack="center" width="100%">
+						      	     <listbox id="templeListbox" mold="paging" pageSize="11" multiple="true" checkmark="true" width="100%" sclass="new_listbox">
+											<listhead>
+												<listheader align="center" width="5%" />
+												<listheader label="${c:l('newspub.zul.number')}" align="center" width="5%" />
+												<listheader label="${c:l('template.ui.cssId')}" align="center" width="19%" />
+												<listheader label="${c:l('template.ui.cssName')}" align="center" width="20%" />
+												<listheader label="${c:l('template.ui.crTime')}" align="center" width="25%" />
+												<listheader label="${c:l('template.ui.cssEdit')}" align="center" width="10%" />
+											</listhead>
+										</listbox>	
+								  </hbox>	
+								  <separator></separator>	
+								  <hbox pack="end" width="100%">
+										<hbox>
+											<textbox id="groupName"/>
+											<button id="addGroup" label="添加分组"  />
+											<button id="delGroup" label="删除分组"  />
+									<!-- 	<toolbarbutton id="addGroup"  label="" image="/images/template/zjfz.gif"/>	
+											<toolbarbutton id="delGroup"  label="" image="/images/template/scfz.gif"/>	 -->	
+			    						</hbox>
+								  </hbox>
+		             	    </panelchildren>
+		                </panel>                
+               		</div>
+</window>
+</zk>

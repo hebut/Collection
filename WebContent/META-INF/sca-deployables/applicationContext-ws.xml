@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans       
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd       
+    http://www.springframework.org/schema/context       
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd      
+    http://www.springframework.org/schema/aop      
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd      
+    http://www.springframework.org/schema/tx      
+    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/sca http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="jdbcUrl"
+			value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxPoolSize">
+			<value>5</value>
+		</property>
+		<property name="minPoolSize">
+			<value>5</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>5</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>20</value>
+		</property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Userdetail.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Users.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Resource.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Permission.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Role.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Organization.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Userrole.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Usersfavorate.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Operation.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Welcome.hbm.xml</value>
+				
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Userwelcome.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Wktmlog.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Wktmessages.hbm.xml</value>
+				<value>WEB-INF/classes/com/uniwin/webkey/core/model/Wktaccessory.hbm.xml</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.jdbc.batch_size">0</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl}</prop>
+				<!--
+					<prop key="hibernate.query.substitutions"> true 'Y', false 'N'
+					</prop> Create/update the database tables automatically when the
+					JVM starts up <prop key="hibernate.hbm2ddl.auto">update</prop>
+				-->
+				<!--
+					Turn batching off for better error messages under PostgreSQL <prop
+					key="hibernate.jdbc.batch_size">0</prop>
+				-->
+			</props>
+		</property>
+	</bean>
+
+	<!-- 建立事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 定义事务通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 对查找方法进行只读事务通知要求查找方法以find开头可按需要修改 -->
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="get" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="query*" propagation="SUPPORTS" read-only="true" />
+			<!-- 对其它方法如增 删 改进行事务支持 -->
+			<tx:method name="add" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="remove" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="move*" propagation="REQUIRED" />
+			<tx:method name="update" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="is*" propagation="REQUIRED" />
+			<tx:method name="has*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!--<aop:config>
+		<aop:pointcut id="bizMethods"
+			expression="execution(* com.uniwin.webkey..service.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="bizMethods" />
+		<aop:aspect id="log4j" ref="genericLoggerBean">
+			<aop:around pointcut-ref="bizMethods" method="invoke" />
+		</aop:aspect>
+	</aop:config>
+	<bean id="genericLoggerBean" class="com.uniwin.webkey.common.util.ApplyinfoIdGenerator" />  -->
+	<!-- hibernateTemplate配置事务的结束 -->
+
+
+	<!-- jdbcTemplate配置 开始-->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<!-- jdbcTemplate配置 结束-->
+
+
+
+
+	<!--用户管理开始-->
+
+	<bean id="userdetailDAO" class="com.uniwin.webkey.core.dao.UserdetailDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userdetailManager"
+		class="com.uniwin.webkey.core.service.UserdetailManagerImpl">
+		<property name="userdetailDAO" ref="userdetailDAO" />
+	</bean>
+
+	<bean id="usersDAO" class="com.uniwin.webkey.core.dao.UsersDAOImpl"  >
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="usersManager" class="com.uniwin.webkey.core.service.UsersManagerImpl">
+		<!-- <property name="jdbcTemplate" ref="jdbcTemplate" /> -->
+		<property name="usersDAO" ref="usersDAO" />
+		<property name="welcomeDao" ref="welcomeDAO"></property>
+		<property name="roleManager" ref="roleManager" />
+		<property name="organizationManager" ref="organizationManager" />
+	</bean>
+	<bean id="userroleDAO" class="com.uniwin.webkey.core.dao.UserroleDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="userroleManager"
+		class="com.uniwin.webkey.core.service.UserroleManagerImpl">
+		<property name="userroleDAO" ref="userroleDAO" />
+	</bean>
+
+	<!--用户管理结束-->
+
+
+	<!-- 资源管理开始 -->
+
+	<bean id="resourceDAO" class="com.uniwin.webkey.core.dao.ResourceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="resourceManager"
+		class="com.uniwin.webkey.core.service.ResourceManagerImpl">
+		<property name="resourceDAO" ref="resourceDAO" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<!-- 资源管理结束 -->
+
+	<!-- PERMISSION-->
+	<bean id="permissionDAO" class="com.uniwin.webkey.core.dao.PermissionDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="permissionManager"
+		class="com.uniwin.webkey.core.service.PermissionManagerImpl">
+		<property name="permissionDAO" ref="permissionDAO" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+	<!-- ROLE-->
+	<bean id="roleDAO" class="com.uniwin.webkey.core.dao.RoleDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="roleManager" class="com.uniwin.webkey.core.service.RoleManagerImpl">
+		<property name="roleDAO" ref="roleDAO" />
+
+	</bean>
+
+	<!-- 组织管理开始-->
+	<bean id="organizationDAO"
+		class="com.uniwin.webkey.core.dao.OrganizationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="organizationManager"
+		class="com.uniwin.webkey.core.service.OrganizationManagerImpl">
+		<property name="organizationDAO" ref="organizationDAO" />
+
+	</bean>
+	<!-- 组织管理结束-->
+
+	<!-- UsersFavorate-->
+	<bean id="usersfavorateDAO"
+		class="com.uniwin.webkey.core.dao.UsersfavorateDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="usersfavorateManager"
+		class="com.uniwin.webkey.core.service.UsersfavorateManagerImpl">
+		<property name="usersfavorateDAO" ref="usersfavorateDAO" />
+	</bean>
+
+	<bean id="frameCommonDate"
+		class="com.uniwin.webkey.util.ui.FrameCommonDate">
+		<property name="resourceManager" ref="resourceManager" />
+	</bean>
+	 	<!-- OPERATION-->
+	<bean id="operationDAO" class="com.uniwin.webkey.core.dao.OperationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="operationManager" class="com.uniwin.webkey.core.service.OperationManagerImpl">
+		<property name="operationDAO" ref="operationDAO" />
+	</bean>	
+	 	<!-- welcome-->
+	<bean id="welcomeDAO" class="com.uniwin.webkey.core.dao.WelcomeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>		
+	</bean>
+	<bean id="welcomeManager" class="com.uniwin.webkey.core.service.WelcomeManagerImpl">
+		<property name="welcomeDAO" ref="welcomeDAO" />
+	</bean>	
+	 	
+	 	<!-- alarmClock-->
+	<!--<bean id="alarmclockDAO" class="com.uniwin.webkey.core.dao.AlarmclockDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="alarmclockManager" class="com.uniwin.webkey.core.service.AlarmclockManagerImpl">
+		<property name="alarmclockDAO" ref="alarmclockDAO" />
+	</bean>
+	--><!-- SCA -->
+<bean id="wktmlogDAO" class="com.uniwin.webkey.core.dao.WktmlogDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="wktmlogManager" class="com.uniwin.webkey.core.service.WktmlogManagerImpl">
+		<property name="wktmlogDAO" ref="wktmlogDAO" />
+	</bean>
+	<bean id="operationLogUtil" class="com.uniwin.webkey.core.util.OperationLogUtil">
+		<property name="wktmlogManager" ref="wktmlogManager" />
+	</bean>
+</beans>

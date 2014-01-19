@@ -1,0 +1,17 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="new page title" border="normal" sclass="newin"
+		use="com.uniwin.webkey.core.ui.UsersQueryWin" id="query">
+		<listbox id="users" model="@{usersData}" mold="paging" sclass="new_listbox"
+			pageSize="3">
+			<listhead>
+				<listheader label="${c:l('users.zul.username')}" sort="auto" />
+				<listheader label="${c:l('users.zul.loginalias')}" sort="auto" />				
+			</listhead>
+
+		</listbox>
+
+
+	</window>
+</zk>

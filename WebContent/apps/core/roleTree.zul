@@ -1,0 +1,17 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="${c:l('role.zul.licensing')}" border="normal" closable="true" 
+		    use="com.uniwin.webkey.tree.ui.RoleTreeWin">
+		    <div sclass="new-west-body-color">
+		<grid width="400px" height="500px" >
+			<rows>
+				<row>
+					<tree id="noOpera" use="com.uniwin.webkey.tree.ui.RoleTree"    zclass="z-filetree" sclass="new-tree">
+					</tree>
+				</row>
+			</rows>
+		</grid>
+		</div>
+	</window>
+</zk>

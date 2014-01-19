@@ -1,0 +1,91 @@
+
+ 
+  <window  title="wktmessages" use="com.uniwin.webkey.core.ui.WktmessagesUpdateWin" id="updateWin" width="500px">
+		<grid align="center" >
+			<columns>
+				<column width="100px" label="Name"/>
+				<column width="100px" label="Value"/>
+			</columns>
+		<rows>
+		
+	
+	  	<row>
+	
+		<div align="right">
+			<label value="wktmessages.KU_SID:"   />
+		</div>
+	   		
+	<div align="left">	<intbox id="KU_SID" value="${updateWin.wktmessages.KU_SID}"></intbox></div>
+ 
+	 
+
+	
+		<div align="right">
+			<label value="wktmessages.KU_RID:"   />
+		</div>
+	   		
+	<div align="left">	<intbox id="KU_RID" value="${updateWin.wktmessages.KU_RID}"></intbox></div></row>
+ 
+	 
+
+	
+	  	<row>
+	
+		<div align="right">
+			<label value="wktmessages.KM_TITLE:"   />
+		</div>
+	   		
+	
+	<div align="left">	<textbox id="KM_TITLE" value="${updateWin.wktmessages.KM_TITLE}"></textbox></div>  
+	 
+
+	
+		<div align="right">
+			<label value="wktmessages.KM_CONTENT:"   />
+		</div>
+	   		
+	
+	<div align="left">	<textbox id="KM_CONTENT" value="${updateWin.wktmessages.KM_CONTENT}"></textbox></div></row>
+	 
+	 
+
+	
+	  	<row>
+	
+		<div align="right">
+			<label value="wktmessages.KM_STATE:"   />
+		</div>
+	   		
+	<div align="left">	<intbox id="KM_STATE" value="${updateWin.wktmessages.KM_STATE}"></intbox></div>
+ 
+	 
+
+	
+		<div align="right">
+			<label value="wktmessages.KM_TIME:"   />
+		</div>
+	   		
+		<div align="left"><datebox format="yyyy-MM-dd" id="KM_TIME" value="${updateWin.wktmessages.KM_TIME}"></datebox></div></row>
+ 
+	 
+
+	
+	  	<row>
+	
+		<div align="right">
+			<label value="wktmessages.KR_ID:"   />
+		</div>
+	   		
+	<div align="left">	<intbox id="KR_ID" value="${updateWin.wktmessages.KR_ID}"></intbox></div></row> 
+ 
+	 
+ 
+	<row spans="4" align="center"><div>
+						<button label="OK"
+							onClick="updateWin.updatawktmessages(event)" id="updatewktmessages"/><space/>
+						<button label="Cancel" onClick="updateWin.detach()" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0"
+	xmlns:tuscany="http://tuscany.apache.org/xmlns/sca/1.0"
+	targetNamespace="http://serivce.User.com" xmlns:c="http://User"
+	name="User">
+	<component name="User">
+		<implementation.spring location="META-INF/sca-deployables/applicationContext-user.xml"></implementation.spring>
+        <service name="usersManager">
+	      	<interface.java interface="com.uniwin.webkey.core.itf.IUsersManager"/>
+        </service>
+        <reference name="roleManagerService" target="Role" />        
+	</component>
+</composite>

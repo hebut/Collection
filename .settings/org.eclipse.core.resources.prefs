@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/i3-label_zh_CN.properties=UTF-8
+encoding//WebContent/WEB-INF/log4j1.properties=UTF-8
+encoding//WebContent/WEB-INF/log4j2.properties=UTF-8
+encoding//WebContent/info_detail.jsp=UTF-8
+encoding//core_src/com/uniwin/webkey/common/util/Encryption.java=gbk
+encoding//core_src/com/uniwin/webkey/core/itf/IOrganizationDAO.java=gbk
+encoding//core_src/com/uniwin/webkey/core/itf/IUsersDAO.java=gbk
+encoding//core_src_infoExtra/com/uniwin/webkey/infoExtra/itf/NewsServices.java=UTF-8
+encoding//core_src_infoExtra/com/uniwin/webkey/infoExtra/itf/OriNewsService.java=UTF-8
+encoding//src/com/uniwin/webkey/component/ui/BaseTreeZk.java=gbk
+encoding//src_infoextra/com/uniwin/webkey/infoExtra/email/UploadUtil.java=UTF-8
+encoding/<project>=UTF-8

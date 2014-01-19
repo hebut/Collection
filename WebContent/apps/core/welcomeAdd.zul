@@ -1,0 +1,32 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="${c:l('welcome.zul.addnewforum')}" border="normal" sclass="newin" width="300px" height="180px" id="welcomeAdd_Win"
+		use="com.uniwin.webkey.core.ui.WelcomeAddWin">
+		<div align="center">		
+		    <vbox>
+			     <separator></separator>						
+					<hbox >	
+						<label value="${c:l('welcome.zul.name')}:" style="font-weight:bold" />
+						<textbox id="name" width="200px"/>
+				    </hbox>
+				    
+				    <hbox>
+						<label value="URL:" style="font-weight:bold" />
+						<textbox id="url"  width="200px"/>
+					</hbox>
+				
+					<hbox>
+					    <space width="27px"></space>
+						<checkbox id="move" checked="true" label="${c:l('welcome.zul.isAllowscustomization')}">
+						</checkbox>
+					</hbox>
+				
+					<div align="center">
+						<image type="save" onClick="welcomeAdd_Win.addWelcome()" />
+					</div>
+			</vbox>
+			</div>
+	</window>
+</zk>

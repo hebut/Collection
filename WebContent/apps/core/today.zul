@@ -1,0 +1,61 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="${c:l('welcome.zul.currenttime')}" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window border="none"
+		use="com.uniwin.webkey.core.ui.TodayWin" id="today_win">
+		<zscript><![CDATA[
+	import com.uniwin.framework.common.util.DateUtil;
+	import java.util.ArrayList;
+	import java.util.List;
+	String nowTime = DateUtil.dateToStr(new Date(), "yyyy-MM-dd");
+	String weekTime = DateUtil.getWeek(new Date());
+	class dong {
+		private String userName;
+
+		public void setUserName(String userName) {
+			this.userName = userName;
+		}
+
+		public String getUserName() {
+			return this.userName;
+		}
+
+	}
+	List dongList = new ArrayList();
+	dong d = new dong();
+	d.setUserName("dong");
+	dongList.add(d);
+	dong d2 = new dong();
+	d2.setUserName("liu");
+	dongList.add(d2);
+]]></zscript>
+		<label value="${c:l('welcome.zul.today')}:${nowTime }${weekTime }"
+			style="color:#58ACFA">
+		</label>
+		<label value="${c:l('welcome.zul.lunarcalendar')}:" style="color:#58ACFA"></label>
+		<div style="padding:0">
+			<image src="${c:l('welcome.zul.finalCountDownimage')}"></image>
+		</div>
+		<zk forEach="${today_win.alarmclockExs }">
+			<label value="${c:l('welcome.zul.distanceevent')}" style="color:#6E6E6E"></label>
+			<label value="${each.eventName }" style="color:red;"></label>
+			<label value="${c:l('welcome.zul.also')}" style="color:#6E6E6E"></label>
+			<label value="${each.finalCountdown }" style="color:red;"></label>
+			<separator></separator>
+		</zk>
+		<hbox>
+			<image src="${c:l('welcome.zul.alarmclockimage')}"></image>
+			<div style="color:#6E6E6E">
+				<space width="10px"></space>
+				${c:l('welcome.zul.effect')}
+			</div>
+			<audio src="${c:l('welcome.zul.alarmclockmp3')}"
+				id="alarmClockPlayer" visible="false" />
+		</hbox>
+		<div align="center">
+			<image type="auto" src="${c:l('welcome.zul.alarmclockbimage')}"  onClick="today_win.openTab()" ></image>
+		</div>
+
+	</window>
+</zk>

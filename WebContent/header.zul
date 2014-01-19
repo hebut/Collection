@@ -1,0 +1,87 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>	
+	<style src="${c:l('webindex.zul.css')}${themeName}${c:l('webindex.zul.cssfile')}"></style>
+	<window height="100%" use="com.uniwin.webkey.system.ui.HeaderWin" id="headerWin_info">
+		<div style="height:68px;background-image:url('../${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagewebkey5-26_02')}');">
+			
+			<div  align="right">
+		
+				<hbox align="right">
+				<space/><space/>
+				<image  src="/images/t1.gif"   align="left"  />
+						 <space width="200px"/>
+					<image
+						src="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagewebkey_04')}"
+						hover="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagewebkey5-26_04')}"
+						 align="right"  />
+					<image
+						src="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagewebkey_05')}"
+						hover="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagewebkey5-26_05')}"
+						onClick="headerWin_info.showUsersUpdatePassword()" align="right" />
+					<image
+						src="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagewebkey_06')}"
+						hover="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagewebkey5-26_06')}"
+						onClick="headerWin_info.showUsersInfo()" align="right" />
+				 <image
+						src="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagehelp')}"
+						hover="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagehelp1')}"
+						onClick="headerWin_info.showFavorite()" align="right" />
+					<image
+						src="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagewebkey_08')}"
+						
+						hover="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.imagewebkey5-26_08')}"
+						onClick="headerWin_info.loginOff()" align="right" />
+						<space width="50px"/>
+				</hbox>
+			</div>
+			
+			<div style="float:right; margin-top: 63px;margin-right:50px">
+				<image src="/images/${themeName }/headright.jpg"></image>
+			</div>
+		</div>
+		
+			<hbox width="100%" style="height:10px;background-image:url('../${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.top_navbg')}');">
+				<div style="float:left;padding-top:5px;width:auto;" visible="false">
+					  <hbox style="vertical-align:middle;" >
+						<label value="${c:l('webindex.zul.currentsite')}" sclass="n-label" />
+						<combobox readonly="true" sclass="n-combox"  id="hdSel" width="135px" onChange="headerWin_info.passDomain()" />
+						<div id="simeMap_div" align="left" sclass="short">
+						</div>
+					</hbox>
+	   			 </div>
+				<div style="float:right;margin-right:15px;">
+					<hbox>
+						<div>
+							<label sclass="blue" id="userInfo_label" />
+							<space width="20px" />
+						</div>
+						
+						<menubar sclass="new-menubar">
+							<menu label="查看角色" image="${c:l('webindex.zul.Briefcase-16x16image')}">
+					            <menupopup id="role_menuitem">
+					            </menupopup>
+					        </menu>
+						</menubar>
+						
+						<menubar sclass="new-menubar" id="menubar">
+							<menu  label="${c:l('webindex.zul.peeling')}"  image="${c:l('webindex.zul.css')}${themeName }${c:l('webindex.zul.common.theme_ico')}" >
+									<menupopup id="menupopup"></menupopup>
+								</menu>
+						</menubar>
+						
+						<space width="50px"/>
+						<image  src="${c:l('webindex.zul.css')}${themeName}/images/common/actquit.gif"
+						id="img_loginOff"  onClick="headerWin_info.loginOff()" align="right" visible="false"/>
+						
+						<menubar sclass="new-menubar">
+							<menuitem label="注销"  onClick="headerWin_info.loginOff()"/>
+						</menubar>
+						
+						<space width="10px"/>
+					</hbox>
+				</div>
+			</hbox>
+			
+	</window>
+</zk>

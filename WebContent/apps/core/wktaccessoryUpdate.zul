@@ -1,0 +1,34 @@
+
+ 
+  <window  title="wktaccessory" use="com.uniwin.webkey.core.ui.WktaccessoryUpdateWin" id="updateWin" width="500px">
+		<grid align="center">
+			<columns>
+				<column width="100px" label="Name"/>
+				<column width="100px" label="Value"/>
+			</columns>
+		<rows>
+		
+		<row>
+		<div align="right">
+			<label value="wktaccessory.KA_NAME"   />
+		</div>
+     <div align="left">
+
+		<textbox id="KA_NAME" value="${updateWin.wktaccessory.KA_NAME}"></textbox></div></row>  
+
+		<row>
+		<div align="right">
+			<label value="wktaccessory.KM_ID"   />
+		</div>
+     <div align="left">
+	<intbox id="KM_ID" value="${updateWin.wktaccessory.KM_ID}"></intbox></div></row>
+ 
+	<row spans="4" align="center"><div>
+						<button label="OK"
+							onClick="updateWin.updatawktaccessory(event)" id="updatewktaccessory"/><space/>
+						<button label="Cancel" onClick="updateWin.detach()" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>

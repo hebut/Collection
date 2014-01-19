@@ -1,0 +1,52 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="采集结果替换" border="normal" use="com.uniwin.webkey.infoExtra.core.ResultReplace" width="600px" height="400px" closable="true">
+<zscript>
+<![CDATA[
+	void loadOld(){
+		if(replaceOld.isChecked()==true){
+			reg.setChecked(true);
+			replaceAll.setChecked(false);
+			newValue.setDisabled(true);
+		}else{
+			newValue.setDisabled(false);
+			reg.setChecked(false);
+		}
+	}
+	
+	void loadAll(){
+		if(replaceAll.isChecked()==true){
+			replaceOld.setChecked(false);
+			newValue.setDisabled(false);
+		}
+	}
+	]]>
+</zscript>
+
+<box>
+<listbox height="180px" width="100%" id="replaceList">
+<listhead visible="false" id="repleHead">
+	<listheader label="旧值"/>
+	<listheader label="新值"/>
+	<listheader label="使用正则表达式"/>
+	<listheader label="只提取旧值"/>
+	<listheader label="重复替换"/>
+</listhead>
+
+</listbox>
+</box>
+
+	<groupbox>
+  		<label>旧值</label><space width="80px"/><textbox id="oldValue" width="450px"/>
+  		<separator/>
+  		<label>新值</label><space width="80px"/><textbox id="newValue" width="450px"/>
+		<separator/>
+	<checkbox label="使用正则表达式" id="reg"/><checkbox label="只提取旧值" id="replaceOld" onCheck="loadOld()"/><checkbox label="重复替换" id="replaceAll" onCheck="loadAll()"/>
+	</groupbox>
+<separator/>
+<hbox><space width="370px"/><button label="新建" id="newReplace"/><button label="保存" id="save"/><button label="删除" id="delete"/><button label="上移" id="moveUp"/><button label="下移" id="moveDown"/></hbox>
+<separator/><hbox><space width="500px"/><button label="确定" id="OK"/><button label="取消" id="cancel"/></hbox>
+
+
+</window>
+</zk>

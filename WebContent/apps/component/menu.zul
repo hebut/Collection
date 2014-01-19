@@ -1,0 +1,9 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="mymenu" extends="menubar" class="com.uniwin.webkey.component.ui.MyMenu"?>
+<?component name="tabmenu" extends="tabbox" class="com.uniwin.webkey.component.ui.TestMenuForTabbox"?>
+<zk>
+<window title="new page title" border="normal" use="com.uniwin.webkey.component.ui.MenuTest">
+<mymenu id="tabboxMenu"  ></mymenu>
+<tabmenu id="tabmenu" mold="accordion"></tabmenu>
+</window>
+</zk>

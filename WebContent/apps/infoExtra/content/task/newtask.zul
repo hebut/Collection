@@ -1,0 +1,378 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window  id="wins" border="normal"  width="710px" height="430px"  contentStyle="overflow:auto">
+		   <caption image="/css/img/win-ico.gif" label="新建任务"/>
+	<tabbox width="100%"> 
+<tabs style="text-align:left" >
+<tab label="常规设置" />
+<tab label="起始地址" />
+<tab label="导航规则" />
+<tab label="采集规则"  />
+<tab label="采集结果"/>
+</tabs>
+<tabpanels>
+<tabpanel >  
+<groupbox width="100%">
+<caption label="常规"/>
+<separator />
+<hbox>
+<label  value="任务名称"/>
+<space/>
+<textbox width="400px"/>
+</hbox>
+<separator />
+<hbox>
+<label  value="所属分类"/>
+<space/>
+<listbox width="200px" mold="select" rows="1">
+<listitem label="新浪网"/>
+</listbox>
+</hbox>
+<separator />
+<hbox>
+<label value="备注"/>
+<space width="33px"/>
+<textbox  width="450px" rows="5" height="100px"/>
+</hbox>
+</groupbox>
+<separator />
+<groupbox  width="100%">
+<caption label="定时采集"/>
+<hbox>
+<radiogroup >	
+<radio label="每当"  checked="true" id="md">
+<attribute name="onCheck">
+				time.setVisible(true);
+				times.setVisible(false);
+					</attribute>
+</radio>
+<radio label="每隔"  id="mg" >
+<attribute name="onCheck">
+				times.setVisible(true);
+				time.setVisible(false);
+					</attribute>
+</radio>
+<space/>
+<label value="设置时间范围："/>
+<timebox id="time" />
+<listbox mold="select"  rows="1" width="100px" id="times" Visible="false">
+					<listitem label="1小时" />
+					<listitem label="2小时" />
+					<listitem label="4小时" />
+					<listitem label="6小时" />
+					<listitem label="12小时" />
+					<listitem label="1天" />
+					<listitem label="2天" />
+					<listitem label="1周" />
+				</listbox>
+</radiogroup>	
+<space  width="30px"/>
+<checkbox label="启动定时采集"/>
+</hbox>
+</groupbox>
+<separator />
+<groupbox   width="100%">
+<caption label="高级"/>
+<label value="线程数量"/>
+<intbox width="80px"/>
+<space/>
+<label value="网页编码"/>
+<listbox mold="select" rows="1"  width="150px">
+					<listitem label="gb2312" />
+					<listitem label="utf-8" />
+</listbox>
+<space/>
+<label  value="历史记录容量"/>
+<intbox  width="80px"/>
+</groupbox>
+</tabpanel>
+
+<tabpanel > 
+<groupbox   width="98%">
+<caption label="起始地址列表"/>	
+<groupbox  width="100%" >
+<caption label="起始地址"/>
+<separator />
+<textbox  rows="100"  height="50px"  width="600px"/>
+</groupbox>
+<hbox>
+<space/>
+<textbox  height="150px"  width="600px"/>
+</hbox>
+<separator />
+<hbox>
+<space/>
+<label value="地址总数  "/>
+<space  width="300px"/>
+<checkbox  label="起始地址已编码"/>
+</hbox>
+<separator />
+<div align="right">
+<button  label="插 入"/>
+<button  label="添 加"/>
+<button  label="修 改"/>
+<button  label="删 除"/>
+<button  label="清 空"/>
+</div>
+</groupbox>
+</tabpanel>
+<tabpanel > 
+<groupbox  width="100%">
+<caption  label="导航规则列表"/>
+<hbox>
+<listbox  fixedLayout="true"   rows="3" mold="paging" pageSize="3" width="650px">
+		<listhead>
+			<listheader label="层次" width="5%" align="center"/>
+			<listheader label="层次名称" />
+			<listheader label="最终页面"  align="center"/>
+			<listheader label="提取下一层"  align="center"/>
+			<listheader label="下一层网址模板" width="25%" align="center"/>
+			<listheader label="提取下一页"  align="center"/>
+		</listhead>
+	</listbox>	
+	</hbox>
+	<separator />
+<hbox>
+<label  value="层次名称"/>
+<space/>
+<listbox mold="select" rows="1"  width="150px">
+<listitem label="列表"/>
+<listitem label="内容"/>
+<listitem label="大类"/>
+<listitem label="小类"/>
+<listitem label="公司信息"/>
+</listbox>
+<space width="150px"/>
+<label value="层次类型"/>
+<space/>
+<radiogroup>
+<radio label="中间层"/>
+<radio label="最终页面"  checked="true"/>
+</radiogroup>
+</hbox>
+</groupbox>
+<separator />
+<groupbox  width="100%">
+<caption label="下一层网址模板"/>
+<textbox width="600px"/>
+<hbox>
+<checkbox label="需要提取"/>
+<space width="20px"/>
+<checkbox label="使用正则表达式"/>
+<space  width="20px"/>
+<checkbox label="不能与历史记录重复"/>
+</hbox>
+</groupbox>
+<groupbox  width="98%">
+<tabbox style="text-align:left" >
+<tabs>
+<tab label="提取下一页网址"/>
+<tab label="网址提取范围"/>
+<tab label="内容采集范围"/>
+</tabs>
+<tabpanels>
+<tabpanel>
+<checkbox label="需要提取"/>
+<space/>
+<label value="下一页标记"/>
+<textbox width="300px"/>
+<space/>
+<label value="最大页数"/>
+<textbox  width="100px"/>
+</tabpanel>
+<tabpanel>
+<label value="开始标志"/>
+<textbox  width="250px"/>
+<space/>
+<label value="结束标志"/>
+<textbox width="250px"/>
+</tabpanel>
+<tabpanel>
+<label value="开始标志"/>
+<textbox  width="250px"/>
+<space/>
+<label value="结束标志"/>
+<textbox width="250px"/>
+</tabpanel>
+</tabpanels>
+</tabbox>
+<div align="right">
+<button  label="新 建"/>
+<button  label="保 存"/>
+<button  label="删 除"/>
+</div>
+</groupbox>
+</tabpanel>
+
+<tabpanel > 
+<groupbox>
+<caption label="采集规则列表"/>
+<hbox>
+<listbox  fixedLayout="true"   rows="3" mold="paging" pageSize="3" width="650px">
+		<listhead>
+			<listheader label="序号" width="5%" align="center"/>
+			<listheader label="规则名称" />
+			<listheader label="所属层次"  align="center"/>
+			<listheader label="数据列名"  align="center"/>
+			<listheader label="能否重复"  align="center"/>
+			<listheader label="信息前标志"  width="20%" align="center"/>
+			<listheader label="信息后标志"  width="20%" align="center"/>
+		</listhead>
+	</listbox>	
+	</hbox>
+	<separator />
+<hbox>
+<label value="规则名称"/>
+<space/>
+<listbox mold="select" rows="1"  width="100px">
+<listitem label="标题"/>
+<listitem label="内容"/>
+<listitem label="类别"/>
+<listitem label="内容"/>
+<listitem label="图片"/>
+</listbox>
+<space/>
+<label value="数据库字段"/>
+<space/>
+<textbox/>
+<space/>
+<checkbox label="发布时该字段数据不能重复"/>
+</hbox>
+	<separator />
+<hbox>
+<label value="所属层次"/>
+<space/>
+<listbox mold="select" rows="1" width="100px">
+<listitem label="最终页面"/>
+<listitem label="中间层"/>
+</listbox>
+<space />
+<label value="信息前标志"/>
+<space/>
+<textbox/>
+<space />
+<label value="信息后标志"/>
+<space/>
+<textbox/>
+</hbox>
+	<separator />
+<tabbox>
+<tabs>
+<tab label="保留HTML标记"/>
+<tab label="合并分页内容"/>
+</tabs>
+<tabpanels>
+<tabpanel>
+<checkbox label="保留所有HTML标记"/>
+<groupbox width="100%">
+<caption label="选择删除的标记"/>
+<hbox>
+<checkbox label="链接"/><checkbox label="段落"/><checkbox label="图像"/><checkbox label="粗体"/><checkbox label="表格单元"/><checkbox label="表格行"/><checkbox label="span"/>
+<checkbox label="div"/>
+</hbox>
+<hbox>
+<checkbox label="居中"/><checkbox label="表单"/><checkbox label="换行"/><checkbox label="字体"/><checkbox label="flash标记"/><checkbox label="Strong"/>
+<checkbox label="表格"/>
+</hbox>
+</groupbox>
+</tabpanel>
+<tabpanel>
+<checkbox  label="是否合并分页内容"/>
+	<separator height="20px" />
+<hbox>
+<label value="合并后的页面分隔符（默认为空）"/>
+<listbox  width="200px"  mold="select" rows="1">
+<listitem label=""/>
+<listitem label="{space}空格"/>
+<listitem label="{newline}换行"/>
+<listitem label="{tab}制表符"/>
+</listbox>
+</hbox>
+</tabpanel>
+</tabpanels>
+</tabbox>
+<div align="right">
+<button  label="新 建"/>
+<button  label="保 存"/>
+<button  label="删 除"/>
+<button  label="上 移"/>
+<button  label="下 移"/>
+</div>
+</groupbox>
+</tabpanel>
+<tabpanel > 
+<groupbox width="100%">
+<caption label="采集结果"/>
+<radiogroup>
+<radio label="保存到结果文件（以后可以发布或导出）"  />
+<radio label="直接保存到数据库" checked="true"/>
+</radiogroup>
+	<separator />
+	<checkbox label="是否自动删除初始信息库历史记录">
+	<attribute name="onCheck">
+	newsavetime.setDisabled(false);
+	</attribute>
+	</checkbox>
+	<space width="80px"/>
+	<label value="初始信息保留时间"/>
+	<listbox  mold="select" rows="1"  id="newsavetime" disabled="true">
+	<listitem label="一周"/>
+	<listitem label="两周"/>
+	<listitem label="一个月"/>
+	<listitem label="三个月"/>
+	<listitem label="半年"/>
+	</listbox>
+	<separator />
+<groupbox width="100%">
+<caption label="设置数据源"/>
+	<separator />
+<label value="数据库"/>
+	<separator />
+<hbox>
+<radiogroup>
+<radio label="SQL Server"  checked="true"/>
+<radio label="Access"/>
+<radio label="MySQL"/>
+</radiogroup>
+</hbox>
+	<separator height="20px"/>
+<hbox>
+<label value="连接串"/>
+<textbox width="500px"/>
+<button label="设 置">
+<attribute name="onClick">
+					Window w=(Window) Executions.createComponents("/admin/content/task/databasesite.zul", null,null);
+					w.doHighlighted();
+</attribute>
+</button>
+</hbox>
+</groupbox>
+	<separator />
+<groupbox>
+<caption label="结果发布选项"/>
+<separator />
+<hbox><checkbox label="在数据库中找不到对应字段时忽略错误"/></hbox>
+	<separator />
+<hbox><checkbox label="从结果文件发布到数据库时，删除结果文件数据"/></hbox>
+	<separator />
+<hbox><checkbox label="将发布时的出错行保存到文件"/></hbox>
+</groupbox>
+</groupbox>
+</tabpanel>
+</tabpanels>
+</tabbox>
+<div >
+<space/>
+<toolbarbutton label="打开【源文件查看器】" style="color:blue" id="open">
+<attribute name="onClick">
+					Window w=(Window) Executions.createComponents("/admin/content/task/souce.zul", null,null);
+					w.doHighlighted();
+</attribute>
+</toolbarbutton>
+<space width="400px"/>
+<toolbarbutton  image="/css/img/btn-save.gif" />
+<space/>
+<toolbarbutton  image="/css/img/btn-close.gif"  onClick="wins.detach()"/>
+</div>
+ 	</window>
+</zk>

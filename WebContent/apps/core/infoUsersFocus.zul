@@ -1,0 +1,8 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  border="normal" width="37%"  height="50%" sclass="newin" use="com.uniwin.webkey.core.ui.InfoUsersFocusWin" style="overflow:auto;" title="关注内容">
+   <div style="margin:10px auto;" align="center">
+      <html id="focus"></html>
+   </div>  
+</window>
+</zk>

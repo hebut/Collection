@@ -1,0 +1,10 @@
+<?page title="webkey" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window>
+
+<zscript>
+	Executions.getCurrent().sendRedirect("/apps/core/login.zul");
+</zscript>
+
+</window>
+</zk>

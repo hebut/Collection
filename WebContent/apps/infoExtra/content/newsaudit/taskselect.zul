@@ -1,0 +1,17 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window  width="350px"  border="normal" id="nse" title="选择任务"
+		use="com.uniwin.webkey.infoExtra.newsaudit.NewsauditTaskSelectWindow" height="400px">
+		   <caption  />
+		<panel>
+			<panelchildren>
+				<tree id="tree" zclass="z-dottree" multiple="false"
+					rows="14" checkmark="true" />
+			</panelchildren>
+		</panel>
+			<div align="center" sclass="pop-win-b-div">
+				<toolbarbutton image="/images/content/3/qd.gif"  id="choosed" />
+				<toolbarbutton image="/images/content/btn-close.gif"  id="close" />
+			</div>
+	</window>
+</zk>

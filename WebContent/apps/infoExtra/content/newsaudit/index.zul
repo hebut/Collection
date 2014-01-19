@@ -1,0 +1,17 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+   <window id="auditWindow" style="overflow:auto;" sclass="newin"	height="100%" width="100%"
+		use="com.uniwin.webkey.infoExtra.newsaudit.NewsauditListWindow">
+		<borderlayout height="100%" sclass="wihte-border-layout" width="100%">
+			<west id="infauditWest" size="19%"  flex="true" collapsible="true" 
+				title="${c:l('newspub.zul.chanelTree')}" sclass="main-west">
+			
+					<tree fixedLayout="true" id="tree"  height="100%" zclass="z-filetree" sclass="new-tree" 
+						  mold="paging"	rows="16"  multiple="true"  pageSize="16" />
+				
+			</west>
+			<center id="infauditCen" flex="true">
+			</center>
+		</borderlayout>
+	</window>
+</zk>

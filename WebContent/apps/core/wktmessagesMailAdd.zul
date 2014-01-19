@@ -1,0 +1,97 @@
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<window title="${c:l('msg.ui.sendMsg')}"
+	use="com.uniwin.webkey.core.ui.WktmessagesMailAddWin" sclass="newin" mode="modal" border="normal"
+	id="wktmessagesAddWin" width="755px" height="450px"
+	style="overflow:hidden;">
+	<borderlayout>
+		<west border="none" width="420px" style="background:#FFFFFF;">
+			<grid align="center" zclass="pop-grid">
+				<rows>
+					<row zclass="pop-grid-rows">
+						<div align="right" width="50px">
+							<label value="${c:l('wkthelp.zul.title')}:" />
+						</div>
+						<div align="left">
+							<textbox id="KM_TITLE" cols="56" rows="4" style="width:320px;" maxlength="200">
+							</textbox>
+						</div>
+					</row>
+					<row zclass="pop-grid-rows">
+						<div align="right">
+							<label value="${c:l('wkthelp.zul.content')}:" />
+						</div>
+						<div align="left">
+							<textbox rows="12" cols="55"  maxlength="10000" style="width:320px;" id="KM_CONTENT">
+							</textbox>
+						</div>
+					</row>
+					<row zclass="pop-grid-rows">
+						<div align="right">
+							<label value="${c:l('wkaccessory.zul.fjList')}:" />
+						</div>
+						<div align="left">
+							<tree width="322px" height="100px" id="accessoryTree">
+								<treechildren>
+								</treechildren>
+							</tree>
+						</div>						
+					</row>
+					<row spans="4" align="center" zclass="pop-grid-rows">
+						<div>
+							<separator></separator>
+							<separator></separator>
+							<image
+								src="/images/${themeName }/images/common/fasong.png"
+								hover="/images/${themeName }/images/common/fasonga.png"
+								onClick="wktmessagesAddWin.addwktmessages()" id="addwktmessages"
+								style="cursor:pointer;" />
+							<space />
+							<image
+								src="/images/${themeName }/images/common/tianjiafujian.png"
+								tooltiptext="${c:l('msg.ui.addAtc')}" onClick="wktmessagesAddWin.addAccessory()"
+								hover="/images/${themeName }/images/common/tianjiafujiana.png"
+								style="cursor:pointer;">
+							</image>
+							<space />
+							<image src="/images/common/actquit.gif"
+								onClick="wktmessagesAddWin.detach()" style="cursor:pointer;" />
+							<space />
+							<space />
+						</div>
+					</row>
+				</rows>
+			</grid>
+		</west>
+		<center style="border:0px;">
+			<tabbox mold="accordion" height="100%" width="300px"
+				style="border:0px;background:#FFFFFF;">
+				<tabs>
+					<tab label="${c:l('msg.ui.plsChsRsv')}"></tab>
+				</tabs>
+				<tabpanels height="495px" style="background:#FFFFFF;">
+					<tabpanel style="padding-top:5px;background:#FFFFFF;border:0px;">
+						<label value="${c:l('msg.ui.byOrg')}：" style="margin-left:5px;">
+						</label>
+						<bandbox id="organizationId" readonly="true">
+							<bandpopup>
+								<tree id="parentData" width="200px"
+									onSelect="wktmessagesAddWin.setOrganizationId()"
+									use="com.uniwin.webkey.tree.ui.OrganizationTree">
+								</tree>
+							</bandpopup>
+						</bandbox>
+						<tree checkmark="true" multiple="true" id="userTree">
+							<treechildren></treechildren>
+						</tree>
+						<div align="center" style="background-color:#e9f6ff;">
+							<paging id="userPaging"
+								style="height:22;background-color:#e9f6ff;text-align:left;"
+								pageSize="12" detailed="true" />
+						</div>
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</center>
+	</borderlayout>
+
+</window>

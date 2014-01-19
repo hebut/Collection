@@ -1,0 +1,112 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window id = "authorizeWin" title="资源授权"  width="1020px"  height="468px" sclass="newin" mode="modal"  closable="true"
+        use="com.uniwin.webkey.core.ui.AuthorizeResourceWindow">
+<div align="center">
+  <hbox >
+     	<vbox>
+			<vbox>
+			    <vbox width="170px">
+			      <label value="角色列表" style="color:#0e4899;font-weight:bold;"/>			      
+			      <tree id="roleData"  rows="4"  height="167px" zclass="z-filetree" sclass="new-tree" 
+				        use="com.uniwin.webkey.tree.ui.RolegroupTree">
+				        <treecols >
+							<treecol width="130px" />
+						</treecols>
+				 </tree>
+			    </vbox>
+			    <separator></separator>
+			    <vbox width="170px">
+			        <label value="部门列表" style="color:#0e4899;font-weight:bold;"/>			     
+					<tree id="organizeData"  rows="4"  height="167px"  zclass="z-filetree" sclass="new-tree"  
+						  use="com.uniwin.webkey.tree.ui.OrganizationTree">
+							<treecols >
+								<treecol width="130px" />
+							</treecols>
+					</tree>
+			    </vbox>	
+			</vbox> 
+		</vbox> 
+		
+		<vbox align="center" spacing="20px" >
+		<separator height="3px"></separator>
+		 <vbox> 
+				<hbox align="start" width="440px">
+				        <div align="left">	
+						     <label value="当前角色：" />
+							 <label id="role" width="70px" style="color:#0e4899;font-weight:bold;"/>
+							 
+							 <space width="10px"></space>
+							 <label value="当前部门：" />
+							 <label  id="depart"   width="70px" style="color:#0e4899;font-weight:bold;"/>
+					    </div>
+						
+						<div align="right">	
+							<textbox id="searchResouceTextbox" width="100px" height="15px"/>
+						 	<toolbarbutton id="search"  image="/css/default/images/searAct.gif" hoverImage="/css/default/images/cx.gif"
+										   style="border:0;" width="58px" height="20px"/>
+					 	</div>
+				</hbox>
+				
+				<vbox> 
+					<grid sclass="bluegrid" id="authorizeGrid" width="440px" height="335px" mold="paging" pageSize="9" >
+						<columns width="440px">
+							<column width="20px" />
+							<column width="25px" label="" align="center"/>
+							<column width="375px" label="资源名称" />
+						</columns>
+					</grid>
+			    </vbox>
+			</vbox>			
+		</vbox>	
+		
+		<vbox align="end" spacing="20px"  height="250px" width="30px"> 
+			  <separator height="85"/>
+			  <vbox>		  
+				  <toolbarbutton width="50px" image="/images/resource/resourceArrowRight.gif"
+						  hoverImage="/images/resource/resourceArrowRightHover.gif"
+					      onClick="authorizeWin.addResouce()">
+				</toolbarbutton>
+				
+				<image type = "del"
+					onClick="authorizeWin.delResouce()">
+				</image>
+			  </vbox>		     
+		</vbox>
+		
+		<vbox align="center" spacing="20px" >
+		<separator height="3px"></separator>
+		 <vbox> 
+				<hbox pack="center" >
+						    <vbox>
+						    	<listbox id="resourcesListbox"   fixedLayout="true"   sclass="new_listbox" width="320px" height="325px">
+							        <listhead>       
+								        <listheader label="资源名称" width="70px" sort="auto"/>
+								        <listheader label="角色" width="60px" sort="auto"/>
+								        <listheader label="部门" width="60px" sort="auto"/>
+								        <listheader label="许可" width="100px" sort="auto"/>
+							       </listhead>
+						     	 </listbox>
+						      	<paging id="centerPaging" zclass="z-paging" pageSize="1" detailed="true" />
+					      </vbox>
+					</hbox>
+			</vbox>
+		</vbox>
+	</hbox>    
+	<separator></separator>
+	<separator></separator>
+  	<hbox pack="center" width="100%">
+	    <hbox>
+			 <space width="15px"></space>
+		     <toolbarbutton  id="save" image="/images/common/inactSave.gif"/>
+		     <toolbarbutton  id="reset" image = "/images/template/ct.gif"/>
+		     <toolbarbutton   id="close" image="/images/common/actquit.gif">
+		     </toolbarbutton>
+	    </hbox>
+  	</hbox>
+</div>
+</window>
+</zk>

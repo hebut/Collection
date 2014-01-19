@@ -1,0 +1,69 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="${c:l('alarmclock.zul.ongoingadd')}" border="normal" sclass="newin" use="com.uniwin.webkey.core.ui.AlarmclockAddWin"
+		    id="alarmclockAdd_win"  width="550px" height="580px" >
+		<div>
+			<label value="${c:l('alarmclock.zul.time')}:" style="font-weight:bold;">
+			</label>
+			<datebox id="toTime" format="yyyy-MM-dd HH-mm" width="110px">
+			</datebox>
+			<label value="${c:l('alarmclock.zul.eventname')}:" style="font-weight:bold;">
+			</label>
+			<textbox id="eventName"></textbox>
+			<radiogroup>
+				<radio id="start" checked="true"
+					label="${c:l('alarmclock.zul.start')}" value="0"
+					style="font-weight:bold;" />
+				<radio id="stop"
+					label="${c:l('alarmclock.zul.starttimebeing')}" value="1"
+					style="font-weight:bold;" />
+			</radiogroup>
+			<separator></separator>
+			
+			<div>
+				<label value="${c:l('alarmclock.zul.noteslist')}:" style="font-weight:bold;"></label>
+				<div align="right"><image src="/images/common/addAct.gif"
+					onClick="alarmclockAdd_win.addRow()">
+				</image>
+				</div>
+			</div>
+			<listbox id="events" sclass="new_listbox">
+				<listhead>
+					<listheader label="${c:l('alarmclock.zul.number')}"
+						sort="auto" align="center"
+						style="font-weight:bold;text-align:center;color:#09499a;font-size:24"
+						width="35px" />
+					<listheader label="${c:l('alarmclock.zul.content')}"
+						sort="auto"
+						style="font-weight:bold;text-align:center;color:#09499a;" />
+					<listheader label="${c:l('alarmclock.zul.delete')}"
+						sort="auto" width="35px" align="center"
+						style="font-weight:bold;text-align:center;color:#09499a;" />
+				</listhead>
+				<listitem id="listitem1">
+					<listcell label="1" sclass="r-listitem-bor1"></listcell>
+					<listcell sclass="r-listitem-bor1">
+						<textbox rows="2" cols="50" width="100%"
+							id="item1">
+						</textbox>
+					</listcell>
+					<listcell sclass="r-listitem-bor1">
+						<image src="/images/common/inactDel.gif"
+							onClick="alarmclockAdd_win.delRow(event)">
+						</image>
+					</listcell>
+				</listitem>
+			</listbox>
+			<separator></separator>
+			<div align="center">
+				<image src="/images/common/actSave.gif"
+					onClick="alarmclockAdd_win.addAlarmclock()">
+				</image>
+			</div>
+
+
+		</div>
+	</window>
+</zk>

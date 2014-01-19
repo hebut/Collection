@@ -1,0 +1,25 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window use="com.uniwin.webkey.core.ui.WelcomeListWin" id="welcomeList_Win" height="100%" style="overflow:auto;" sclass="newin">		
+		<div align="right" width="100%">
+			  <hbox >					
+				<image src="/images/common/addAct.gif" onClick="welcomeList_Win.addWelcome()"  ></image>
+				<image src="/images/common/delAct.gif" onClick="welcomeList_Win.deleteWelcomes()"></image>
+			</hbox>		
+		</div>
+		<separator/>
+		<listbox id="listbox" fixedLayout="true"   sclass="new_listbox"  multiple="true" checkmark="true">
+			<listhead >
+				<listheader width="25px" align="center" label="" />
+				<listheader width="40px" align="center" label="${c:l('system.common.zul.number')}" style="text-align:center" />
+				<listheader label="${c:l('welcome.zul.name')}" sort="auto" style="text-align:center" />
+				<listheader label="URL" sort="auto" style="text-align:center" />
+				<listheader label="${c:l('welcome.zul.isAllowscustomization')}" sort="auto" width="90px" align="center" />
+				<listheader label="${c:l('system.common.zul.operat')}" width="50px" align="center" />
+			</listhead>
+		</listbox>
+		<paging id="userPaging" zclass="z-paging" pageSize="12" detailed="true" />
+	</window>
+</zk>

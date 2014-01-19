@@ -1,0 +1,29 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="${c:l('operation.zul.addactiontype')}" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="${c:l('operation.zul.updateactiontype')}" width="25%" height="240px" border="normal" sclass="newin" id="operationUpdata_Win"
+		use="com.uniwin.webkey.core.ui.OperationUpdataWin">
+		<div align="center">		
+		    <vbox>
+			     <separator></separator>						
+					<hbox >	
+						<label value="${c:l('operation.zul.name')}:" style="font-weight:bold" />
+						<textbox id="name" width="200px" value="${operationUpdata_Win.operation.name }"/>
+				    </hbox>
+				    <hbox >	
+						<label value="${c:l('operation.zul.code')}:" style="font-weight:bold" />
+						<textbox id="code" width="200px" value="${operationUpdata_Win.operation.opCode }"/>
+				    </hbox>
+				    <hbox>
+						<label value="${c:l('operation.zul.explain')}:" style="font-weight:bold" />
+						<textbox id="description" width="200px" value="${operationUpdata_Win.operation.description }" rows="3"  height="50px" />
+				    </hbox>
+				    
+				     <div align="center">
+						<image type="save" onClick="operationUpdata_Win.updataOperation()"/>
+				     </div>
+			</vbox>
+			</div>
+	</window>
+</zk>

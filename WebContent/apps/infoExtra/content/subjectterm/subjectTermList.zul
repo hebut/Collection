@@ -1,0 +1,53 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+	<window height="500px" width="100%"
+		use="com.uniwin.webkey.infoExtra.subjectterm.SubjectTermList">
+		<toolbar align="end">
+			<toolbarbutton
+				image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.padd')}"
+				id="padd" />
+			<toolbarbutton
+				image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.add')}"
+				id="add" />
+			<toolbarbutton
+				image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.delete')}"
+				id="del" />
+		</toolbar>
+		<borderlayout sclass="wihte-border-layout">
+			<center flex="true" id="treeCen">
+				<!-- <listbox id="subjectTermList" checkmark="true" multiple="true">
+					<listhead>
+					<listheader width="7%" align="center"></listheader>
+					<listheader width="33%" label="主题词名称" align="center"></listheader>
+					<listheader width="30%" label="主题词代码" align="center"></listheader>
+					<listheader width="30%" label="主题词描述" align="center"></listheader>
+					</listhead>
+					</listbox> -->
+				<tree id="subjectTermTree" checkmark="true"
+					multiple="true" rows="14">
+					<treecols>
+						<treecol width="60%" label="分类名称" />
+						<treecol width="20%" label="分类代码" />
+						<treecol width="20%" label="分类描述" />
+					</treecols>
+				</tree>
+			</center>
+			<south height="98px">
+				<groupbox closable="true">
+					<hbox>
+						<label style="color:red" value="提示:" />
+						<vbox>
+							<label pre="true"
+								value="1、新建分类时，可以选中某一分类右击进行新建" />
+							<label pre="true"
+								value="2、编辑分类时，可以选中某一分类右击进行编辑" />
+							<label pre="true"
+								value="3、删除分类时，可以选中某一分类右击进行删除" />
+						</vbox>
+					</hbox>
+				</groupbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

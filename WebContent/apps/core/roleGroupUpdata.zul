@@ -1,0 +1,94 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="${c:l('role.zul.updateroleGroup')}" border="normal" use="com.uniwin.webkey.core.ui.RoleGroupUpdataWin"  sclass="newin"
+		width="350px" height="195px" id="roleGroupUpdata_wind">
+	  <div align="center">
+		<grid align="center" zclass="pop-grid">
+			<rows>
+				<row height="30px" zclass="pop-grid-rows">
+					<div align="right">
+						<space width="30px"/><label value="${c:l('role.zul.name')}:" style="font-weight:bold;word-break:keep-all" />
+						<space />
+					</div>
+					<div align="left">
+						<textbox id="name" constraint="no empty" maxlength="40" width="120px" height="15px">
+							<attribute name="onChange">
+			                if (self.value.length()>40) {
+			                	throw new WrongValueException(self, org.zkoss.util.resource.Labels.getLabel("role.ui.rolenamevalidate"));
+			                }
+							</attribute>
+						</textbox>
+						<label value="*" style="color:red;"/>
+					</div>
+				</row>
+		<!--  		<row height="30px" zclass="pop-grid-rows">
+					<div align="right">
+						<label value="${c:l('role.zui.theirrolegroup')}:" style="font-weight:bold;word-break : keep-all" />
+						<space />
+					</div>
+					<div align="left">
+						<bandbox id="roleBanbox" width="102px" readonly="true">
+							<bandpopup>
+								<tree id="parentData" width="160px" height="220px" 
+									use="com.uniwin.webkey.tree.ui.RolegroupTree">
+								</tree>
+							</bandpopup>
+						</bandbox>
+						<space width="2px" />
+						<label value="*" style="color:red;"/>
+					</div>
+				</row>
+				-->
+				<row height="30px" zclass="pop-grid-rows">
+					<div align="right">
+						<space width="30px"/><label value="${c:l('role.zul.description')}:" style="font-weight:bold;word-break : keep-all" />
+						<space />
+					</div>
+					<div align="left">
+						<textbox id="description" maxlength="250" width="120px" height="15px">
+							<attribute name="onChange">
+							    if (self.value.length() > 250){
+							        throw new WrongValueException(self, org.zkoss.util.resource.Labels.getLabel("role.ui.rolecontentvalidatelength"));
+							    }
+							</attribute>
+						</textbox>
+					</div>
+				</row>
+				
+				<row height="30px" zclass="pop-grid-rows">
+					<div align="right">
+						<space width="30px"/><label value="${c:l('role.zul.status')}:" style="font-weight:bold;word-break : keep-all" />
+						<space />
+					</div>
+					<div align="left">
+						<hbox sclass="newin-jbsx">
+							<radiogroup>
+								<radio label="${c:l('role.zul.normal')}"
+									checked="true" id="isUse" />
+								<radio label="${c:l('role.zul.disable')}"
+									id="notUse" />
+							</radiogroup>
+							<checkbox id="isDefult"
+								label="${c:l('role.zul.defaultrole')}">
+							</checkbox>
+						</hbox>
+					</div>
+				</row>
+			</rows>
+		</grid>
+		</div>
+		<separator></separator>
+		<div align="center">
+		   <hbox pack="center" width="100%">
+			    <hbox>
+				     <toolbarbutton  id="save" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.save')}"/>
+				      <space width="3px"></space>
+				     <toolbarbutton   id="renturn" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.return')}"></toolbarbutton>
+			    </hbox>
+		  	</hbox>
+		</div>
+		
+	</window>
+</zk>

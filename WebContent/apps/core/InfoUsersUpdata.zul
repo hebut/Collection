@@ -1,0 +1,130 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window  title="${c:l('users.zul.changeuserinfo')}" border="normal" width="550px" height="580px"  sclass="newin"
+		use="com.uniwin.webkey.core.ui.InfoUsersUpdataWin" id="win">
+	 	<tabbox width="530px" height="505px" sclass="new-tabbox" >
+			<tabs id="tabs">
+				<tab label="${c:l('users.zul.basicattributes')}"
+					id="tab1" />
+			</tabs>
+										
+			<tabpanels >
+				<tabpanel >				  
+				  	<div zclass="kzsx_div_mar" align="center">	
+				  	    <separator height="60px"></separator>					
+						<grid align="center" zclass="pop-grid">
+							<rows>
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.userName1')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<textbox id="name" value="${win.infoUser.kuName }" maxlength="20"  width="120px" height="15px" />
+											<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>	
+								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.systemLoginName')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<textbox id="loginName" value="${win.infoUser.kuLid }"  maxlength="20"  width="120px" height="15px"/>
+											<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>
+												
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.loginpassword')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<textbox type="password" id="password" value="${win.infoUser.kuPasswd }" maxlength="100" width="120px" height="15px"/>
+											<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>
+								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.confirmpassword')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<textbox type="password" id="configPassword" value="${win.infoUser.kuPasswd }" maxlength="100" width="120px" height="15px"/>
+											<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>
+																
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.theirorganization')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<bandbox id="organizationId" width="105px" height="15px" readonly="true">
+											<bandpopup>
+												<tree id="parentData" width="120px" use="com.uniwin.webkey.tree.ui.OrganizationTree">
+												</tree>
+											</bandpopup>
+										</bandbox>
+										<label value="*" style="color:red;valign:center" />
+									</hbox>
+									</div>
+								</row>
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="电话:" width="60px"/>
+										<space />
+									</div>
+									<div align="left">
+										<textbox id="phone" value="${win.infoUser.kuPhone}" width="200px" />
+									</div>
+								</row>
+								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="电子邮箱:" width="60px"/>
+										<space />
+									</div>
+									<div align="left">
+										<hbox>
+											<textbox id="email" value="${win.infoUser.kuEmail}"  width="200px"  />
+											<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="关注内容:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+                                        <textbox id="keyWord" value="${win.infoUser.focusCon}"  width="200px" rows="4"/>										
+									</div>
+								</row>								
+							</rows>
+						</grid>
+					</div>
+				</tabpanel>
+		</tabpanels>
+	</tabbox>
+	
+	<div align="center">
+		<image type="save"  onClick="win.updataUser(event)"/>
+	</div>
+	</window>
+</zk>

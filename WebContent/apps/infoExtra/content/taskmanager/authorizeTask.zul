@@ -1,0 +1,100 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window id = "authTaskWin" title="${c:l('chanel.zul.authChanel')}" width="1020px"  height="466px" sclass="newin" mode="modal"  closable="true"
+       use="com.uniwin.webkey.infoExtra.taskmanager.AuthorizeTaskWindow">
+<div align="center">
+  <hbox >
+     	<vbox>
+			<vbox>
+			    <vbox width="170px">
+			      <separator height="3px"></separator>
+			      <label value="${c:l('chanel.zul.roleList')}" style="color:#0e4899;font-weight:bold;"/>			      
+			      <tree id="roleData"  rows="10"  height="360px" multiple="true"  zclass="z-filetree" sclass="new-tree" 
+				        use="com.uniwin.webkey.tree.ui.RolegroupTree">
+				        <treecols >
+							<treecol width="130px" />
+						</treecols>
+				 </tree>
+			    </vbox>
+			</vbox> 
+		</vbox> 
+		
+		<vbox align="center" spacing="20px" >
+		<separator height="3px"></separator>
+		 <vbox> 
+				<hbox align="start" width="440px">
+				        <div align="left">	
+						     <label value="${c:l('chanel.zul.currRole')}:" />
+							 <label id="role" width="70px" style="color:#0e4899;font-weight:bold;"/>
+							 
+					    </div>
+						
+						<div align="right">	
+							<textbox id="searchTaskTextbox" width="100px" height="15px"/>
+						 	<toolbarbutton id="search"  image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.search')}" 
+										   style="border:0;" width="58px" height="20px"/>
+					 	</div>
+				</hbox>
+				
+				<vbox> 
+					<grid sclass="bluegrid" oddRowSclass="background-color:#f9fafc;" id="authorizeGrid" width="440px" height="335px" mold="paging" pageSize="9" >
+						<columns width="440px">
+							<column width="20px" />
+							<column width="25px" label="${c:l('chanel.zul.number')}" align="center"/>
+							<column width="375px" label="${c:l('chanel.zul.chanelName')}"/>
+						</columns>
+					</grid>
+			    </vbox>
+			</vbox>			
+		</vbox>	
+		
+		<vbox align="end" spacing="20px"  height="250px" width="30px"> 
+			  <separator height="85"/>
+			  <vbox>		  
+				  <toolbarbutton width="50px" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.resource.resourceArrowRight')}" 
+					    onClick="authTaskWin.addTask()">
+				</toolbarbutton>
+				
+				<image type = "del"
+					onClick="authTaskWin.delTask()">
+				</image>
+			  </vbox>		     
+		</vbox>
+		
+		<vbox align="center" spacing="20px" >
+		<separator height="3px"></separator>
+		 <vbox> 
+				<hbox pack="center" >
+						    <vbox>
+						    	<listbox id="taskListbox"   fixedLayout="true"   sclass="new_listbox" width="320px" height="325px">
+							        <listhead>       
+								        <listheader label="${c:l('chanel.zul.chanelName')}" width="70px" sort="auto"/>
+								        <listheader label="${c:l('chanel.zul.role')}" width="60px" sort="auto"/>
+								        <listheader label="${c:l('chanel.zul.permission')}" width="100px" sort="auto"/>
+							       </listhead>
+						     	 </listbox>
+						      	<paging id="centerPaging" zclass="z-paging" pageSize="1" detailed="true" />
+					      </vbox>
+					</hbox>
+			</vbox>
+		</vbox>
+	</hbox>    
+	
+  	<separator></separator>
+	<separator></separator>
+  	<hbox pack="center" width="100%">
+	    <hbox>
+			 <space width="15px"></space>
+		     <toolbarbutton  id="save" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.save')}" />
+		     <toolbarbutton  id="reset" image ="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.reset')}"/>
+		     <toolbarbutton   id="close" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.back')}">
+		     </toolbarbutton>
+	    </hbox>
+  	</hbox>
+  	
+</div>
+</window>
+</zk>

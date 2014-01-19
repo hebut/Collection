@@ -1,0 +1,21 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  border="normal" width="37%"  height="90%" sclass="newin" use="com.uniwin.webkey.core.ui.UsersTaskWin" id="taskwind"  style="overflow:auto;">
+<tabbox>
+<tabs >
+<tab label="编辑任务" id="orinfoTab"/>
+<tab label="审核任务" id="writerTab" />
+</tabs>
+<tabpanels>
+<tabpanel>
+	<tree id="edittree"  height="90%" zclass="z-filetree" sclass="new-tree"   checkmark="true" 
+						  mold="paging"	rows="16" multiple="true"  pageSize="16" />
+</tabpanel>
+<tabpanel>
+	<tree id="audittree"  height="90%" zclass="z-filetree" sclass="new-tree"   checkmark="true" 
+						  mold="paging"	rows="16" multiple="true"  pageSize="16" />
+</tabpanel>
+</tabpanels>
+</tabbox>
+</window>
+</zk>

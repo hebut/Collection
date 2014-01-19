@@ -1,0 +1,56 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="频道属性设置" border="normal" width="400px" height="350px" id="ce">
+<label value="频道名称:"/>
+<space/>
+<textbox width="200px"/>
+<separator />
+<label value="所属频道组:"/>
+<listbox width="200px" mold="select" rows="1">
+<listitem label="新浪新闻"/>
+</listbox>
+<separator />
+<label value="内容模板:"/>
+<space/>
+<listbox width="200px" mold="select" rows="1">
+<listitem label="默认"/>
+<listitem label="红色"/>
+</listbox>
+<separator />
+<groupbox width="95%">
+<caption label="保存条数设置"/>
+<separator />
+<checkbox label="限制存储的最大条数" checked="true" id="num"/>
+<space/>
+<label value="最大条数:"/>
+<textbox  value="500" width="100px"/>
+</groupbox>
+<separator />
+<groupbox width="95%">
+<caption label="更新方式设置"/>
+<separator />
+<label value="更新方式:"/>
+<listbox  width="100px" mold="select" rows="1">
+<listitem label="自动更新"/>
+<listitem label="手动更新"/>
+</listbox>
+<space/>
+<label value="更新频率:"/>
+<listbox width="100px" mold="select" rows="1">
+<listitem label="30分钟"/>
+<listitem label="1小时"/>
+<listitem label="2小时"/>
+</listbox>
+</groupbox>
+<groupbox width="95%">
+<caption label="邮箱设置"/>
+<separator />
+<checkbox label="是否将信息发送到邮箱" />
+</groupbox>
+<separator />
+<div align="right">
+<button label="确定"/>
+<button label="取消" onClick="ce.detach()"/>
+</div>
+</window>
+</zk>

@@ -1,0 +1,138 @@
+<?page title="用户登陆" contentType="text/html;charset=UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<html xmlns="http://www.zkoss.org/2005/zk/native"
+	xmlns:x="http://www.zkoss.org/2005/zul"
+	xmlns:zk="http://www.zkoss.org/2005/zk">
+	<HEAD>
+		<TITLE>${c:l('login.zul.titleimage')}</TITLE>
+		<style>
+	{margin:0;padding:0;}
+	body{
+	width:99%;
+	height:100%;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:url(${c:l('login.zul.bodyimage')}) repeat-x;
+	}
+.two{ float:left;height:50px;width:100px;}
+.three{ background:url(${c:l('login.zul.threeimage')}) no-repeat;  width:1300px; height:530px;}
+table{ font-size:12px; color:black; float:left;}
+
+		</style>
+	</HEAD>
+	<body>
+		<x:window use="com.uniwin.webkey.core.ui.LoginWin" width="800px" height="450px"
+			id="loginwin_wind" onOK="loginwin_wind.loginTosystem()" mode="overlapped" position="center,center">
+		  
+			<div width="100%"  >
+				<div class="three">
+					<table border="0" cellpadding="1" cellspacing="1">
+						<tr>
+						    <td width="250px" height="130px;"/>
+							<td height="130px;" ></td>
+							<td height="130px;" ></td>
+							<td height="130px;"></td>
+						</tr>
+						<tr>
+						<td />
+							<td height="20" style="color:black;font-weight:bold">
+								${c:l('login.zul.loginname')}
+							</td>
+						<td width="5px;"></td>
+							<td>
+								<x:textbox id="loginName" value=""   action="onClick:selectThis(this)"
+									maxlength="20" width="150px" height="18px"/>
+									<x:toolbarbutton label="注册" onClick="loginwin_wind.register();"  style="color:black" />
+							</td>
+						</tr>
+						<tr>
+							<td height="20px;"></td>
+						</tr>
+						<tr>
+						<td />
+							<td style="color:black;font-weight:bold">${c:l('login.zul.password')}</td>
+							<td width="5px;"></td>
+							<td>
+								<x:textbox id="password" value=""  action="onClick:selectThis(this)"
+									type="password" width="150px" height="18px"/>
+							</td>
+						</tr>
+						<tr>
+							<td height="17px;"></td>
+							<td></td>
+						</tr>
+						<tr>
+						<td />
+							<td>
+								<x:label id="loginCode_label" style="color:black;font-weight:bold"
+									sclass="code" zclass="code" value="${c:l('login.zul.code')}">
+								</x:label>
+							</td>
+							<td width="5px;"></td>
+							<td>
+								<x:textbox value="" action="onClick:selectThis(this)"
+									id="loginCode"  width="150px" height="18px"/>
+							</td>
+							<td></td>
+						</tr>
+						<tr >
+						
+						<td height="15px;"></td>
+						</tr>
+							<tr>
+							<td width="10px;"></td>
+							<td>	
+							</td>
+							<td width="10px;"></td>
+							<td  valign="baseline" >
+							<div>
+							<x:image src="${c:l('login.zul.loginimage')}"  hover="${c:l('login.zul.loginhoverimage')}" 
+									onClick="loginwin_wind.loginTosystem()">
+								</x:image>
+								<x:space width="30px"></x:space>
+								<x:image src="${c:l('login.zul.resetimage')}" hover="${c:l('login.zul.resethoverimage')}" 
+									onClick="loginwin_wind.resetTosystem()">
+								</x:image>
+								</div>
+							</td>
+						
+						</tr>
+					</table>
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td height="200px;" ></td>
+						</tr>
+					<tr>
+						
+							<td height="80px;"></td>
+							
+							<td>
+
+								<x:captcha id="cpa" length="4" width="100px" height="35px" sclass="captcha">
+								</x:captcha>
+							</td>
+						</tr>
+						
+						<tr>
+							<td height="0px"></td>
+							<td>
+								<x:toolbarbutton label="" onClick="loginwin_wind.forgetPass();" width="50px" style="black" />
+							</td>
+						</tr>
+						<tr>
+							<td height="10px"></td>
+							<td>
+								<x:toolbarbutton id="passCpa" label="${c:l('login.zul.changeone')}"
+									 width="50px" style="color:black" >
+					
+									 </x:toolbarbutton>
+							</td>
+						</tr>
+					</table>
+				</div>
+			
+				</div>
+		</x:window>
+	</body>
+</html>

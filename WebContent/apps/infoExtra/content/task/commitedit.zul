@@ -1,0 +1,29 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="win1"  title="查看新任务" border="normal"  width="500px" height="280px" use="com.uniwin.webkey.content.task.win.CommitEditWindow">
+<label value="频道名称:"/>
+<textbox width="400px" value="人民网--时政要闻"/>
+<separator/>
+<label value="链接地址:"/>
+<textbox width="400px" value="http://politics.people.com.cn/GB/14562/index.html"/>
+<separator/>
+<label value="提交用户:"/>
+<textbox width="400px" value="Tom"/>
+<separator/>
+<label value="提交时间:"/>
+<textbox width="400px" value="2010-11-22 08:31:21"/>
+<separator/>
+<hbox>
+<label value="任务描述:"/>
+<textbox width="400px" height="60px" value="定制人民网上的属于时政要闻栏目中发布的新闻"/>
+</hbox>
+<separator />
+<separator />
+<div align="right">
+<button label="编辑任务" id="edit" >
+</button>
+<button label="删除"/>
+<button label="关闭" onClick="win1.detach()"/>
+</div>
+</window>
+</zk>

@@ -1,0 +1,31 @@
+<?page id="messEdit"  contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="addTemplate" width="350px" style="text-align:left"
+		sclass="eagel-window" use="com.uniwin.webkey.infoExtra.infogenerated.AddTemplate" title="添加模板" closable="false">
+		<grid>
+		   <columns>
+		     <column width="20%"></column>
+		     <column></column>
+		   </columns>
+		   <rows>
+		     <row>
+		       <label value="模板名称:(数字或字母组成)"></label>
+		       <hbox>
+		         <textbox id="template_name"></textbox>
+		         <toolbarbutton id="up_load" image="/images/common/sc.gif"></toolbarbutton>
+		       </hbox>
+		     </row>
+		     <row spans="2">
+		         <div align="center">
+		           <toolbarbutton id="save" image="/images/content/btn-save.gif"></toolbarbutton>
+		           <space></space>
+		           <space></space>
+		           <space></space>
+		           <toolbarbutton id="close" image="/images/content/btn-close.gif"></toolbarbutton>
+		         </div>
+		     </row>
+		   </rows>
+		</grid>
+	</window>
+</zk>

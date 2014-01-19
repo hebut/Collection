@@ -1,0 +1,11 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<listbox mold="paging" pageSize="15" multiple="true" fixedLayout="true" height="300px" sclass="new_listbox">
+		<listhead>
+			<listheader width="30%" label="序号"/><listheader width="70%" label="学科名称"/>
+		</listhead>
+		
+	</listbox>
+	
+</zk>

@@ -1,0 +1,7 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window border="none" width="100%">
+	<image src="${c:l('welcome.zul.messageimage')}"></image>
+</window>
+</zk>

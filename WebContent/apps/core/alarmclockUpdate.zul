@@ -1,0 +1,74 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+
+	<window border="normal"
+		use="com.uniwin.webkey.core.ui.AlarmclockUpdateWin"
+		id="alarmclockUpdate_win" width="550px" height="580px" sclass="newin" title="${c:l('alarmclock.zul.ongoingedit')}" >
+			<div>
+				<label value="${c:l('alarmclock.zul.time')}:" style="font-weight:bold;"></label>
+				<datebox id="toTime" format="yyyy-MM-dd HH-mm">
+				</datebox>
+				<space></space>
+				<label value="${c:l('alarmclock.zul.eventname')}:" style="font-weight:bold;"></label>
+				<textbox id="eventName"
+					value="${alarmclockUpdate_win.alarmclockEx.eventName }">
+				</textbox>
+				<radiogroup>
+					<radio id="start"
+						checked="${alarmclockUpdate_win.alarmclockEx.state=='0'?true:false }"
+						label="${c:l('alarmclock.zul.start')}" value="0" style="font-weight:bold;" />
+					<radio id="stop" label="${c:l('alarmclock.zul.starttimebeing')}"
+						checked="${alarmclockUpdate_win.alarmclockEx.state=='1'?true:false }"
+						value="1" style="font-weight:bold;" />
+				</radiogroup>
+				<separator></separator>
+				 <div>
+						<label value="${c:l('alarmclock.zul.noteslist')}:" style="font-weight:bold;"></label>
+						<div align="right"><image type="add"
+							onClick="alarmclockUpdate_win.addRow()"></image>
+						</div>
+				  </div>
+		
+				<listbox id="events" sclass="new_listbox">
+				<listhead>
+					<listheader label="${c:l('alarmclock.zul.number')}"
+						sort="auto" align="center"
+						style="font-weight:bold;text-align:center;color:#09499a;font-size:24"
+						width="35px" />
+					<listheader label="${c:l('alarmclock.zul.content')}"
+						sort="auto"
+						style="font-weight:bold;text-align:center;color:#09499a;" />
+					<listheader label="${c:l('alarmclock.zul.delete')}"
+						sort="auto" width="35px" align="center"
+						style="font-weight:bold;text-align:center;color:#09499a;" />
+				</listhead>
+						<listitem
+						forEach="${alarmclockUpdate_win.alarmclockMs }"
+						value="${each }">
+						<listcell label="${each.id }" sclass="r-listitem-bor1" ></listcell>
+						<listcell sclass="r-listitem-bor1">
+							<textbox rows="2" cols="50" width="100%"
+								id="item${each.id }" value="${each.value }">
+							</textbox>
+						</listcell>
+						<listcell sclass="r-listitem-bor1" >
+							<image type="delList"
+								onClick="alarmclockUpdate_win.delRow(event)">
+							</image>
+						</listcell>
+					</listitem>
+			</listbox>
+			
+			
+				<separator></separator>
+				<div align="center">
+					<image type="save"
+						onClick="alarmclockUpdate_win.updateAlarmclock()">
+					</image>
+				</div>
+			</div>
+
+	</window>
+</zk>

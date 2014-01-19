@@ -1,0 +1,252 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk>
+    <style>   
+    .breeze .complex-layout,
+    .breeze .complex-layout .z-south,
+    .breeze .complex-layout .z-west {
+        background: #F7F7F7; 
+    } 
+    .z-borderlayout { 
+        background: #FFFFFF 
+    } 
+    .complex-layout .z-north { 
+        background: #008BB6; 
+    }
+    img.complex-layout-header-img {
+        padding: 0 10px; 
+    } 
+    .complex-layout-header-label { 
+        position: relative; 
+        top: -30px; 
+        padding-left: 40px; 
+        font-size: 24px; 
+        color: White; 
+        font-weight: bold; 
+    } 
+    .inner-border, 
+    .inner-border .z-north, 
+    .inner-border .z-west,
+    .inner-border .z-south, 
+    .inner-border .z-east { 
+        background: #FFFFFF; 
+    }
+    .dl-link {
+        text-decoration: none;
+        cursor: pointer;
+    }
+    </style>
+		<window id="loginwin_wind" onOK="loginwin_wind.loginTosystem()"  mode="overlapped" width="900px" position="center" height="100%" use="com.uniwin.webkey.core.ui.LoginWin">
+			<borderlayout sclass="complex-layout">
+				<north size="300px" height="108px" style="background-color:#d9f3ff" border="0px">
+					<vbox width="100%" height="120px" spacing="0">
+						<hbox width="100%" height="80px">
+						  <image src="/css/default/images/logo/0L.jpg" height="80px" width="100%"/>
+						</hbox>
+						<hbox height="40px" >
+                        <menubar id="menubar" autodrop="true" style="background-color:white" height="100%">
+                          <menu label="Hardware">
+                           <menupopup>
+                             <menu label="Mainboard CPU &amp; RAM">
+                              <menupopup>
+                                <menuitem label="AMD" onClick="alert(self.label)" />
+                                <menuitem label="Intel" onClick="alert(self.label)" />
+                                <menuitem label="Others" onClick="alert(self.label)" />
+                            </menupopup>
+                         </menu>
+                         <menu label="Input">
+                           <menupopup>
+                              <menu label="Devices">
+                                <menupopup>
+                                <menuitem label="Mouse" onClick="alert(self.label)" />
+                                <menuitem label="Keyboards" onClick="alert(self.label)" />
+                                <menuitem label="Accessories" onClick="alert(self.label)" />
+                            </menupopup>
+                        </menu>
+                        <menuitem label="Gaming" onClick="alert(self.label)" />
+                        <menuitem label="Graphic Tablets" onClick="alert(self.label)" />
+                    </menupopup>
+                     </menu>
+                     <menu label="Monitors">
+                       <menupopup>
+                          <menuitem label="LCD" onClick="alert(self.label)" />
+                          <menuitem label="CRT" onClick="alert(self.label)" />
+                          <menuitem label="Touchscreen" onClick="alert(self.label)" />
+                      </menupopup>
+                     </menu>
+                    <menuseparator></menuseparator>
+                    <menuitem label="PC" onClick="alert(self.label)" />
+                    <menuitem label="Mac" onClick="alert(self.label)" />
+                    <menuitem label="Others" onClick="alert(self.label)" />
+                    </menupopup>
+                    </menu>
+                   <menu label="Software">
+                   <menupopup>
+                     <menuitem label="Browsers and Plugins" onClick="alert(self.label)" />
+                     <menuitem label="Firewalls and Security" onClick="alert(self.label)" />
+                     <menuitem label="Audio and Video" onClick="alert(self.label)" />
+                     <menuitem label="Photos and Images" onClick="alert(self.label)" />
+                      <menuitem label="Desktop" onClick="alert(self.label)" />
+                     <menuitem label="Office and News" onClick="alert(self.label)" />
+                    <menuitem label="Developer Tools" onClick="alert(self.label)" />
+                   <menuitem label="Others" onClick="alert(self.label)" />
+            </menupopup>
+        </menu>
+        <menuitem label="Gaming" onClick="alert(self.label)" />
+        <menuitem label="TV &amp; Audio" onClick="alert(self.label)" />
+        <menuitem label="Photo &amp; Video" onClick="alert(self.label)" />
+        <menuitem label="Communication" onClick="alert(self.label)" />
+    </menubar>
+						</hbox>
+					</vbox>
+				</north>
+				<west width="200px" border="0" flex="true" splittable="true" margins="0,5,0,0">
+                 <vbox spacing="0">
+                <panel width="100%" border="normal" title="Navigation">
+                    <panelchildren style="padding:5px;">
+                        <vbox>
+                            <toolbarbutton label="Home" />
+                            <toolbarbutton label="Sitemap" />
+                            <toolbarbutton label="Statement of Direction" />
+                            <toolbarbutton label="ZK Team" />
+                            <toolbarbutton label="Releases" />
+                            <toolbarbutton label="Calender" />
+                        </vbox>
+                    </panelchildren>
+                </panel>
+                <panel width="100%" border="normal" title="Features">
+                    <panelchildren>
+                    </panelchildren>
+                </panel>
+            </vbox>
+        </west>
+        <east width="300px" title="Quick Links" flex="true">
+                         <div align="center" style="margin-top:30px;">
+                           <vbox>
+                               <div align="center">
+                                 <label style="font-size:25px;font-weight:bold;">用户登录</label>
+                               </div>
+                               <div>
+                                <label value="账号:" style="margin-left:30px;font-size:15px;"/>
+                                <textbox id="loginName" action="onClick:selectThis(this)" maxlength="20" width="150px" height="18px"/>
+                               </div>
+                               <div>
+                                <label value="密码:" style="margin-left:30px;font-size:15px;"/>
+                                <textbox id="password" action="onClick:selectThis(this)" type="password" width="150px" height="18px"/>
+                               </div>
+                               <div>
+                                <label value="验证码:" style="margin-left:14px;font-size:15px;"  id="loginCode_label"/>
+						        <textbox value="" sclass="textbox" action="onClick:selectThis(this)" id="loginCode"  width="150px" height="18px"/>
+                                <toolbarbutton label="注册" onClick="loginwin_wind.register();" style="color:black;font-size:15px;" />
+                               </div>
+                                <div style="margin-left:70px;" >
+                                  <captcha id="cpa" length="4" width="100px" height="35px" sclass="captcha"/>
+                                  <toolbarbutton id="passCpa" label="${c:l('login.zul.changeone')}" width="50px" style="color:black" />
+                                </div>
+                                <div align="center">
+                                  <image src="${c:l('login.zul.loginimage')}"  hover="${c:l('login.zul.loginhoverimage')}" 
+									onClick="loginwin_wind.loginTosystem()">
+								  </image>
+								  <space width="20px"></space>
+								  <image src="${c:l('login.zul.resetimage')}" hover="${c:l('login.zul.resethoverimage')}" 
+									onClick="loginwin_wind.resetTosystem()">
+								  </image>
+							   </div>
+                           </vbox>
+                         </div>
+        </east>
+        <!-- Content -->
+        <center>
+                    <panel title="Reference" border="normal" height="100%">
+                        <panelchildren>
+                            <grid style="border:0;">
+                                <rows>
+                                    <row>
+                                        <div>
+                                            
+                                            <separator />
+                                            <toolbarbutton label="Java Doc" />
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div>
+     
+                                            <separator orient="vertical" />
+                                            <toolbarbutton label="Project Calendar" />
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div>
+                                         
+                                            <separator orient="vertical" />
+                                            <toolbarbutton label="ZK Essentials" />
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div>
+                                          
+                                            <separator orient="vertical" />
+                                            <toolbarbutton label="Developer's Reference" />
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div>
+                                           
+                                            <separator orient="vertical" />
+                                            <toolbarbutton label="Component Essentials" />
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div>
+                                           
+                                            <separator orient="vertical" />
+                                            <toolbarbutton label="Style Guide" />
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div>
+                                            
+                                            <separator orient="vertical" />
+                                            <toolbarbutton label="Mailing Lists" />
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div>
+                                            <image src="/images/twitter_16.png" />
+                                            <separator orient="vertical" />
+                                            <toolbarbutton label="Twitter" />
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div>
+                                            <image src="/images/linkedin_16.png" />
+                                            <separator orient="vertical" />
+                                            <toolbarbutton label="LinkedIn" />
+                                        </div>
+                                    </row>
+                                    <row>
+                                        <div>
+                                            <image src="/images/rss_16.png" />
+                                            <separator orient="vertical" />
+                                            <toolbarbutton label="RSS" />
+                                        </div>
+                                    </row>
+                                </rows>
+                            </grid>
+                        </panelchildren>
+                    </panel>
+        </center>
+        <south size="40px" border="0" style="background: none repeat scroll 0 0 ;">
+            <toolbar mold="panel" align="center">
+                <toolbarbutton label="Sign in" />
+                <toolbarbutton label="Home" />
+                <toolbarbutton label="Sitemap" />
+                <toolbarbutton label="Terms" />
+                <toolbarbutton label="Report Abuse" />
+                <toolbarbutton label="Print" />
+                <separator orient="vertical" bar="true" />
+            </toolbar>
+        </south>
+			</borderlayout>
+	</window>
+</zk>

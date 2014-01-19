@@ -1,0 +1,18 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	
+
+	<window border="normal" title=" s" closable="true"
+		use="com.uniwin.webkey.core.ui.AlarmclockWin"
+		id="alarmclockInfo_win">
+		<label value="${c:l('alarmclock.zul.eventname')}:" ></label><label id="name" ></label>
+		<separator/>
+		
+		<label value="${c:l('alarmclock.zul.maturity')}:" ></label><label id="time" ></label>
+			<separator/>
+		<label value="${c:l('alarmclock.zul.notes')}:" ></label><label id="descrption" ></label>
+			<separator/>
+	</window>
+</zk>

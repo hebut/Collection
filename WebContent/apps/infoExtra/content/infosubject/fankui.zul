@@ -1,0 +1,20 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="反馈" border="normal" width="400px" height="300px" use="com.uniwin.webkey.infoExtra.infosubject.AdviceWindow">
+<vbox>
+<label value="反馈意见:"/>
+<hbox>
+<space/>
+<textbox id="fankui" rows="13" width="350px"/>
+</hbox>
+<separator/>
+<div align="center">
+    <hbox>
+		<toolbarbutton  id="sure"  label="" image="/images/common/qd.gif"/>
+		<space width="20px"/>
+		<toolbarbutton  id="canel" label="" image="/images/content/btn-close.gif"/>
+	</hbox>
+</div>  
+</vbox>
+</window>
+</zk>

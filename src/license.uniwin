@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infor-licenses version="1.0">
+  <production name="Server" version="V1" />
+  <license component="webkey" version="V50">
+    <formal>false</formal>
+    <licensee>Standard</licensee>
+    <cpus>nolimited</cpus>
+    <expiration>20200910</expiration>
+    <serial>jncous971798</serial>
+    <units>nolimited</units>
+    <ip>any</ip>
+    <userinfor>www.uniwin.com.cn</userinfor>
+    <signature>DWHHRa5u3mDhd+wtIPv3NhwfFymqJr6fS5sF58SZlhVE6WdL/xnmo0zh77pGw3Upa1w9v8oII9dVzHHocWtiFdjhqGRj1AemR1ieoR+CfffPWjUsELgYcs4KNI89jvO7kPozIb99yeeGt++9XwU1JnN4Btq0v8u1fQJc74QVuoeHrzO+Zutm0T0f5we8Ol5MP5JlpHTIyh7ehd4BEQxjmxIZNsgianHgkNDTMiH02WTybNQrI5HeuUQ/Byh2ptTOnspmMuwnF/74X6cO0TIDrFLl722yhH8hbGwYZaoOH44=</signature>
+    <usercnt>MTAwMA==</usercnt>
+  </license>
+</infor-licenses>
+

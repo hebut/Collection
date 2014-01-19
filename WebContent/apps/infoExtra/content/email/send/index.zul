@@ -1,0 +1,20 @@
+<?page id="messEdit" title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window title="已发送邮件" width="760px" style="text-align:left" use="com.uniwin.webkey.infoExtra.email.EmailSendWindow">
+		
+			<caption>
+				<hbox align="end">
+					<button id="deleteMsg" label="删除" tooltiptext="点击删除消息" />
+				</hbox>
+			</caption>
+				<listbox id="sendMsglistbox" mold="paging" pageSize="10" pagingPosition="bottom" checkmark="true" multiple="true">
+					<listhead>
+						<listheader width="5%" />
+						<listheader label="收信人" width="35%" align="center" id="targetHeader" sort="auto(xmReceivers)" />
+						<listheader label="主题" width="50%" sort="auto(xmSubject)" id="titleHeader" align="left"/>
+						<listheader label="发送时间" width="10%" align="center" id="timeHeader" sort="auto(xmSndtime)" />
+					</listhead>
+				</listbox>
+	</window>
+</zk>

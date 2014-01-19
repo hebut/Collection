@@ -1,0 +1,42 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="新建分类" border="normal" width="400px" id="win">
+<hbox>
+<label value="分类名称:"/>
+<space/>
+<textbox width="250px"/>
+</hbox>
+<separator/>
+<hbox>
+<label value="所属父分类:"/>
+<listbox mold="select" rows="1" width="250px">
+<listitem label="顶级"/>
+</listbox>
+</hbox>
+<separator/>
+<hbox>
+<label value="内容模板:"/>
+<space/>
+<listbox mold="select" rows="1" width="250px">
+<listitem label="默认"/>
+<listitem label="蓝色"/>
+</listbox>
+</hbox>
+<separator/>
+<hbox>
+<label value="显示顺序号:"/>
+<textbox width="250px"/>
+</hbox>
+<separator/>
+<hbox>
+<label value="分类描述:"/>
+<space/>
+<textbox width="250px" height="50px"/>
+</hbox>
+<separator/>
+<div align="right">
+<button label="确定"/>
+<button label="取消" onClick="win.detach()"/>
+</div>
+</window>
+</zk>

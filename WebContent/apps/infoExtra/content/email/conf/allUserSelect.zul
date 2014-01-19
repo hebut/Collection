@@ -1,0 +1,33 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window use="com.uniwin.webkey.infoExtra.email.MessageAllUserWindow">
+		<hbox>
+			<listbox id="userList" width="408px" height="310px" mold="paging" pageSize="10" checkmark="true" multiple="true">
+				<listhead>
+					<listheader label="序号" />
+					<listheader label="姓名" />
+					<listheader label="邮箱" />
+				</listhead>
+			</listbox>
+			<vbox align="center" pack="center" height="250">
+				<vbox>
+					<button label="选择" id="choose" />
+					<button label="移去" id="remove" />
+				</vbox>
+			</vbox>
+			<listbox id="userListSelected" width="408px" height="310px" mold="paging" pageSize="10" checkmark="true" multiple="true">
+				<listhead>
+					<listheader label="序号" />
+					<listheader label="姓名" />
+					<listheader label="邮箱" />
+				</listhead>
+			</listbox>
+		</hbox>
+		<hbox width="100%" pack="center">
+			<hbox>
+				<button id="submit" label="提交" />
+				<button id="reset" label="重置" />
+			</hbox>
+		</hbox>
+	</window>
+</zk>

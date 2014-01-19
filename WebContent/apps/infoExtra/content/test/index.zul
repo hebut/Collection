@@ -1,0 +1,24 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+
+  <window use="com.uniwin.webkey.infoExtra.test.TestNum1"  height="100%" width="100%">
+  
+ <groupbox>
+ <caption label="新闻搜索"/>
+ <space width="100px"/>
+ <label value="搜索关键字：" style="font-size:14"/>
+  <textbox width="350px" id="key" height="20px"></textbox>
+  <space/>
+  <listbox mold="select" width="60px">
+  <listitem label="百度" selected="true" id="baidu"/>
+  </listbox>
+  <space/>
+  <toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.search')}" id="searchnews"/>
+<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.reset')}" id="resetnews"/>
+ </groupbox>
+ <space height="1px"/>
+    <iframe id="iframe" width="100%" height="560px" scrolling="auto" style="border: 1px solid gray">
+    </iframe>
+  </window>
+
+</zk>

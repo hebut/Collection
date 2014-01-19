@@ -1,0 +1,6 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="正在跳转" border="normal">
+<label style="font-size:20"  value="正在跳转，请稍后......"/>
+</window>
+</zk>

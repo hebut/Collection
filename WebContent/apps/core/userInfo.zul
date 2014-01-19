@@ -1,0 +1,18 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window border="none" use="com.uniwin.webkey.core.ui.UserInfoWin" id="userInfo_win" sclass="newin">
+<image src="${c:l('users.zul.userinforimage')}"></image>
+<separator height="2px" />
+<label value="${c:l('users.zul.welcome')}${userInfo_win.user.organizationName }${c:l('users.zul.of')}${userInfo_win.user.name }" id="welcome_label"></label>
+<separator height="2px" />
+<label value="${c:l('users.zul.youstatus')}"></label><space/>
+<label value="${c:l('users.zul.normal')}" id="state_label" ></label>
+<separator height="2px" />
+<label value="${c:l('users.zul.youloginname')}"></label><space/>
+<label value="${userInfo_win.user.loginName}" id="loginName_label"></label>
+<separator height="2px" />
+<label value="${c:l('users.zul.yourrole')}"></label><space/>
+<label value="${userInfo_win.user.roleName}" id="role_label"></label>
+</window>
+</zk>

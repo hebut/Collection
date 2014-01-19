@@ -1,0 +1,42 @@
+<zk>
+	<window  border="normal"  width="400px"
+		use="com.uniwin.webkey.infoExtra.tasktemp.TaskAuthUpdateWindow" >
+  <caption image="/css/img/win-ico.gif" label="权限设置"/>
+		<grid>
+			<columns>
+				<column width="35%" />
+				<column width="65%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="角色" />
+					<listbox mold="select" id="roleSelect"
+						use="com.uniwin.webkey.infoExtra.listbox.DeptRoleListbox">
+					</listbox>
+				</row>
+				<row>
+					<label value="部门" />
+					<listbox mold="select" id="deptSelect"
+						use="com.uniwin.webkey.infoExtra.listbox.DeptListbox">
+					</listbox>
+				</row>
+				<row>
+					<label value="IP地址" />
+					<textbox id="IPAddr" />
+				</row>
+				<row>
+					<label value="权限" />
+					<hbox>
+						<checkbox label="管理" id="managec" />
+						<checkbox label="审核" id="audit" />
+					</hbox>
+				</row>
+			</rows>
+		</grid>
+			<div align="center" sclass="pop-win-b-div">
+			<toolbarbutton id="submit" image="/css/img/btn-save.gif" />						
+	                    <toolbarbutton id="reset" image="/css/img/btn-resetb.gif" />
+                     	<toolbarbutton id="close" image="/css/img/btn-close.gif"/>
+			</div>
+	</window>
+</zk>

@@ -1,0 +1,67 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="" border="normal" height="100%" width="100%"
+		use="com.uniwin.webkey.infoExtra.newscheck.InfoCheck">
+				<groupbox>
+					<caption label="检索模块" />
+					<hbox>
+						<space width="10px" />
+						<label>标 题 :</label>
+						<textbox id="title" width="180px" />
+						<space width="30px" />
+						<label>信息来源:</label>
+						<textbox id="from" width="180px" />
+						<space width="20px" />
+						<label>发布起止时间：</label>
+						<datebox id="begintime" cols="10"
+							format="yyyy-MM-dd" />
+						--
+						<datebox id="endtime" cols="10"
+							format="yyyy-MM-dd" />
+						<space width="10px" />
+					</hbox>
+					<separator />
+					<hbox>
+						<space width="10px" />
+						<label>主题词:</label>
+						<textbox id="main_word" width="250px"
+							Readonly="true" />
+						<toolbarbutton image="/images/content/1/xz.gif"
+							id="chooseMain" />
+						<space width="100px" />
+						<label>所属分类:</label>
+						<textbox width="250px" id="kiSort"
+							Readonly="true" />
+						<toolbarbutton image="/images/content/1/xz.gif"
+							id="chooseSort" />
+					</hbox>
+					<separator />
+					<hbox>
+						<space width="10px" />
+						<label>关键字(多个用;隔开)：</label>
+						<textbox id="key_word" width="700px" />
+						<space width="10px" />
+						<space width="10px" />
+						<toolbarbutton
+							image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.search')}"
+							id="search" />
+					</hbox>
+				</groupbox>
+<!-- 				<listbox id="newsListbox" fixedLayout="true"  multiple="true" sclass="new_listbox" checkmark="true" mold="paging">
+ -->				<listbox  sclass="new_listbox" id="newsListbox" fixedLayout="true"  multiple="true" checkmark="true" mold="paging"  pageSize="10">
+					<listhead>
+						<listheader width="2%" />
+						<listheader label="序号" width="7%" align="center"/>
+						<listheader label="标题" style="text-align:center"
+							width="53%" />
+						<listheader label="来源" style="text-align:center"
+							width="15%" />
+						<!-- <listheader label="作者" style="text-align:center"
+							width="10%" /> -->
+						<listheader label="发布时间" width="15%"
+							style="text-align:center"  sort="auto(kbDtime)"/>
+					</listhead>
+				</listbox>
+				<!-- <paging id="pageListbox"  visible="true" pageSize="10"/> -->
+	</window>
+</zk>

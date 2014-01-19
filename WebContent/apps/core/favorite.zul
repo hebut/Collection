@@ -1,0 +1,24 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="${c:l('favorite.zul.navigationmenu')}" border="normal" sclass="newin" use="com.uniwin.webkey.core.ui.FavoriteWin"
+		id="favoriteWin_info" height="490px" width="40%">
+		
+		<grid width="100%" height="400px" style="border:0px" sclass="fav-grid">
+			<rows style="border:0px">
+				<row style="border:0px">
+					<panel>
+						<panelchildren id="treeDiv">
+						</panelchildren>
+					</panel>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<div align="center">
+			<image src="/images/common/actSave.gif" onClick="favoriteWin_info.saveOrUpdataFavorate()" />
+		</div>
+
+	</window>
+</zk>

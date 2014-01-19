@@ -1,0 +1,134 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="${c:l('users.zul.personal')}" id="personalEditPage" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+
+<window id="personalEditWin" title="${c:l('users.zul.personal')}" border="normal" width="365px" height="530px" sclass="newin"
+        use="com.uniwin.webkey.core.ui.PersonalEditWin " >
+        <style> 
+			.red { 
+				color: red; 
+				font-style: oblique;
+				font-size:18px;
+			}
+		</style>
+	<div align="center">
+	   <grid width="700px" zclass="pop-grid">	  
+	       <columns >
+				<column align="right" width="100px"/>
+				<column align="left"/>
+			</columns>
+			
+		    <rows>
+			     <row spans="1" height="30px" zclass="pop-grid-rows">		   
+				   <label value="${c:l('users.zul.loginname')}:" width="60px"/>
+				   <label id="kuLid"  width="200px"  sclass="red"/>
+				 </row>
+				 <row height="30px" zclass="pop-grid-rows">
+				   <label value="${c:l('users.zul.userName1')}:" width="60px" />
+				   <hbox>
+				   <textbox id="kuName"  width="200px" />	
+				   <label value="*" style="color:red;valign:center" />
+				   </hbox>				
+				</row>
+				
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('users.zul.kuQuestion')}:" width="60px"/><textbox id="kuQuestion"  width="200px" />
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('users.zul.kuAnswer')}:" width="60px"/><textbox id="kuAnswer"  width="200px"  />			
+				</row>
+				
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('users.zul.kuEmail')}:" width="60px" />
+					<hbox>
+					<textbox id="kuEmail"  width="200px" constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address"/>
+					<label value="*" style="color:red;valign:center" />
+					</hbox>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('users.zul.kuPhone')}:" width="60px"/>
+					<hbox>
+					<textbox id="kuPhone"  width="200px" />	
+					<label value="*" style="color:red;valign:center" />
+					</hbox>		
+				</row>
+				
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('users.zul.kuBirthday')}:" width="60px"/><datebox id="kuBirthday" focus="true" width="180px" />
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('users.zul.kuSex')}:" width="60px"/>
+					<radiogroup id="kuSex">
+				    	 <radio id="man" label="${c:l('users.zul.man')}" checked="true"/>
+	                     <radio id="woman" label="${c:l('users.zul.woman')}"/>
+				   	  			    	
+					</radiogroup>		
+				</row>
+				
+				<row spans="1,3" height="30px" zclass="pop-grid-rows">		   		
+						 <label value="${c:l('users.zul.kuCompany')}:" width="60px"/>
+						 <textbox  id="kuCompany"  width="200px"  />							
+				</row>
+				<row height="30px" zclass="pop-grid-rows">		   		
+						 <label value="${c:l('users.zul.theirorganization')}:" width="60px"/>
+						<bandbox id="organizationId" width="180px" height="15px" readonly="true">
+											<bandpopup>
+												<tree id="parentData" width="200px" use="com.uniwin.webkey.tree.ui.OrganizationTree">
+												</tree>
+											</bandpopup>
+										</bandbox>					
+				</row>
+			<row height="30px" zclass="pop-grid-rows">	   		
+						 <label value="从事专业:" width="60px"/>
+				
+						 <textbox  id="kumajor"  width="200px"  />							
+				</row>	
+			<row height="30px" zclass="pop-grid-rows">		
+						 <label value="职位:" width="60px"/>
+						 <textbox  id="kuduty"  width="200px"  />							
+				</row>   
+			<row height="30px" zclass="pop-grid-rows">	   		
+						 <label value="职称:" width="60px"/>
+						 <textbox  id="kulevel"  width="200px"  />							
+			</row>   
+				<row height="30px" zclass="pop-grid-rows" visible="false">
+					  <label value="${c:l('users.zul.kuBindType')}:"/>
+	                 <listbox id="bangType" mold="select">
+	                   <listitem label="${c:l('users.zul.notBind')}" selected="true"/>
+	                   <listitem label="${c:l('users.zul.IPBind')}"/>                   
+	                 </listbox>
+	            </row>
+				<row height="30px" zclass="pop-grid-rows" visible="false">
+	                 <label value="${c:l('users.zul.kuBindAddr')}:"/>
+	                 <hbox>
+	                   <textbox id="uBandIp"/>
+	                   <checkbox label="${c:l('users.zul.kuAutoEnter')}" id="kuAutoenter"/>
+	                 </hbox>			
+				</row>
+			
+				<row spans="1" height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('users.zul.kuSkinname')}:" width="50px"/>
+				 	 <hbox>						
+						<listbox mold="select" id="kuStyleListbox">
+						   <listitem label="${c:l('users.zul.selectSkin')}:"> </listitem>
+	                  </listbox>  			
+					</hbox>
+					<separator/><separator/>
+				</row>
+				
+			</rows>	
+		</grid>
+		<separator></separator>
+		<div align="center">
+			<hbox>
+				<image src="/images/common/actSave.gif" onClick="personalEditWin.onClick$save()" ></image>
+				<space/>
+				<toolbarbutton image = "/images/template/ct.gif" id="reset" onClick="personalEditWin.onClick$reset()"></toolbarbutton>
+				<!-- <image type="reset" onClick="personalEditWin.onClick$reset() "> </image> -->
+			</hbox>	  
+		</div>
+	</div>
+  </window>
+</zk>

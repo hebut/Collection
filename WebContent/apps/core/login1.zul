@@ -1,0 +1,127 @@
+<?page title="用户登陆" contentType="text/html;charset=UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<html xmlns="http://www.zkoss.org/2005/zk/native"
+	xmlns:x="http://www.zkoss.org/2005/zul"
+	xmlns:zk="http://www.zkoss.org/2005/zk">
+	<HEAD>
+		<TITLE>${c:l('login.zul.titleimage')}</TITLE>
+		<style>
+	{margin:0;padding:0;}
+body{
+	width:99%;
+	height:100%;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:url(${c:l('login.zul.bodyimage')}) repeat-x;
+	}
+.contain{width:100%; }
+.one{ background:url(${c:l('login.zul.oneimage')}) no-repeat; height:340px;}
+.two{ background:url(${c:l('login.zul.twoimage')}) no-repeat;width:580px;  height:250px; float:left; }
+.three{ background:url(${c:l('login.zul.threeimage')}) no-repeat; width:260px; height:285px; float:left;}
+table{ font-size:14px; color:#666666; float:left;}
+
+		</style>
+	</HEAD>
+	<body>
+
+		<x:window use="com.uniwin.webkey.core.ui.LoginWin" width="100%"
+			id="loginwin_wind" onOK="loginwin_wind.loginTosystem()" >
+			<div class="contain">
+				<div class="one"></div>
+				<div class="two"></div>
+				<div class="three">
+					
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td height="50px;"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td height="20">
+								${c:l('login.zul.loginname')}
+							</td>
+							<td width="10"></td>
+							<td>
+								<x:textbox id="loginName"    action="onClick:selectThis(this)"
+									maxlength="20" />
+							</td>
+						</tr>
+						<tr>
+							<td height="20px;"></td>
+						</tr>
+						<tr>
+							<td>${c:l('login.zul.password')}</td>
+							<td width="10"></td>
+							<td>
+								<x:textbox id="password"   action="onClick:selectThis(this)"
+									type="password" />
+							</td>
+						</tr>
+						<tr>
+							<td height="20px;"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<x:label id="loginCode_label"
+									sclass="code" zclass="code" value="${c:l('login.zul.code')}">
+								</x:label>
+							</td>
+							<td width="10px;"></td>
+							<td>
+								<x:textbox value="" action="onClick:selectThis(this)"
+									onCreate="self.value=cpa.value" onFocus="self.value=cpa.value"
+									id="loginCode" />
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td height="60px;">
+
+							</td>
+							<td width="10px;"></td>
+							<td>
+
+								<x:captcha id="cpa" length="5" width="135px" height="35px" sclass="captcha">
+								</x:captcha>
+							</td>
+							<td width="5px;"></td>
+
+						</tr>
+					</table>
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td height="50px;"></td>
+						</tr>
+						<tr>
+							<td width="10px;"></td>
+							<td height="20">
+								<x:image src="${c:l('login.zul.loginimage')}" hover="${c:l('login.zul.loginhoverimage')}" sclass="login"
+									onClick="loginwin_wind.loginTosystem()">
+								</x:image>
+							</td>
+						</tr>
+						<tr>
+							<td height="55px"></td>
+							<td>
+								<x:toolbarbutton label="" onClick="loginwin_wind.forgetPass();" width="50px" style="color:#FF33FF" />
+							</td>
+						</tr>
+						<tr>
+							<td width="0px;"></td>
+							<td>
+								<x:toolbarbutton id="passCpa" label="${c:l('login.zul.changeone')}"
+									onClick="cpa.randomValue();" width="50px" style="color:#FF33FF" />
+							</td>
+						</tr>
+					</table>
+					
+					
+					
+				</div>
+			</div>
+		</x:window>
+	</body>
+</html>

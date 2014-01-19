@@ -1,0 +1,20 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none"
+		use="com.uniwin.webkey.system.ui.SystemIntroductionWin"
+		id="systemBulletin_win">
+		<image src="${c:l('system.zul.systemIntroduction')}"></image>
+		<separator/>
+		<div height="75px">
+		<html >
+			<attribute name="content" id="">
+				<font size="2px" color="#5A5F63">
+				 ${c:l('system.zul.description')}</font>
+			 
+			</attribute>
+			
+		</html>
+		</div>
+	</window>
+</zk>

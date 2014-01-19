@@ -1,0 +1,54 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window  border="normal"    width="500px"  id="newsort"  contentStyle="overflow:auto" use="com.uniwin.webkey.infoExtra.task.NewSortWindow">
+	<caption image="/css/img/win-ico.gif" label="添加分类" />
+		<grid align="center" width="480px">
+			<columns>
+				<column width="30%" />
+				<column width="70%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="分类名称" />
+					<hbox>
+						<textbox  width="250px"   id="sortname"/>
+						<label value="*" style="color:red;valign:center" />
+					</hbox>
+				</row>
+				<row>
+					<label value="父类型" />
+					<listbox id="sortlist" mold="select" width="150px" use="com.uniwin.webkey.infoExtra.task.TaskListbox"/>
+				</row>
+				<row>
+					<label value="列表模板" />
+					<textbox id="temp" width="250px"/>
+				</row>
+				<row>
+					<label value="顺序号" />
+					<hbox>
+						<intbox  id="orderno" width="250px" value="10" constraint="no empty,no zero"/>
+						<label value="*" style="color:red;valign:center" />
+					</hbox>
+				</row>
+					<row>
+					<label value="是否需要审核" />
+					<listbox  id="audit" rows="1" mold="select" width="100px">		
+						<listitem id="yes" label="是" />
+						<listitem id="no" label="否"/>
+					</listbox>
+				</row>
+				<row>
+					<label value="分类描述"></label>
+					<textbox id="desc" width="250px" height="50px" rows="5" />
+				</row>
+				<row align="center" spans="2">
+					<div align="center" sclass="pop-win-b-div">
+						<toolbarbutton id="save" image="/css/img/btn-save.gif" />						
+						<toolbarbutton id="reset" image="/css/img/btn-resetb.gif" />
+						<toolbarbutton id="back" image="/css/img/btn-close.gif" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

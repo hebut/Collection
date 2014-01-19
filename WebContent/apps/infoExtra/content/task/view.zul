@@ -1,0 +1,18 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="批量导入分类:浏览分类效果" border="normal"
+		use="com.uniwin.webkey.infoExtra.task.ViewTypeWindow" width="500">
+		<panel>
+			<panelchildren>
+				<tree id="tree" zclass="z-dottree" rows="20" />
+			</panelchildren>
+		</panel>
+		<hbox pack="center" width="100%">
+			<hbox>
+				<toolbarbutton id="finish" image="/images/content/3/qd.gif" />
+				<space spacing="10" />
+				<toolbarbutton id="cancel" image="/images/content/3/qx.gif" />
+			</hbox>
+		</hbox>
+	</window>
+</zk>

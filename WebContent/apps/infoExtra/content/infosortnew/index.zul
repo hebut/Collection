@@ -1,0 +1,17 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+
+  <window use="com.uniwin.webkey.infoExtra.infosortnew.SortTreeComposer"  height="100%" width="100%">
+	<borderlayout sclass="wihte-border-layout">
+		<west title="${c:l('resource.zul.menu')}" size="19%"  flex="true" collapsible="true">
+				  
+						<tree id="sortTree" height="100%" width="98%" zclass="z-filetree" sclass="new-tree" 
+							mold="paging"	rows="18"  multiple="true"  pageSize="18"  />
+					
+		</west>
+		<center flex="true" id="sortCenter1">
+		</center>
+	</borderlayout>  	
+  	
+  	</window>
+</zk>

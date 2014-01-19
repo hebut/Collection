@@ -1,0 +1,13 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window  border="normal" width="400px"  use="com.uniwin.webkey.infoExtra.infosortnew.DomainTypeSort" closable="true" height="580px">
+   <caption image="/css/img/win-ico.gif" label="同级分类拖拽排序"/>
+   <listbox id="domainList"  droppable="true" multiple="false" width="100%" height="510px">   
+   </listbox>
+ 		<div align="center" sclass="pop-win-b-div">
+   	<toolbarbutton id="submit" image="/css/img/btn-save.gif" />						
+	<toolbarbutton id="reset" image="/css/img/btn-resetb.gif" />
+     	<toolbarbutton id="close" image="/css/img/btn-close.gif"/>
+    </div>
+</window>
+</zk>

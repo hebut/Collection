@@ -1,0 +1,68 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+
+  <window use="com.uniwin.webkey.infoExtra.infogenerated.InfoGeneratedList"  height="100%" width="100%">
+    <borderlayout>
+       <west title="菜单" size="15%">
+				<tree id="mailClient" sclass="eagle-tree">
+					<treechildren>
+						<treeitem>
+							<treerow style="height: 35px;padding-left: 8px;">
+								<treecell id="newInfo" label="新资讯" image="/css/img/send.png">
+								</treecell>
+							</treerow>
+						</treeitem>
+						<treeitem>
+							<treerow style="height: 35px;padding-left: 8px;">
+								<treecell id="sendedInfo" 
+									label="已发资讯" image="/css/img/floder.png">
+								</treecell>
+							</treerow>
+						</treeitem>
+						<treeitem>
+							<treerow style="height: 35px;padding-left: 8px;">
+								<treecell id="subscribeInfo" 
+									label="订阅资讯" image="/css/img/floder.png">
+								</treecell>
+							</treerow>
+						</treeitem>	
+						<treeitem>
+							<treerow style="height: 35px;padding-left: 8px;">
+								<treecell id="templateManage" 
+									label="模板管理" image="/css/img/floder.png">
+								</treecell>
+							</treerow>
+						</treeitem>												
+					</treechildren>
+				</tree>       
+       </west>
+       <center>
+			<vbox pack="center" align="center" width="99%">
+				<tabbox id="tabbox" sclass="eagle-tabbox">
+					<tabs id="mainTabs">
+						<tab label="新资讯" id="tabNewInfo"
+							visible="false" />
+						<tab label="已发资讯" id="tabSendedInfobox"
+							visible="false" />
+						<tab label="订阅资讯" id="tabSubscribeInfobox"
+							visible="false" />	
+						<tab label="模板管理" id="tabTemplateManagebox"
+							visible="false" />														
+					</tabs>
+					<tabpanels id="mainTabpanels">
+						<tabpanel id="tabPanelNewInfo">
+						</tabpanel>
+						<tabpanel id="tablePanelSendedInfo">
+						</tabpanel>
+						<tabpanel id="tablePanelSubscribeInfo">
+						</tabpanel>	
+						<tabpanel id="tablePanelTemplateManage">
+						</tabpanel>												
+					</tabpanels>
+				</tabbox>
+			</vbox>          
+       </center>
+    </borderlayout>
+  </window>
+
+</zk>

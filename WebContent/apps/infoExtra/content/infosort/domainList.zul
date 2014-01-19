@@ -1,0 +1,25 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+
+  <window use="com.uniwin.webkey.infoExtra.infosort.DomainList"   height="500px" width="100%" >
+  	<toolbar align="end">
+  	    <toolbarbutton id="upLevel" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.backf')}"/>
+  	    <toolbarbutton id="downLevel" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.gon')}"/>
+  		<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.padd')}" id="padd"/>
+  		<toolbarbutton  image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.add')}" id="add"/>
+  		<toolbarbutton image="${c:l('newspub.zul.common.edit')}" id="edit"/>
+  		<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.delete')}" id="deleteDomain"/>
+  	</toolbar>
+	<borderlayout sclass="wihte-border-layout">
+		<center flex="true" id="domainCen">
+		  <radiogroup id="domainGroup">
+			<grid  fixedLayout="true" id="domainGrid"  mold="paging" pageSize="15" sclass="new_listbox">
+				<columns><column width="50%"/><column width="50%"/></columns>
+				<rows id="domainRows">	
+				</rows>
+			</grid>
+		   </radiogroup>
+		</center>
+	</borderlayout>
+  </window>
+</zk>

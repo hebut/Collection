@@ -1,0 +1,466 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="任务编辑" border="normal" width="700px" height="550px" use="com.uniwin.webkey.infoExtra.task.Configure" closable="true" id="nWin">
+<zscript>
+<![CDATA[
+ void loadChoose(){
+ 	if(middle.isChecked()==true){
+ 		urlModel.setDisabled(false);
+ 		extractByReg.setDisabled(false);
+ 		Isextract.setChecked(true);
+ 		circulTags.setDisabled(true);}
+ 	else{
+ 		urlModel.setValue(null);urlModel.setDisabled(true);
+ 		extractByReg.setDisabled(true);Isextract.setChecked(false);
+ 		circulTags.setDisabled(false);}
+ }
+ void loadpageNext(){
+	 if(next.isChecked()==true){
+		Sign.setDisabled(false);
+		pageCount.setDisabled(false);
+	 }else{
+		Sign.setDisabled(true);
+		pageCount.setDisabled(true);
+	 }
+ }
+ void loadPicture(){
+	 if(extractImage.isChecked()==true){
+		 loadPic.setDisabled(true);
+	 }else{
+		 loadPic.setDisabled(false);
+	 }
+	 if(loadPic.isChecked()==true){
+		 extractImage.setDisabled(true);
+	 }else{
+		 extractImage.setDisabled(false);
+	 }
+ }
+ 
+ void loadTimePick(){
+	 if(timePick.isChecked()==false){
+		 hour.setDisabled(true);
+		 minunte.setDisabled(true);
+		 
+	 }else{
+		 hour.setDisabled(false);hour.setConstraint("no empty");
+		 minunte.setDisabled(false);minunte.setConstraint("no empty");
+	 }
+ }
+ void chooseLen(){
+	 if(dataSource.getSelectedItem().getValue().toString().equals("content"))
+		 conLength.setVisible(true);
+	 else
+		 conLength.setVisible(false);
+ }
+ void loadType(){
+	 if(temporary.isChecked()==true){
+		 	access.setDisabled(true);sql.setDisabled(true);mysql.setDisabled(true);
+			dataBaseChar.setDisabled(true);dataBaseChar.setDisabled(true);
+			mail.setDisabled(true);
+			autoPub.setDisabled(true);
+		}else{
+			access.setDisabled(false);sql.setDisabled(false);mysql.setDisabled(false);
+			dataBaseChar.setDisabled(true);dataBaseChar.setDisabled(false);
+			mail.setDisabled(false);
+			autoPub.setDisabled(false);
+	    }
+ }
+]]>
+</zscript>
+<tabbox width="680px" height="465px">
+<tabs>
+	<tab label="常规设置" />
+	<tab label="起始地址" />
+	<tab label="导航规则" />
+	<tab label="采集规则" />
+	<tab label="采集结果"/>
+</tabs>
+<tabpanels>
+	<tabpanel>
+				<groupbox width="100%">
+				<caption label="常规设置"/>
+				<separator />
+<hbox>
+<label  value="任务名称:"/>
+<space/>
+<textbox width="500px" id="task"/>
+</hbox>
+<separator />
+<hbox >
+<label  value="自动处理:" />
+<space/>
+<listbox width="200px" mold="select" id="autoPub">
+	<listitem label="是" id="yes"/>
+	<listitem label="否" id="no" selected="true"/>
+</listbox>
+</hbox>
+<separator />
+<hbox>
+<label value="备注"/>
+<space width="33px"/>
+<textbox  width="500px" rows="5" height="80px" id="remark" maxlength="100"/>
+</hbox>
+		</groupbox>
+		<separator />
+		<groupbox width="100%">
+				<caption label="高级设置"/>
+					<separator/><separator/>
+				<vbox>
+				
+				<hbox>
+				<label value="编码方式:"/><space width="10px"/>
+				
+				<label>网址编码：</label>
+				<listbox mold="select" id="urlEncondList">
+					<listitem label="gbk" value="gbk" id="gbkItem"/>
+					<listitem label="gb2312" value="gb2312" selected="true" id="gbItem"/>
+					<listitem label="utf-8" value="utf-8" id="utfItem"/>
+					<listitem label="ISO8859-1" value="ISO8859-1" id="isoItem"/>
+				</listbox><space width="5px"/>
+				<label>内容编码：</label>
+				<listbox mold="select" id="conEncondList">
+					<listitem label="gbk" value="gbk" id="gbkconItem"/>
+					<listitem label="gb2312" value="gb2312" selected="true" id="gbconItem"/>
+					<listitem label="utf-8" value="utf-8" id="utfconItem"/>
+					<listitem label="ISO8859-1" value="ISO8859-1" id="isoconItem"/>
+				</listbox>
+				<checkbox label="自动获取编码方式" checked="true" disabled="true"/>
+				</hbox>
+				<separator/>
+				<hbox>
+				<checkbox label="不能与历史记录重复" checked="true" id="repeat"/>
+				<space width="50px"/>
+				<label value="历史记录条数"/>
+				<space/>
+				<intbox value="1000"/>
+				</hbox>
+	       
+	       	</vbox>
+	       
+		</groupbox>
+		 <separator/>
+		<groupbox width="100%">
+		<caption label="网站登录"/> 
+		<textbox width="250px"/><space/><button label="登 录"/>
+	</groupbox>
+	 <separator/>
+		<groupbox width="100%">
+		<caption label="定时采集"/>
+		<hbox>
+		<checkbox label="启动定时采集" id="timePick" onCheck="loadTimePick()" checked="false"/>
+		<space width="50px"/>
+		<radiogroup>
+			<radio label="每隔" checked="true" id="everyTime"/>
+			<radio label="每当" id="localTime"/>
+		</radiogroup>
+		<space width="30px"/>
+		<intbox width="80px" id="hour" /><label>时</label>
+		<intbox width="80px" id="minunte"/><label>分</label>
+		</hbox>
+		<space/>
+		</groupbox>
+	</tabpanel>
+	<tabpanel>
+	<groupbox width="100%">
+	<caption  label="起始地址设置"/>
+	<separator/>
+	<hbox>
+		<label width="100px">起始网址:</label>
+		<separator/>
+		<vbox>
+		<textbox width="500px" height="100px" rows="20" id="bUrl"/>
+		<separator />
+		<listbox height="200px" id="burlList">
+		<listhead><listheader width="500px"/></listhead>
+		</listbox>
+		<separator />
+		<hbox>
+		<label>地址总数:</label><label id="number"></label>
+		</hbox>
+		</vbox>
+			<separator width="10px"/>
+		<vbox width="100px">
+		<hbox>
+		<button label="添加" id="add"/>
+		</hbox>
+		<separator />
+		<hbox>
+	    <button label="修改" id="edit"/>
+	    </hbox>
+	    <separator />
+	    <hbox>
+	    <button label="删除" id="delete"/>
+	    </hbox>
+	    <separator />
+	    <hbox>
+	    <button label="清空" id="clear"/>
+		</hbox>
+		</vbox>
+	</hbox>
+	</groupbox>
+	</tabpanel>
+	<tabpanel>
+	<groupbox  width="100%">
+    <caption  label="导航规则列表"/>
+    	<separator />
+      <hbox>
+     <listbox  height="150px"  fixedLayout="true" width="650px" id="guideList">
+		<listhead id="guideHead" visible="false">
+			<listheader label="层次" width="5%" align="center"/>
+			<listheader label="层次名称" width="15%" />
+			<listheader label="最终页面" width="10%"  align="center"/>
+			<listheader label="提取下一层" width="12%"  align="center"/>
+			<listheader label="下一层网址模板" />
+			<listheader label="提取下一页"  width="12%"  align="center"/>
+		</listhead>
+	</listbox>	
+	</hbox>
+	<separator />
+<hbox>
+<label  value="层次名称:"/>
+<space/>
+<combobox id="level">
+<comboitem label="列表" value="list"/>
+<comboitem label="内容" value="content"/>
+</combobox>
+<space width="200px"/>
+<hbox>
+<label>层次类型</label>
+<radiogroup onCheck="loadChoose()">
+<radio label="中间层" checked="true" id="middle"/>
+<radio label="最终页面" id="finalWeb"/>
+</radiogroup>
+</hbox>
+</hbox>
+  	<separator height="8px"/>
+  <vbox>
+   <hbox>
+     <label>下一层网址模板:</label>
+     <textbox width="500px" id="urlModel" constraint="" />
+   </hbox>
+   	<separator />
+   <hbox>
+     <checkbox label="需要提取" id="Isextract" checked="true" disabled="true"/>
+     <space/>
+     <checkbox label="使用正则表达式" id="extractByReg"/>
+   </hbox>
+  </vbox>
+  	<separator />
+		<vbox>
+		  <tabbox width="600px" height="95px">
+			<tabs>
+			<tab label="提取下一页网址"/>
+			<tab label="网址提取范围"/>
+			<tab label="内容提取范围"/>
+			<tab label="循环采集"/>
+			</tabs>
+				<tabpanels>
+					<tabpanel>
+					<hbox>
+						<checkbox label="需要提取"  id="next"><attribute name="onCheck">
+							if(next.isChecked()==true){
+								Sign.setConstraint("no empty");
+								pageCount.setConstraint("no empty,no negative");
+								Sign.setDisabled(false);
+								pageCount.setDisabled(false);
+							}else{
+								Sign.setConstraint("");
+								pageCount.setConstraint("");
+								Sign.setDisabled(true);
+								pageCount.setDisabled(true);
+							}
+						</attribute>
+						</checkbox>
+							<space width="10px"/>
+							<label>下一页的标志:</label>
+							<textbox multiline="true"  height="30px" width="310px" rows="10" id="Sign" maxlength="100"/>					
+							<label>页数:</label>
+							<intbox id="pageCount"/>
+						</hbox>
+							
+						</tabpanel>
+						<tabpanel>
+							 <label>开始标志:</label>
+                             <textbox id="scopeUrlBegin" height="30px"   width="210px" rows="10" multiline="true" maxlength="200"/>     
+                             <space/>                   
+                             <label>结束标志:</label>
+							 <textbox id="scopeUrlEnd" height="30px"   width="210px" rows="10" multiline="true" maxlength="200"/>						
+						</tabpanel>
+						<tabpanel>
+							 <label>开始标志:</label>
+							 <textbox id="scopeConBegin" height="30px"  width="210px" rows="10" multiline="true" maxlength="200"/>
+			
+							 <label>结束标志:</label>
+							 <textbox id="scopeConEnd" height="30px"  width="210px" rows="10" multiline="true" maxlength="200"/>
+							 		</tabpanel>
+						<tabpanel>				
+							<label>循环标志:</label>
+							<textbox id="circulTags" height="30px"  width="400px" rows="10" multiline="true" maxlength="200"/>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+				<hbox>
+					<space width="400px"/>
+					<button label="新建" id="guideNew"/>
+					<button label="保存" id="guidSave"/>
+					<button label="删除" id="guideDele"/>
+					<button label="上移" id="guideUp"/>
+					<button label="下移" id="guideDown"/>
+				</hbox>
+			</vbox>
+		</groupbox>
+	</tabpanel>
+	<tabpanel>
+	<groupbox width="100%">
+	<caption label="采集规则列表"/>
+		<separator />
+		<vbox>
+		<listbox height="150px" width="650px" id="regList" fixedLayout="true">
+			<listhead id="regHead" visible="false">
+			<listheader label="序号" width="5%"/>
+			<listheader label="规则名称" width="10%"/>
+			<listheader label="所属层次" width="10%"/>
+			<listheader label="数据列名" width="10%"/>
+			<listheader label="信息前标志" width="35%"/>
+			<listheader label="信息后标志" width="30%"/>
+		    </listhead>
+			<listitem></listitem>
+			</listbox>
+				<separator />
+			<hbox>
+					<label width="120px">规则名称:</label>
+					<textbox width="300px" id="regName"/> 
+					<space/>
+					<label width="150px">数据库字段:</label>
+					<listbox mold="select" rows="1" id="dataSource" width="200px" onSelect="chooseLen()">
+					<listitem label="--请选择--"/>
+					<listitem label="标题" value="title" id="title"/>
+					<listitem label="副标题" value="title2" id="title2"/>
+					<listitem label="内容" value="content" id="content"/>
+					<listitem label="来源" value="source" id="source"/>
+					<listitem label="作者" value="author" id="author"/>
+					<listitem label="发表时间" value="pTime" id="pTime"/>
+					<listitem label="摘要信息" value="shortMessage" id="shortMessage"/>
+					</listbox>
+					</hbox>
+						<hbox  id="conLength" visible="false"><space width="370"/><label>内容字段长度</label><longbox id="conLen" value="1500"/>
+						</hbox>
+					<hbox>
+					<label width="120px">信息前标志:</label>
+					<textbox width="250px" height="30px" id="regBegin" rows="5" multiline="true" maxlength="200"/>
+					<space/>
+					 <label width="150px">信息后标志:</label>
+					<textbox width="250px" height="30px"  id="regEnd" rows="5" multiline="true" maxlength="200"/>
+					</hbox>
+			<separator />
+			<hbox>
+				<tabbox width="650px" height="95px">
+					<tabs>
+					<tab label="高级选项"/>
+					<tab label="保留标记"/>
+					<tab label="合并分页内容"/>
+					<tab label="采集结果替换" id="replactTab"/>
+					</tabs>
+					<tabpanels>
+					<tabpanel>
+							 	<checkbox label="显示内容中的图片"  id="extractImage" onCheck="loadPicture()"/>
+							 	<space width="20px"/><checkbox label="下载并显示内容图片" id="loadPic" onCheck="loadPicture()"/>
+							 	<checkbox label="下载内容Flash" id="loadFlash"/>
+							 	<hbox>					 	
+				                <checkbox label="下载附件(包括doc、rar、pdf)" id="loadDemo"/>
+							 	<space width="50px"/>
+							 	<label>附件标志:</label>
+							 	<textbox id="demo" width="200px"/>
+							 	</hbox>
+					</tabpanel>
+					<!--<tabpanel>
+							 	<label>下载目录:</label>
+							 	<textbox id="imageLocation" width="350px"/>					 	
+							 	<button label="浏览" id="view" />
+							 	<button label="打开" id="open"/>						 
+					</tabpanel>-->
+					<tabpanel>
+					<grid width="600px" height="60px" id="retainList">
+							 	<rows id="retainRows">
+							 	</rows>
+					</grid>
+					</tabpanel>
+					<tabpanel>
+						 <checkbox label="合并分页内容" id="merge"/>
+						 <hbox><textbox id="mergeSign" width="500px" height="30px" multiline="true"/><space width="10px"/><label>合并后的页面分隔符(默认为空)</label>
+						 </hbox>
+					</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</hbox>
+			<hbox>
+				<space width="400px"/>
+				<button label="新建" id="newPReg"/>
+				<button label="保存" id="saveReg"/>
+				<button label="删除" id="deletePReg"/>
+				<button label="上移" id="pRegUp"/>
+				<button label="下移" id="pRegDown"/>
+			</hbox>
+	</vbox>
+		
+	</groupbox>
+
+	</tabpanel>
+	<tabpanel>
+	
+	<groupbox>
+	<caption label="采集结果"/>
+	<separator />
+		<radiogroup>
+		<radio label="结果暂存到文件" checked="true" id="temporary" onCheck="loadType()">
+		</radio>
+		<space width="10px"/>
+		<radio label="直接发布到数据库" id="publish" onCheck="loadType()"/>
+		</radiogroup>
+		<separator />
+		<groupbox>
+		<caption label="设置数据连接"/>
+		<separator />
+		  		<hbox>
+		  		<label>设置数据源:</label>
+		  		<radiogroup>
+		  		<radio label="Access" id="access"/><space width="10px"/>
+		  		<radio label="SQL Server" id="sql" checked="true" /><space width="10px"/>
+		  		<radio label="MySql" id="mysql"/>
+		  		</radiogroup>
+		  		</hbox>
+		  		<separator />
+		  		<label>数据库连接串:</label>
+		  		<textbox width="350px" id="dataBaseChar"/>
+		  		<button label="设置" id="dataBaseSet">
+		  		<attribute  name="onClick">
+//		  			Window w=(Window) Executions.createComponents("/admin/content/task/databasesite.zul", null,null);
+//					w.doHighlighted();
+		  		</attribute>
+		  		</button>
+		  </groupbox>
+		  <separator/>
+		  	<groupbox>
+		  	<caption label="邮箱设置"/>
+		  	<separator/>
+		  	
+		  			<label>发送邮箱：</label><space width="10px"/>
+		  			<textbox id="mail" width="200px"/>
+		  	
+		  	</groupbox>
+		  	
+</groupbox>
+	</tabpanel>
+</tabpanels>
+</tabbox>
+
+<separator/>
+<label style="color:blue;text-decoration : underline;" id="ieWindow" tooltiptext="读取的源文件与采集的完全一致，然而浏览器读取的源文件与软件不同。">源文件查看器</label>
+<hbox >
+<space width="600px"/>
+<button label="确定" id="makesure"/>
+<button label="取消" id="canel"/>
+</hbox>
+</window>
+</zk>

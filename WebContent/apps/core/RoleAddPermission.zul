@@ -1,0 +1,18 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+<window title="new page title" border="normal" width="500px"  sclass="newin"
+        use=" com.uniwin.webkey.core.ui.RoleAddPermissionWin"
+        id="roleAddPermission_win">
+<listbox id="roleListbox" fixedLayout="true" multiple="true" checkmark="true" width="500px" sclass="new_listbox">
+	<listhead>
+		<listheader label="${c:l('resource.zul.rolename')}" sort="auto" align="left"/>
+		<listheader label="${c:l('resource.zul.depict')}" sort="auto"  />
+	</listhead>
+</listbox>
+<div align="center">
+	<image type="save" onClick="roleAddPermission_win.saveRolePermission()"> </image>
+</div>
+</window>
+</zk>

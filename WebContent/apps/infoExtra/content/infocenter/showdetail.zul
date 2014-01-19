@@ -1,0 +1,40 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window   border="normal" width="70%" height="97%" closable="true" contentStyle="overflow:auto" 
+sizable="true" use="com.uniwin.webkey.infoExtra.newscenter.InfoShow" title="信息详情">
+<caption image="/css/img/win-ico.gif">
+<toolbar align="end">
+<button label="关  闭" style="font-size:14px;color:blue;font-weight:bold" id="close"  visible="false"/>
+</toolbar>
+</caption>
+<space height="30px"/>
+<div align="center">
+<label  id="title" style="font-size:20px;font-family:黑体"/>
+</div>
+<separator bar="true"/>
+<space height="15px"/>
+<div align="center">
+<label value="来源:" style="font-size:13px"/>
+<label id="source" style="font-size:13px;color:red;font-family:宋体"/>
+<space />
+<!-- <label value="作者:" style="font-size:13px"/>
+<label id="author" style="font-size:13px;color:red;font-family:宋体"/>
+<space/> -->
+<label value="发布时间:" style="font-size:13px"/>
+<label  id="time" style="font-size:13px;color:red;font-family:宋体"/>
+<space/>
+<label value="源网址：" style="font-size:13px"/>
+<label id="url" style="text-decoration: underline;color:red;cursor:hand"/>
+</div>
+
+<space height="25px"/>
+<div>
+<hbox align="center">
+<space width="30px"/>
+<html id="content"    style="line-height: 16pt"/>
+<!-- style="font-size:15px;font-family:宋体;line-height: 16pt" -->
+<space width="30px"/>
+</hbox>
+</div>
+</window>
+</zk>

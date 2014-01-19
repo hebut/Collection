@@ -1,0 +1,88 @@
+<?page id="TempList" title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window id="tempListWindow" height="100%" width="100%" border="none" sclass="newin" 
+		use="com.uniwin.webkey.system.parameters.template.win.IndexTempListWindow">
+		<style>
+			td.z-list-cell { border:1px solid } tr.z-listbox-odd
+			td.z-list-cell { border:1px solid }
+		</style>
+				<div>
+					<panel id="cssListPanel" width="100%" border="none" visible="true">
+						<panelchildren style="padding:3px;">
+							<div width="100%" align="right">
+								<separator height="4px"></separator>
+								${c:l('newspub.zul.point')}${c:l('template.ui.haveHeader')}
+								<image id="newCss" type="add" />	
+					    		<image id="delCss" type="del" />
+								<separator height="4px"></separator>
+							</div>
+							<hbox pack="center" width="100%"
+								style="background:#F0F0F0">
+								<listbox id="cssListbox" mold="paging"
+									pageSize="11" checkmark="true" multiple="true"
+									sclass="new_listbox">
+									<listhead>
+										<listheader width="5%" align="center" />
+										<listheader label="${c:l('newspub.zul.number')}" align="center" width="5%" />
+										<listheader label="${c:l('template.ui.cssId')}" align="center" width="19%" />
+										<listheader label="${c:l('template.ui.cssName')}" align="center" width="20%" />
+										<listheader label="${c:l('template.ui.crTime')}" align="center" width="25%" />
+										<listheader label="${c:l('template.ui.cssEdit')}" align="center" width="10%" />
+										<listheader label="导出" align="center" width="8%" />
+										<listheader label="发布" align="center" width="8%" />
+									</listhead>
+								</listbox>
+							</hbox>
+							<separator></separator>
+							<hbox pack="end" width="100%">
+								<div>
+									<checkbox id="isCover" />${c:l('template.ui.cover')}
+									<toolbarbutton id="importZip" label="" image="/images/template/fgwjdr.gif" />
+								</div>
+							</hbox>
+						</panelchildren>
+					</panel>
+
+					<panel id="tempListPanel" width="100%" border="none" visible="false">
+						<panelchildren style="padding:3px;">
+							<div width="100%" align="right">
+								<separator height="4px"></separator>
+								<image type="add" id="newTemple" />
+								<image type="del" id="delTemple" />
+								<toolbarbutton id="renturn"
+									label="" image="/images/template/fh.gif">
+									<attribute name="onClick">
+										tempListPanel.setVisible(false);
+										cssListPanel.setVisible(true);
+									</attribute>
+								</toolbarbutton>
+							</div>
+							<hbox pack="center" width="100%"
+								style="background:#F0F0F0">
+								<listbox id="templeListbox" sclass="new_listbox" mold="paging" 
+									pageSize="17" multiple="true" checkmark="true">
+									<listhead>
+										<listheader width="5%" align="center" />
+								<listheader label="${c:l('newspub.zul.number')}" align="center" width="5%" />
+								<listheader label="${c:l('template.ui.tempName')}" align="center" width="20%" />
+								<listheader label="${c:l('template.ui.tempDesp')}" align="center" width="35%" />
+								<listheader label="${c:l('template.ui.lastUpdater')}" align="center" width="10%" />
+								<listheader label="${c:l('template.ui.lastUpdTime')}" align="center" width="25%" />
+									</listhead>
+								</listbox>
+							</hbox>
+							<separator></separator>
+							<hbox pack="end" width="100%">
+								<hbox>
+									<textbox id="groupName" />
+									<button id="addGroup" label="添加分组" />
+									<!--  	<toolbarbutton id="addGroup"  label="" image="/images/template/zjfz.gif"/>	-->
+								</hbox>
+							</hbox>
+						</panelchildren>
+					</panel>
+				</div>
+	</window>
+</zk>

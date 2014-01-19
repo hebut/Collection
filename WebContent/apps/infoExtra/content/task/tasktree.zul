@@ -1,0 +1,21 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="任务分类" border="normal" use="com.uniwin.webkey.infoExtra.task.TaskTree" closable="true" width="400px" height="480px">
+	<vbox>
+	  <vbox>
+		<tree id="subTree" width="100%" height="100%" zclass="z-filetree" sclass="new-tree" 
+							 rows="15"  multiple="true" pageSize="15" mold="paging">
+	
+		</tree>
+	</vbox>
+	<separator/>
+	<div align="center">
+	  <hbox>
+		<toolbarbutton  id="ok"  label="" image="/images/common/qd.gif"/>
+		<space width="20px"/>
+		<toolbarbutton  id="canel" label="" image="/images/common/qx.gif"/>
+	  </hbox>
+	</div>
+</vbox>
+</window>
+</zk>

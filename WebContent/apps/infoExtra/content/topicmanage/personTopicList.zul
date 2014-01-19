@@ -1,0 +1,58 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+	<window  height="500px" width="100%" style="text-align:left" use="com.uniwin.webkey.infoExtra.topicmanage.TopicInfoList">
+	    <groupbox height="80px">
+	      <caption label="主题检索"/>
+	         <div align="center">
+	         <separator />
+             <hbox>
+              <label value="关键字:"/>
+              <textbox  width="200px" id="keys"/>
+              <listbox mold="select" rows="1" width="70px">
+                <listitem  label="标题" id="title" selected="true"/>
+                <listitem  label="内容" id="content"/>
+                </listbox>
+              <space width="10px"/>
+              <label value="发布时间:"/>
+              <datebox  width="100px" id="begintime" cols="13" format="yyyy-MM-dd"/>
+              <label value="--"/>
+              <datebox  width="100px" id="endtime" cols="13" format="yyyy-MM-dd"/>
+             </hbox>
+             <separator />
+             </div>
+             <separator />
+             <div align="center">
+             <hbox >
+              <toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.search')}"   id="searchnews"/>
+              <space/>
+              <toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.reset')}" id="resetnews"/>
+             </hbox>
+             </div>
+             <separator />
+	    </groupbox>
+	    <separator />
+		<listbox id="infoListbox"  mold="paging" pageSize="10"  width="100%" rows="10" fixedLayout="true" 
+		          sclass="new_listbox">
+			<listhead>
+			 <listheader label="序号" align="center" width="4%"/>
+			 <listheader label="标题" style="text-align:center"  width="40%"/>
+			 <listheader label="来源" align="center"  width="15%"/>
+			 <listheader label="作者" align="center" width="10%"/>
+			 <listheader label="发布时间" width="15%" align="center"/>
+			</listhead>
+		</listbox>
+		<separator />
+			<groupbox closable="true">
+			 <caption label="提示"/>
+					<hbox>
+						<vbox>
+							<label pre="true"
+								value="   1、选中专题名称，右键可以对专题进行添加、编辑、删除操作，添加专题后可以到专题定制处进行分类定制" />
+							<label pre="true"
+								value="   2、点击专题名称可查看定制的新闻" />
+						</vbox>
+					</hbox>
+				</groupbox>
+	</window>
+</zk>

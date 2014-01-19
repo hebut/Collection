@@ -1,0 +1,56 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+
+  <!--<window use="com.uniwin.webkey.infoExtra.infosort.Sort"   height="520px" width="900px" >
+  	<caption label="信息分类"/>
+	<borderlayout sclass="wihte-border-layout">
+		<west  flex="true" collapsible="true" sclass="new-west">
+			<vbox>
+				<div align="left" width="100%"  height="100%">
+				<tree id="sortTree" height="100%" width="97%" zclass="z-filetree" sclass="new-tree" 
+							rows="15"  multiple="true" />
+				<paging id="treePaging"  zclass="z-paging" pageSize="25" detailed="false"  />
+				</div>
+			</vbox>
+		</west>
+		<center flex="true">
+		  <radiogroup id="domainGroup" >
+			<grid  fixedLayout="true" id="domainGrid"  mold="paging" pageSize="15">
+				<columns><column width="50%"/><column width="50%"/></columns>
+				<rows id="domainRows">
+				
+				</rows>
+			</grid>
+		   </radiogroup>
+		   
+		</center>
+		<south height="30px">
+			<div align="center" sclass="pop-win-b-div">
+				<button id="save" label="确定"/><space width="20px"/>
+				<button id="back" label="取消"/>
+			</div>
+		</south>
+	</borderlayout>
+  </window>
+-->
+	<window use="com.uniwin.webkey.infoExtra.infosort.Sort2" id="w"  height="400px" width="800px" >
+		<caption label="信息分类"/>
+		
+		<tabbox orient="vertical">
+			<tabs id="tabs" width="100px">
+			
+			</tabs>
+			
+			<tabpanels id="panel">
+				
+			</tabpanels>
+		</tabbox>
+		<separator/>
+		<div align="center" sclass="pop-win-b-div">
+				<toolbarbutton image="/images/content/3/qd.gif"  id="save" />
+				<space width="20px"/>
+				<toolbarbutton image="/images/content/btn-close.gif"  id="back" />
+		</div>
+	</window>
+
+</zk>

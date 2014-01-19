@@ -1,0 +1,28 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window use="com.uniwin.webkey.infoExtra.tasktemp.TaskEditWindow" height="100%">
+	<toolbar align="end" >
+		<toolbarbutton label="保留标记" id="signSet" tooltiptext="采集标志"/>
+		<toolbarbutton label="" id="addtask" visible="false"/>
+	</toolbar>
+
+<vbox>
+<listbox id="taskList" mold="paging" pageSize="5"  width="81%" fixedLayout="true" sclass="new_listbox" multiple="true">
+	<listhead sizable="true">
+		<listheader label="序号"  width="4%" align="center"/>
+		<listheader label="任务名称" style="text-align:center"/>
+		<listheader label="起始地址数" width="8%" align="center"/>
+		<listheader label="备注" style="text-align:center"/>
+		<listheader label="任务状态" align="center" width="10%"/>
+		<listheader label="开始时间" width="15%" style="text-align:center"/>
+	</listhead>
+</listbox>
+
+<tabbox height="100%" id="box">
+<tabs id="tabs" height="20px"></tabs>
+<tabpanels></tabpanels>
+</tabbox>
+
+</vbox>
+	</window>
+</zk>

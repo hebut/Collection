@@ -1,0 +1,26 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+	<window  use="com.uniwin.webkey.infoExtra.infosortnew.DomainTreeComposer" height="400px" width="800px" >
+	<caption label="信息分类"/>
+	 <borderlayout>
+	  <north>
+		<tabbox orient="vertical">
+			<tabs id="tabs" width="100px">
+			</tabs>
+			<tabpanels id="panel">
+			</tabpanels>
+		</tabbox>
+	  </north>
+	  <center>
+		<div align="center" sclass="pop-win-b-div">
+		  <separator/>
+				<toolbarbutton image="/images/content/3/qd.gif"  id="save" />
+				<space width="20px"/>
+				<toolbarbutton image="/images/content/btn-close.gif"  id="back" />
+		   <separator/>
+		</div>
+	  </center>
+	 </borderlayout>	
+	</window>
+
+</zk>

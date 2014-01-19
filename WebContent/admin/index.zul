@@ -1,0 +1,86 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="${c:l('system.common.zul.sysname')}"?>
+<zk>
+<style if="${themeName=='defult'}" src="../css/default.css" >
+	
+</style>
+<script type="text/javascript">
+			function clearDefault(el) {//清空
+				if (el.defaultValue==el.value) el.value = "";
+			}
+			function resetDefault(el){// 重设
+				if (el.value == '') el.value=el.defaultValue;
+			}
+			function selectThis(el){
+				el.select();
+			}
+</script>
+<window width="100%" height="100%" use="" contentStyle="scroll:auto">
+<style if="${themeName=='defult'}">  
+	.z-west-splt-index{				
+		background:url("../images/defult/leftback.jpg") no-repeat scroll left center #EBF5FF;
+	}
+</style>
+	
+<borderlayout sclass="main-border-layout">
+	<north id="header" size="70px" sclass="new-north" height="60px" >
+		<include flex="true" src="../header.zul" height="100%" id="framework_heard" width="100%" />
+    </north>
+    <center sclass="layout-center">
+	    <borderlayout sclass="center-border-layout">
+		    <west sclass="main-west" id="westLeft"  width="200px"  maxsize="400" splittable="true" flex="true" collapsible="true"> 		    
+				<include  id="leftTree" flex="true" src="../leftPage.zul" height="100%"  width="100%" border="0"></include>			
+		    </west>
+			<center id="workbench" sclass="main-center">		         
+					<include src="../workbench.zul" flex="true" style="padding:0" height="100%" width="100%" border="0"/>				
+		    </center>	
+		</borderlayout>
+    </center> 	
+</borderlayout>
+	<!--<window title="${c:l('webindex.zul.remind')}" id="todayAlarmclock_Win" width="20%"
+		closable="true" height="auto" mode="overlapped" visible="true"
+		use="com.uniwin.webkey.core.ui.TodayAlarmclockWin"
+		position="right,bottom">
+		<zscript><![CDATA[
+			public String convert(String con) {
+				con = org.zkoss.util.resource.Labels.getLabel("webindex.zul.tomaturity") + con;
+				if (con.length() > 15)
+					return con.substring(0, 12) + "...";
+			}
+		]]></zscript>
+		<zk forEach="${todayAlarmclock_Win.alarmclockExs }">
+			<hbox style="margin-left:10px">
+				<label value="${c:l('webindex.zul.distance')}" tooltip="title${each.id }"></label>
+				<label value="${each.eventName }"
+					tooltip="title${each.id }" style="color:red">
+				</label>
+				<label value="${each.finalCountdown }"
+					onCreate="self.value=convert(self.value)"
+					tooltip="title${each.id }">
+				</label>
+				<popup  width="auto">
+
+					<label value="${c:l('webindex.zul.eventname')}:"></label>
+					<label value="${each.eventName }"></label>
+					<separator />
+					<label value="${c:l('webindex.zul.maturity')}:"></label>
+					<label value="${each.totime }"></label>
+					<separator />
+					<label value="${c:l('webindex.zul.notes')}:"></label>
+					<label value="${each.eventDescription }"></label>
+				</popup>
+			</hbox>
+		</zk>
+	</window>
+-->
+<script type="text/javascript">
+	as=document.getElementsByTagName("div");
+	for(var i=0;i!=as.length-1;i++){
+		if(as[i].className=="z-west-splt"){
+			var div=as[i];
+			div.className="z-west-splt z-west-splt-index"
+		}
+	}
+</script>
+</window>
+</zk>

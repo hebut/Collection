@@ -1,0 +1,40 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+	<window use="com.uniwin.webkey.infoExtra.infosortnew.DomainTreeComposer" height="500px" width="100%">
+	     <toolbar align="end">
+	    
+  		   <toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.padd')}" id="padd"/>
+  		   <toolbarbutton  image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.add')}" id="add"/>
+  	      <toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.delete')}" id="del"/>
+  	     </toolbar>
+		<borderlayout sclass="wihte-border-layout">
+		   <center flex="true" id="treeCen">
+		     <tree id="domaintree" checkmark="true" multiple="true" rows="14" >
+		       <treecols>
+		         <treecol width="60%" label="分类名称"/>
+		         <treecol width="20%" label="分类代码"/>
+		         <treecol width="20%" label="分类描述"/>
+		       </treecols>
+		     </tree>
+		   </center>
+		   <south height="120px">
+				<groupbox closable="true">
+					<hbox>
+						<label style="color:red" value="提示:" />
+						<vbox>
+							<label pre="true"
+								value="1、新建分类时，可以选中某一分类右击进行新建" />
+							<label pre="true"
+								value="2、编辑分类时，可以选中某一分类右击进行编辑" />
+						    <label pre="true"
+								value="3、删除分类时，可以选中某一分类右击进行删除" />
+			                <label pre="true"
+								value="4、分类排序时，可以选中某一分类右击进行同级分类排序" />
+						</vbox>
+					</hbox>
+				</groupbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

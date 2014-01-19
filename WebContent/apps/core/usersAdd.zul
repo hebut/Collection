@@ -1,0 +1,410 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="${c:l('users.zul.usermanager')}" id="userAddpage" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="${c:l('users.zul.adduserinfo')}" border="normal" width="550px" height="580px"  sclass="newin" 
+		use="com.uniwin.webkey.core.ui.UsersAddWin" id="win">		
+		<tabbox width="530px" height="505px" sclass="new-tabbox" >
+			<tabs id="tabs" >
+				<tab label="${c:l('users.zul.basicattributes')}"
+					id="tab1" width="50px"/>
+				<tab label="${c:l('users.zul.advancedattributes')}"
+					id="tab2" width="50px"/>
+				<tab label="${c:l('users.zul.properties')}" id="tab3" width="50px"/>
+			</tabs>
+			<tabpanels >
+				<tabpanel >				  
+				  	<div zclass="kzsx_div_mar" align="center">	
+				  	    <separator height="60px"></separator>					
+						<grid align="center" zclass="pop-grid">
+							<rows>
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.userName1')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<textbox id="name" maxlength="20"  width="120px" height="15px" />
+										<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>	
+								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.systemLoginName')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<textbox id="loginName" maxlength="20"  width="120px" height="15px"/>
+											<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>
+												
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.loginpassword')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<textbox type="password" id="password" maxlength="100" width="120px" height="15px"/>
+											<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>
+								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.confirmpassword')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<textbox type="password" id="configPassword" maxlength="100" width="120px" height="15px"/>
+											<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>
+								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.kuQuestion')}:" width="60px"/>
+										<space />
+									</div>
+									<div align="left">
+										<textbox id="kuQuestion"  width="200px" />
+									</div>
+								</row>
+								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.kuAnswer')}:" width="60px"/>
+										<space />
+									</div>
+									<div align="left">
+										<textbox id="kuAnswer"  width="200px"  />
+									</div>
+								</row>
+								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.theirorganization')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+									<hbox>
+										<bandbox id="organizationId" width="103px" height="15px" readonly="true">
+											<bandpopup>
+												<tree id="parentData" width="120px" use="com.uniwin.webkey.tree.ui.OrganizationTree">
+												</tree>
+											</bandpopup>
+										</bandbox>
+											<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+								</row>
+								
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="开户时间:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<datebox id="opentime" width="120px" disabled="true"/>
+									</div>
+								</row>
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="失效时间:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<datebox id="closetime" width="120px"/>
+									</div>
+								</row>
+								<row height="30px" zclass="pop-grid-rows">
+									<div align="right">
+										<label value="${c:l('users.zul.userstatus')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<radiogroup >
+											<radio id="isNotLock" checked="true" label="${c:l('users.zul.normal')}" />
+											<radio id="isLock"  label="${c:l('users.zul.locking')}" />
+											<radio id="outdate"  label="无效" />
+											
+										</radiogroup>
+									</div>
+								</row>
+							</rows>
+						</grid>
+					</div>
+				</tabpanel>
+				<tabpanel >
+					<vbox>
+						<separator height="2px"></separator>
+						 <div align="left">
+			   				<label value="${c:l('users.zul.notauthorizationrole')}" style="font-weight:bold;color:#0e4899;"/>
+			  			 </div>
+						 <listbox mold="paging"  pageSize="8" id="unauthorizedRoles" sclass="new_listbox"  >
+							<listhead sizable="true">								
+								<listheader width="150px"  align="center" label="${c:l('users.zul.rolename')}"/>
+								<listheader width="240px" align="center" label="${c:l('users.zul.explain')}" />
+								<listheader width="120px" align="center" label="${c:l('system.common.zul.operat')}" />
+							</listhead>
+						</listbox>			
+	           			<separator height="5px"></separator>	
+	           					
+						 <div align="left">
+			   				<label value="${c:l('users.zul.authorizationrole')}" style="font-weight:bold;color:#0e4899;"/>
+			  			 </div>
+						<listbox mold="paging"  pageSize="5" id="userRoleBox" sclass="new_listbox"  >
+							<listhead sizable="true">
+								<listheader width="150px" align="center" label="${c:l('users.zul.rolename')}"  />
+								<listheader width="240px" align="center" label="${c:l('users.zul.explain')}" />
+								<listheader width="100px" align="center" label="${c:l('system.common.zul.operat')}" />
+							</listhead>
+						</listbox>							
+					</vbox>
+				</tabpanel>
+
+				<tabpanel >	
+					<div zclass="kzsx_div_mar" align="center">	
+				  	    <separator height="40px"></separator>					
+						<grid align="center" zclass="pop-grid">
+							<rows>
+								<row height="30px" zclass="pop-grid-rows">								   
+									<div align="right">
+										<label value="${c:l('users.zul.kuSex')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<radiogroup>                
+											<radio id="nan" label="${c:l('users.zul.man')}" checked="true" />
+											<radio id="nv" label="${c:l('users.zul.woman')}" />	
+										</radiogroup> 	
+									</div>
+									
+									<div align="right">
+										<label value="${c:l('users.zul.kuBirthday')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										 <datebox id="kuBirthday" readonly="true" width="103px"/>
+									</div>
+								</row>	
+																
+								<row height="30px" zclass="pop-grid-rows">								   
+									<div align="right">
+										<label value="${c:l('users.zul.kuEmail')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<hbox>
+										 <textbox id="kuEmail" maxlength="30"  constraint="/(.+@.+\.[a-z]+)?/ :${c:l('users.zul.kuEmailvalidate')}" width="120px" height="15px"/>
+										<label value="*" style="color:red;valign:center" />
+										</hbox>
+									</div>
+									
+									<div align="right">
+										<label value="${c:l('users.zul.kuPhone')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<textbox id="kuPhone" maxlength="20" constraint="/^([1-9]\d*)?$/:${c:l('users.zul.kuPhonevalidate')}" width="120px" height="15px"/>
+									</div>
+								</row>	
+								
+								<row height="30px" zclass="pop-grid-rows">								   
+									<div align="right">
+										<label value="${c:l('users.zul.kuCertificatetype')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										 <combobox id="kuCertificatetype" readonly="true" width="103px">
+											 <comboitem label="${c:l('users.zul.kuCertificatetype.sfz')}" value="0">
+											 </comboitem>
+											 <comboitem label="${c:l('users.zul.kuCertificatetype.jgz')}" value="1">
+											 </comboitem>
+											 <comboitem label="${c:l('users.zul.kuCertificatetype.jjs')}" value="2">
+											 </comboitem>
+											 <comboitem label="${c:l('users.zul.kuCertificatetype.xsz')}" value="3">
+											 </comboitem>
+											 <comboitem label="${c:l('users.zul.kuCertificatetype.qtzj')}" value="4">
+											 </comboitem>
+									     </combobox>
+									</div>
+									
+									<div align="right">
+										<label value="${c:l('users.zul.kuCardNumber')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<textbox id="kuCardNumber" maxlength="50"  constraint="/^([1-9]\d*)?$/ :${c:l('users.zul.kuCardNumber.message')}" width="120px" height="15px"/>
+									</div>
+								</row>	
+								
+								<row height="30px" zclass="pop-grid-rows">								   
+									<div align="right">
+										<label value="${c:l('users.zul.kuPicPath')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<hbox>
+								            <textbox visible="false" id="kuPicPath" maxlength="50"  />
+											<image src="${c:l('resource.zul.uploadAddimage')}" hover="${c:l('resource.zul.uploadAddhoverimage')}"
+												id="upFileActive" onClick="win.addImage()"/>
+											<image id="activeImage" width="30px" height="30px" > </image>
+							            </hbox>
+									</div>
+									
+									<div align="right">
+										<label value="${c:l('users.zul.kuCompany')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<textbox sclass="colors" id="kuCompany" maxlength="100" width="120px" height="15px"/>
+									</div>
+								</row>	
+								<row zclass="pop-grid-rows" height="30px">
+								<div align="right">
+										<label value="从事行业:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<textbox sclass="colors" id="kumajor" maxlength="100" width="120px" height="15px"/>
+									</div>
+									<div align="right">
+										<label value="职位:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<textbox sclass="colors" id="kuduty" maxlength="100" width="120px" height="15px"/>
+									</div>
+								</row>
+								<row height="30px" zclass="pop-grid-rows" visible="false">								   
+									<div align="right">
+										<label value="${c:l('users.zul.kuAutoShow')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<combobox id="kuAutoShow" readonly="true" width="103px">
+											<comboitem label="${c:l('system.commom.ui.yes')}" value="0">
+											</comboitem>
+											<comboitem label="${c:l('system.commom.ui.no')}" value="1">
+											</comboitem>
+										</combobox>
+									</div>
+									
+									<div align="right">
+										<label value="${c:l('users.zul.kuBindType')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<combobox id="kuBindType" readonly="true" width="103px">
+											<comboitem label="${c:l('users.zul.notBind')}" value="0">
+											</comboitem>
+											<comboitem label="${c:l('users.zul.IPBind')}" value="1">
+											</comboitem>
+											<comboitem label="${c:l('users.zul.netCardBind')}" value="2">
+											</comboitem>
+											<comboitem label="${c:l('sers.zul.AllBin')}" value="1">
+											</comboitem>
+									  </combobox>
+									</div>
+								</row>	
+								
+								
+								<row height="30px" zclass="pop-grid-rows">								   
+									<div align="right">
+										<label value="职称:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<textbox sclass="colors" id="kulevel" maxlength="100" width="120px" height="15px"/>
+									</div>
+									
+									<div align="right">
+										<label value="${c:l('users.zul.kuLimit')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<intbox id="kuLimit"   maxlength="6" width="120px" height="15px" value="0"/>
+									</div>
+								</row>	
+								<row zclass="pop-grid-rows" height="30px">
+								<div align="right">
+										<label value="${c:l('users.zul.kuForm')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<combobox id="kuForm" readonly="true" width="103px">
+											<comboitem label="${c:l('users.zul.kuForm.xtyh')}" value="0">
+											</comboitem>
+											<comboitem label="${c:l('users.zul.kuForm.zcyh')}" value="1">
+											</comboitem>
+											<comboitem label="${c:l('users.zul.kuForm.wzyh')}" value="2">
+											</comboitem>
+											<comboitem label="${c:l('users.zul.kuForm.qtyh')}" value="9">
+											</comboitem>
+										</combobox>
+									</div>
+									<div></div>
+									<div></div>
+								</row>
+								<row height="30px" zclass="pop-grid-rows" visible="false">			
+								<div align="right" visible="false">
+										<label value="${c:l('users.zul.kuBindAddr')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left" visible="false">
+										<textbox  id="kuBindAddr" maxlength="100"  width="120px" height="15px"/>
+									</div>					   
+									<div align="right">
+										<label value="${c:l('users.zul.kuKeyLogin')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<combobox id="kuKeyLogin" readonly="true" width="103px">
+											<comboitem label="${c:l('system.common.ui.notused')}" value="0">
+											</comboitem>
+											<comboitem label="${c:l('system.common.ui.used')}" value="1">
+											</comboitem>
+										</combobox>
+									</div>
+									
+									<div align="right">
+										<label value="${c:l('users.zul.kuCertId')}:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left">
+										<textbox sclass="colors" id="kuCertId" maxlength="100"  width="120px" height="15px"/>
+									</div>
+								</row>	
+								<row height="80px" zclass="pop-grid-rows">
+									<div align="right" >
+										<label value="关注内容:" style="word-break : keep-all" />
+										<space />
+									</div>
+									<div align="left" >
+									   <textbox sclass="colors" id="keyWord"   width="180px" rows="4"/>
+									</div>								  
+								</row>
+							</rows>
+						</grid>
+					</div>
+				
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+	<div align="center">
+	<!--  	<image type="save"  onClick="win.addUser(event)"/> -->
+		 <toolbarbutton   label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.save')}" onClick="win.addUser(event)"/>
+	</div>
+ </window>
+</zk>
+	

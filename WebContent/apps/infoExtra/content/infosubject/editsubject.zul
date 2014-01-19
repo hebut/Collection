@@ -1,0 +1,49 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="编辑采集主题" border="normal" use="com.uniwin.webkey.infoExtra.infosubject.EditSubject" closable="true" width="600px" height="550px">
+
+<vbox>
+<grid width="100%" fixedLayout="true">
+	<columns><column width="20%"/><column/></columns>
+	<rows>
+		<row>
+			<label>采集主题：</label>
+			<textbox id="subjectTitlle" width="99%" constraint="no empty" />
+		</row>
+	    <row>
+			<vbox>
+				<label>采集网址及内容：</label>
+				<separator/>
+				<label style="color:red">* 各网址之间以分号隔开。 </label>
+			</vbox>
+			<textbox id="suburl" width="99%" constraint="no empty" maxlength="1000" rows="18" multiline="true"/>
+		</row>
+		<row height="100px">
+		<vbox>
+			<label>意见和建议：</label>
+			<separator/>
+				<label style="color:red">* 内容框最多允许输入1000个字符。 </label>
+			</vbox>
+			<textbox multiline="true" rows="10" width="99%" id="subjectCon" />
+		</row>
+		<row></row>
+	</rows>
+</grid>
+<separator/>
+<div align="center">
+    <hbox>
+		<toolbarbutton  id="sure"  label="" image="/images/common/qd.gif"/>
+		<space width="20px"/>
+		<toolbarbutton  id="canel" label="" image="/images/common/qx.gif"/>
+	</hbox>
+<!--
+	<button label="确定" id="sure" />
+	<space width="20px"/>
+	<button label="取消" id="canel"/>
+-->
+</div>
+
+</vbox>
+
+</window>
+</zk>

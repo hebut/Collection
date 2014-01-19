@@ -1,0 +1,19 @@
+<?page  contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  border="normal" width="350px" 
+use="com.uniwin.webkey.core.ui.OrgnazationSortWindow">
+   <caption image="/css/img/win-ico.gif" label="组织排序:选择组织拖拽排序"/>
+   <listbox id="sortList" onDrop="move(event.dragged)" droppable="true" rows="20"> 
+			<listhead>
+			<listheader label="序号"  width="20%" align="center"/>  
+			<listheader label="组织名称" width="80%" align="center"/>  
+			</listhead>
+   </listbox>
+ 		<div align="center" sclass="pop-win-b-div">
+   	<toolbarbutton id="submit" image="/css/img/btn-save.gif" />						
+	<toolbarbutton id="reset" image="/css/img/btn-resetb.gif" />
+    <toolbarbutton id="close" image="/css/img/btn-close.gif"/>
+    </div>
+</window>
+
+</zk>

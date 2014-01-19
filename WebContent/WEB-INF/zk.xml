@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<!--
+	Created by ZK Studio
+-->
+
+<zk>
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>/apps/core/login.zul</timeout-uri>
+		<!--
+			An empty URL can cause the browser to reload the same URL
+		-->
+	</device-config>
+	<desktop-config> 
+		<theme-provider-class>com.uniwin.webkey.skin.ThemeProvider</theme-provider-class>
+	</desktop-config>
+</zk>

@@ -1,0 +1,114 @@
+<?page title="工作量统计" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="normal" width="100%"
+		use="com.uniwin.webkey.infoExtra.statistic.StatisticsWindow">
+		<tabbox width="100%">
+			<tabs>
+				<tab label="工作量统计" />
+				<tab label="采集量统计" />
+			</tabs>
+			<tabpanels>
+			    <tabpanel>
+				<grid>
+				   <columns>
+					   <column align="right"/>
+				   </columns>
+				<rows>
+				<row style="background:#D2E9FF">
+				<hbox >
+				
+				统计时间:
+				<space width="10px"></space>
+				<datebox id="db" cols="13" format="yyyy-MM-dd" />
+				---
+				<datebox id="db1" cols="13" format="yyyy-MM-dd" />
+				<space width="15px"></space>
+				<toolbarbutton id="sts1" style="border:0;" width="58px"
+					height="20px" image="/images/content/1/tj.gif"
+					tooltiptext="点此统计信息" />
+				
+				<toolbarbutton id="expert" style="border:0;"
+					width="58px" height="20px" image="/images/content/1/dc.gif"
+					tooltiptext="点此导出统计结果" />
+			</hbox>
+			</row>
+			</rows>
+			</grid>
+					<listbox id="inforlistbox" rows="10">
+						<listhead height="25px">
+							<listheader label="序号" width="10%"
+								align="center" />
+							<listheader label="用户名" align="center"
+								width="20%" />
+							<listheader label="性别" align="center"
+								width="10%" />
+							<listheader label="角色" width="20%"
+								align="center" />
+							<listheader label="所属部门" width="20%"
+								align="center" />
+							<listheader label="编辑条数" width="10%"
+								align="center" />
+							<listheader label="审核条数" width="10%"
+								align="center" />
+						</listhead>
+						<listfoot >
+							<listfooter width="10%" />
+							<listfooter width="20%" />
+							<listfooter width="10%" />
+							<listfooter width="20%" />
+							<listfooter label="合计:" width="20%" />
+							<listfooter id="bjts" width="10%" />
+							<listfooter id="shts" width="10%" />
+						</listfoot>
+					</listbox>
+				</tabpanel>   	
+				<tabpanel>
+				    <grid>
+				       <columns>
+					       <column align="right"/>
+				        </columns>
+				        <rows>
+				           <row style="background:#D2E9FF">
+				              <hbox>
+				                                                统计时间:
+				                  <space width="10px"></space>
+				                  <datebox id="db2" cols="13" format="yyyy-MM-dd" />
+				                   ---
+				                 <datebox id="db3" cols="13" format="yyyy-MM-dd" />
+				                 <space ></space>
+				                 <label value="所属分类:"/>
+				                 <textbox  width="150px" id="name"></textbox>
+				                  <space ></space>
+				                 <toolbarbutton id="sts2" style="border:0;" width="58px" height="20px" image="/images/content/1/tj.gif" tooltiptext="点此统计信息" />
+				                 
+				                 <toolbarbutton id="expert2" style="border:0;" width="58px" height="20px" image="/images/content/1/dc.gif" tooltiptext="点此导出统计结果" />
+				               
+				              </hbox>
+				           </row>
+				        </rows>
+				    </grid>
+					<listbox id="taskstalist" rows="17" multiple="true" >
+					<listhead height="25px" sizable="true">
+					<listheader label="序号" width="5%" align="center" />
+					<listheader label="任务名" width="20%" align="center"/>
+					<listheader label="所属分类" width="20%" align="center"/>
+					<listheader label="来源" width="37%" align="center" visible="false"/>
+					<listheader label="任务配置修改时间" width="20%" align="center"/>
+					<listheader label="采集条数" width="15%" align="center"/>
+					<listheader label="入库条数" width="15%" align="center"/>
+					</listhead>
+					<listfoot>
+					<listfooter width="5%"/>
+					<listfooter width="12%"/>
+					<listfooter width="12%"/>
+					<listfooter width="35%" visible="false"/>
+					<listfooter label="合计:" width="16%"/>
+					<listfooter id="ext" width="10%"/>
+					<listfooter id="indatabase" width="10%"/>
+					</listfoot>
+					</listbox>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

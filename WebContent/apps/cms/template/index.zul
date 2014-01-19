@@ -1,0 +1,90 @@
+<?page id="index" title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+ <window id="indexWindow"  border="0" style="text-align:left" sclass="newin"  closable="true" 
+        use="com.uniwin.webkey.system.parameters.template.win.IndexWindow" width="100%" height="100%">
+	<borderlayout sclass="wihte-border-layout" height="100%" width="100%">
+		<west  id="westLeft"  width="15%" sclass="new-west"  collapsible="true" title=""
+	           apply="com.uniwin.webkey.system.parameters.template.win.TempTreeComposer">
+		  	<tree id="tempTree"  rows="16"  height="500px"  zclass="z-filetree" sclass="new-tree" style="border:0;background:#FFFFFF;">
+				<treecols >
+					<treecol width="150px" style="margin-left:5%;margin-right:5%;margin-top:5%;" />
+				</treecols>
+			</tree>
+        </west>
+	   <center id="cssListCen" title="${c:l('template.ui.tempMng')}">
+		<div>
+		   <panel id = "cssListPanel" width="100%" border="0" visible="true">
+			   <panelchildren >
+			         <div width="100%" align="right">
+			            <separator height="4px"></separator>
+			         	<image id="newCss" type="add" />
+					    <image id="delCss" type="del" />
+					    <separator height="4px"></separator>
+			         </div>
+			         <hbox pack="center" width="100%" style="background:#F0F0F0">
+			      	    <listbox id="cssListbox"  mold="paging" pageSize="11" checkmark="true" multiple="true" sclass="new_listbox" >
+							<listhead>
+							    <listheader width="5%" align="center" />
+								<listheader label="${c:l('newspub.zul.number')}" align="center" width="5%" />
+								<listheader label="${c:l('template.ui.cssId')}" align="center" width="19%" />
+								<listheader label="${c:l('template.ui.cssName')}" align="center" width="20%" />
+								<listheader label="${c:l('template.ui.crTime')}" align="center" width="25%" />
+								<listheader label="${c:l('template.ui.cssEdit')}" align="center" width="10%" />
+								<listheader label="导出" align="center" width="8%" />
+								<listheader label="发布" align="center" width="8%" />
+							</listhead>
+					      </listbox>
+		               </hbox>
+		               <separator></separator>
+					   <hbox pack="end" width="100%">
+						  <hbox>
+							<div >
+								<checkbox id="isCover"/><label value="${c:l('template.ui.cover')}"></label>
+								<toolbarbutton id="importZip"  label="" image="/images/template/fgwjdr.gif"/>
+							</div>
+						  </hbox>
+					   </hbox>
+            	    </panelchildren>
+               </panel>
+               <panel id = "tempListPanel" width="100%" border="0" visible="false">
+			     <panelchildren >
+					<div width="100%" align="right">
+						<separator height="4px"></separator>
+						${c:l('newspub.zul.point')}${c:l('template.ui.haveHeader')}
+						<image type="add" id="newTemple" />
+						<image type="del" id="delTemple" />
+						<toolbarbutton id="renturn"  label="" image="/images/template/fh.gif" >
+							<attribute name="onClick">
+							tempListPanel.setVisible(false);
+							cssListPanel.setVisible(true);
+							</attribute>	
+						</toolbarbutton>
+						<separator height="4px"></separator>
+					</div>
+			          <hbox pack="center" width="100%">
+			      	    <listbox id="templeListbox"	mold="paging" pageSize="11" multiple="true" checkmark="true" sclass="new_listbox">
+						  <listhead>
+							    <listheader width="5%" align="center" />
+								<listheader label="${c:l('newspub.zul.number')}" align="center" width="5%" />
+								<listheader label="${c:l('template.ui.tempName')}" align="center" width="20%" />
+								<listheader label="${c:l('template.ui.tempDesp')}" align="center" width="35%" />
+								<listheader label="${c:l('template.ui.lastUpdater')}" align="center" width="10%" />
+								<listheader label="${c:l('template.ui.lastUpdTime')}" align="center" width="25%" />
+							</listhead>
+						</listbox>
+		              </hbox>
+		         	  <separator></separator>
+					   <hbox pack="end" width="100%">
+						  <hbox>
+								<textbox id="groupName"/>
+								<toolbarbutton id="addGroup"  label="" image="/images/template/zjfz.gif"/>
+						  </hbox>
+						</hbox>
+            	    </panelchildren>
+                </panel>
+       	</div>
+    	</center>
+ </borderlayout>
+</window>
+</zk>

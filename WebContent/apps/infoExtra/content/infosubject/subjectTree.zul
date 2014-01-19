@@ -1,0 +1,69 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="采集主题" border="normal" use="com.uniwin.webkey.infoExtra.infosubject.SubjectTree" closable="true" width="500px" height="550px">
+	<vbox>
+	<tabbox>
+		<tabs>
+			<tab label="选择采集方向" id="choose"/>
+			<tab label="创建采集方向" id="build"/>
+		</tabs>
+		<tabpanels>
+			<tabpanel height="100%">
+			<vbox>
+				<tree id="subTree" width="100%" height="100%" zclass="z-filetree" sclass="new-tree" 
+							 rows="15"  multiple="true" pageSize="15" mold="paging">
+	
+				</tree>
+			
+			<listbox sclass="new_listbox">
+				<listhead>
+					<listheader width="14%"/><listheader width="86%"/>
+				</listhead>
+				<listitem>
+					<listcell>
+						<label>任务名称：</label>
+					</listcell>
+					<listcell>
+						<textbox id="task1" width="99%"/>
+					</listcell>
+				</listitem>
+			</listbox>
+			
+			</vbox>
+			</tabpanel>
+			<tabpanel>
+				<listbox width="100%" sclass="new_listbox">
+					<listhead>
+						<listheader width="14%"/>
+						<listheader width="86%"/>
+					</listhead>
+					<listitem>
+						<listcell><label>采集方向:</label></listcell>
+						<listcell><textbox id="extract" width="99%"/></listcell>
+					</listitem>
+					<listitem>
+						<listcell><label>任务名称：</label></listcell>
+						<listcell><textbox id="task2" width="99%"/></listcell>
+					</listitem>
+				</listbox>
+				
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+	<separator/>
+	<div align="center">
+	<hbox>
+		<toolbarbutton  id="ok"  label="" image="/images/common/qd.gif"/>
+		<space width="20px"/>
+		<toolbarbutton  id="canel" label="" image="/images/common/qx.gif"/>
+	</hbox>
+	<!--  
+	<button label="确定" id="ok"/>
+	<space width="20px"/>
+	<button label="取消" id="canel"/>
+	-->
+	</div>
+	
+	</vbox>
+</window>
+</zk>

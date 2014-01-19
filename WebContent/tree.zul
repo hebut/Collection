@@ -1,0 +1,21 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="tree" extends="tree" class="com.uniwin.webkey.system.ui.DBTree"?>
+<zk>
+<window title="new page title" border="normal">
+<tree tablename="wk_t_resource" labelfield="KR_NAME"  
+pkfield="KR_ID" imagefield="KR_ActiveImageurl" parentfield="KR_PID" hoverimgagefield="KR_ActiveImageurl" startpk="0" ></tree>
+	<listbox id="listbox" mold="select" onSelect="show()" >
+		<listitem label="aaa" selected="true" value="123"></listitem>
+		<listitem label="bbb" value="456" ></listitem>
+		<listitem label="ccc" value="789"></listitem>
+	</listbox>
+	<zscript>
+		public void show(){
+		try{
+			Messagebox.show(listbox.getSelectedItem().getValue(),"",Messagebox.OK,Messagebox.INFORMATION);
+			}catch(Exception e){
+			}
+		}
+	</zscript>
+</window>
+</zk>

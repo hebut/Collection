@@ -1,0 +1,111 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8" id="add"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window style="overflow:auto; background:#FFFFFF;" sclass="newin" height="100%" id="organizationUpdata_wind"
+		use="com.uniwin.webkey.core.ui.OrganizationAddWin">
+	<intbox id="order" width="200px" visible="false"></intbox>
+	
+		<separator/>
+	<listbox width="99%" sclass="new_listbox" fixedLayout="true" multiple="true">
+	<listhead>
+		<listheader width="10%"/>
+		<listheader width="40%"/>
+		<listheader width="10%"/>
+		<listheader width="40%"/>
+	</listhead>
+	<listitem>
+		<listcell>
+			<label value="${c:l('organization.zul.name')}:"/>
+		</listcell>
+		<listcell>
+			<textbox id="name" width="200px" maxlength="80" ></textbox>
+		</listcell>
+		<listcell>
+			<label value="${c:l('organization.zul.fullname')}:"></label>
+		</listcell>
+		<listcell>
+			<textbox id="fullName" width="200px" maxlength="100" ></textbox>
+		</listcell>
+	</listitem>
+		<listitem>
+			<listcell>
+				<label value="${c:l('organization.zul.shortname')}:"></label>
+			</listcell>
+			<listcell>
+				<textbox id="engName" width="200px" maxlength="10" ></textbox>
+			</listcell>
+			<listcell>
+				<label value="${c:l('organization.zul.type')}:"></label>
+			</listcell>
+			<listcell>
+				<combobox id="type" width="183px" readonly="true">
+							<comboitem label="${c:l('organization.zul.type.bm')}" value="0" />
+							<comboitem label="${c:l('organization.zul.type.dw')}" value="1" />
+						</combobox>
+			</listcell>
+		</listitem>
+		<listitem>
+			<listcell>
+				<label id="email_label" value="${c:l('organization.zul.email')}:"/>
+			</listcell>
+			<listcell>
+				<textbox id="email" width="200px" maxlength="40" ></textbox>
+			</listcell>
+			<listcell>
+				<label id="phone_label" value="${c:l('organization.zul.tel')}:"/>
+			</listcell>
+			<listcell>
+				<textbox id="telephoneNumber" maxlength="10" width="200px" constraint="/^([1-9]\d*)?$/:${c:l('organization.zul.telMessage')}" action="onClick:selectThis(this)"/>
+			</listcell>
+		</listitem>
+		<listitem>
+			<listcell>
+				<label id="postalCode_label"
+							value="${c:l('organization.zul.zipcode')}:">
+						</label>
+			</listcell>
+			<listcell>
+				<textbox id="postalCode" width="200px"  maxlength="20" action="onClick:selectThis(this)" />
+			</listcell>
+			<listcell>
+				<label value="${c:l('organization.zul.url')}:"></label>
+			</listcell>
+			<listcell>
+				<textbox id="site" width="200px"  maxlength="60" />
+			</listcell>
+		</listitem>
+		<listitem>
+			<listcell>
+				<label value="${c:l('organization.zul.code')}:"></label>
+			</listcell>
+			<listcell>
+				<textbox id="code" width="200px" maxlength="50" />
+			</listcell>
+			<listcell>
+				<label id="url_label" value="${c:l('organization.zul.address')}:">
+						</label>
+			</listcell>
+			<listcell>
+				<textbox id="postalAddress" width="200px" maxlength="100" />
+			</listcell>
+		</listitem>
+		<listitem>
+			<listcell>
+				<label value="${c:l('organization.zul.description')}:">
+						</label>
+			</listcell>
+			<listcell span="3">
+				<textbox id="description" rows="5" cols="30" width="505px" height="100px"  maxlength="255"/>
+			</listcell>
+		</listitem>
+		
+	</listbox>
+	<separator></separator>
+		<div align="center">
+			<toolbarbutton   label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.save')}" onClick="organizationUpdata_wind.addResource()"/>
+			<space width="10px"/>
+		</div>
+	</window>
+
+</zk>

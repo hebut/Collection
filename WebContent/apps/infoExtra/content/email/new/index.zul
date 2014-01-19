@@ -1,0 +1,54 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="newWinemail" title="发邮件" width="760px" style="text-align:left" use="com.uniwin.webkey.infoExtra.email.EmailNewWindow">
+				<grid>
+					<columns>
+						<column width="65px" />
+					</columns>
+					<rows>
+						<row spans="2">
+							<label value="注意: * 为必填项,支持10MB内多附件！收件人允许20人以内" style="color:red" width="50px" />
+						</row>
+						<row>
+							<label value="标题:" />
+							<hbox>
+								<textbox id="mlSubject" width="520px" />
+								<label style="color:red" value="*" />
+								<label id="help1" visible="false" value="请填写标题." />
+							</hbox>
+						</row>
+						<row>
+							<label value="收件人 :" width="50px" />
+							<hbox>
+								<textbox id="user_to" width="520px"/>
+								<label style="color:red" value="*" />
+								<button label="添加收件人" id="addUser" />
+							</hbox>
+						</row>
+						<row>
+							<label value="正文:" width="50px" />
+							<hbox width="100%">
+								<fckeditor height="270px" id="mlContent" width="680px" toolbarSet="Default"/>
+							</hbox>
+						</row>
+						<row id="rowFile" visible="false">
+							<label value="附件列表" />
+							<hbox>
+								<listbox id="upList" mold="select" rows="1" />
+								<button label="删除" id="deUpload" />
+							</hbox>
+						</row>
+						<row spans="2" align="center">
+							<hbox>
+								<button id="save" label="发送" style="font-size:13;" />
+								<space width="3px" />
+								<button id="upFile" label="上传附件" />
+								<space width="3px" />
+								<button id="reSend" label="重置" style="font-size:13" />
+							</hbox>
+						</row>
+					</rows>
+				</grid>
+
+	</window>
+</zk>

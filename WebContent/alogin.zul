@@ -1,0 +1,41 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<?link rel="icon" href="admin/images/favicons.ico" mce_href="admin/images/favicons.ico" type="admin/image/x-icon"?>
+<?link rel="shortcut icon" href="admin/images/favicons.ico" mce_href="admin/images/favicons.ico" type="admin/image/x-icon"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window width="100%" height="100%" contentStyle="background-image:url(images/background.jpg)">
+		<window width="580px" height="350px" contentStyle="background-image:url(images/login.jpg)" position="center" mode="overlapped">
+			<vbox>
+				<separator spacing="135px" /> 
+				<hbox>
+					<space spacing="320px" />
+					<window border="none" width="218px" use="com.uniwin.framework.ui.system.UserLoginWindow" mode="overlapped">
+						<hbox>
+							<space spacing="1px" />
+							<vbox>
+								<separator />
+								<hbox>
+									用   户   名:
+									<textbox id="j_username" name="j_username" width="123px" value="" constraint="no empty" />
+								</hbox>
+								<hbox>
+									密       　  码:
+									<textbox id="j_password" name="j_password" width="123px" type="password" />
+								</hbox>
+								<hbox>
+									截至日期:
+									<datebox id="endtime" name="endtime" width="123px"  />
+								</hbox>
+								
+							</vbox>
+						</hbox>
+						<toolbar mold="panel" align="center">
+							<button label="注册" id="resignButton" />
+							<button label="重置" id="resetButton" />
+						</toolbar>
+					</window>
+				</hbox>
+			</vbox>
+		</window>
+	</window>
+</zk>

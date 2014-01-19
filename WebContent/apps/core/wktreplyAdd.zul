@@ -1,0 +1,53 @@
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<window title="回复反馈信息"
+	use="com.uniwin.webkey.core.ui.WktreplyAddWin"
+	id="wktreplyAddWin" width="400px;">
+	<grid align="center" zclass="mygrid" sclass="win-grid">
+		<rows>
+			<row>
+
+				<div align="right">
+					<label value="反馈标题:" />
+				</div>
+
+				<div align="left" style="width:300px;word-wrap:break-word;overflow:hidden;">
+					<label
+						value="${wktreplyAddWin.wktmessages.KM_TITLE }" />
+				</div>
+			</row>
+			<row>
+
+				<div align="right">
+					<label value="反馈内容:" />
+				</div>
+
+				<div align="left" style="width:300px;word-wrap:break-word;overflow:hidden;">
+					<label
+						value="${wktreplyAddWin.wktmessages.KM_CONTENT }" />
+				</div>
+			</row>
+			<row>
+
+				<div align="right">
+					<label value="回复内容:" />
+				</div>
+
+				<div align="left">
+					<textbox id="KR_CONTENT" rows="10" cols="50"></textbox>
+				</div>
+			</row>
+
+			<row spans="4" align="center">
+				<div>
+					<image type="save"
+						onClick="wktreplyAddWin.addwktreply()" id="addwkthelp"
+						style="cursor:pointer;">
+					</image>
+					<space />
+					<image type="quit" onClick="wktreplyAddWin.detach()"
+						style="cursor:pointer;" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+</window>

@@ -1,0 +1,65 @@
+<?page id="messEdit"  contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="newInfoWindow" width="825px" style="text-align:left"
+		sclass="eagel-window" use="com.uniwin.webkey.infoExtra.infogenerated.NewInfo">
+		<panel>
+			<caption>
+				<hbox align="end">
+					<toolbarbutton id="send"
+						image="/images/messages/fasong.png" />
+					<toolbarbutton id="refresh"
+						image="/css/img/refresh.gif" />						
+				</hbox>
+			</caption>
+			<panelchildren>
+			  <grid width="100%">
+			     <columns>
+			       <column width="10%"></column>
+			       <column></column>
+			     </columns>
+			     <rows>
+					<row>
+						<label value="标题:" />
+						<hbox width="100%">
+							<textbox id="mailSubject" width="95%" />
+						</hbox>
+					</row>
+					<row id="inner">
+						<toolbarbutton id="in" label="收件人 :"
+							width="50px" />
+						<div>
+							<textbox id="mToInner" width="95%"
+								readonly="true" rows="2" />
+						</div>
+					</row>
+					<row>
+						<label value="内容模板:" />
+						<hbox width="100%">
+						    <listbox id="templateList" mold="select" width="32%">
+						    </listbox>
+						</hbox>
+					</row>					
+					<row spans="2">
+					  <listbox id="newinfolistbox" mold="paging" pageSize="10"
+					pagingPosition="bottom" checkmark="true" multiple="true" width="99%">
+						<listhead>
+							<listheader width="4%" />
+							<listheader label="序号" width="8%" align="center" />
+							<listheader label="标题" width="40%"
+								align="center" id="titleHeader" maxlength="20" />
+							<listheader label="发布时间" width="20%"
+								align="center" id="keywordHeader" />
+							<listheader label="信息来源" width="20%"
+								align="center" id="keywordHeader1" />								
+							<listheader label="操作" width="18%"
+								align="center" id="timeHeader" />
+						</listhead>
+					  </listbox>
+					</row>
+			     </rows>
+			  </grid>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

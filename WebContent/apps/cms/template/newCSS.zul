@@ -1,0 +1,57 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+<window id="newCssWindow" title="${c:l('newCSS.zul.newcss')}" border="normal"   width="570px" height="460px" style="text-align:left" sclass="newin" mode="modal"  closable="true" 
+        use="com.uniwin.webkey.system.parameters.template.win.NewCssWindow"  >
+    <grid>	  
+       <columns sizable="true">
+			<column  />
+			<column />
+			<column  />
+			<column />		
+		</columns>	
+	    <rows>
+			<row >			 
+				<label value="${c:l('template.ui.cssId')}" />
+				<hbox>
+					<textbox id="cssId" value="" width="60px" constraint="/^(.[A-z1-9]+)?$/:${c:l('template.ui.regularInfo')}"/>
+					<label value="("/>
+					<label value="*${c:l('template.ui.engOrNum')}"  style="color : #FF0000"/>
+					<label value=")"/>
+				</hbox>
+				<label value="${c:l('template.ui.cssName')}" />
+				<hbox>
+					<textbox id="cssName" width="110px" />
+					<label value="*" style="color : #FF0000" />	
+				</hbox>				
+			</row>
+			<row spans="6">
+			   <div sclass="win_grid_bac">${c:l('template.ui.cssDenf')}</div>
+			</row>
+			<row spans="6">
+			   <hbox>			 
+				 <textbox id="cssContent" rows="20" cols="73" height="310px" width="525px" context="editPopup">
+					</textbox>
+				</hbox>				
+			</row>
+		    	<row spans="6">
+					<div align="center">
+					<hbox>
+						<image type="save" id="save" />
+						<image src="../css/default/images/btn-res.jpg" id="ct" />
+						<image type="quit" id="renturn" />
+				  <!--      <toolbarbutton id="ct"  label="" image="/images/template/ct.gif"/>
+				        <toolbarbutton id="renturn"  label="" image="/images/template/fh.gif"/>	
+				     </hbox>
+					 	<toolbarbutton id="save"  label="" image="/images/common/actSave.gif"/>	-->
+					
+				   <!--      <toolbarbutton id="ct"  label="" image="/images/template/ct.gif"/>	--> 
+				     </hbox>
+				        			    
+					</div>
+		    </row>	    
+	    </rows>	
+    </grid>
+</window>
+</zk>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0"
+	xmlns:tuscany="http://tuscany.apache.org/xmlns/sca/1.0"
+	targetNamespace="http://serivce.SpringDemo.com" xmlns:c="http://SpringDemo"
+	name="Components">
+	<component name="webkey_UI">
+
+		<implementation.spring location="META-INF/sca-deployables/applicationContext-ws.xml"></implementation.spring>
+		<service name="usersManager">
+			<binding.ws></binding.ws>
+		</service>
+		<service name="roleManager">
+			<binding.ws></binding.ws>
+		</service>
+		<service name="permissionManager">
+			<binding.ws></binding.ws>
+		</service>
+		<service name="resourceManager">
+			<binding.ws></binding.ws>
+		</service>
+		<service name="organizationManager">
+			<binding.ws></binding.ws>
+		</service>
+	</component>
+
+
+
+</composite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0"
+	xmlns:tuscany="http://tuscany.apache.org/xmlns/sca/1.0"
+	targetNamespace="http://serivce.Permission.com" xmlns:c="http://Permission"
+	name="Permission">
+	<component name="Permission">
+		<implementation.spring location="META-INF/sca-deployables/applicationContext-permission.xml"></implementation.spring>
+        <service name="permissionManager">
+	      	<interface.java interface="com.uniwin.webkey.core.itf.IPermissionManager"/>
+        </service>
+	</component>
+</composite>

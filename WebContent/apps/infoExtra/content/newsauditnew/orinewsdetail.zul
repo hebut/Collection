@@ -1,0 +1,62 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<window id="win"   width="100%" height="100%" title="采集信息对照"   use="com.uniwin.webkey.infoExtra.newsaudit.OriauditNewsEditWindow" closable="true">
+<borderlayout height="95%">
+<west  flex="true" splittable="true"  size="53%">
+<grid fixedLayout="true">
+	<columns><column width="10%"/><column width="40%"/><column width="10%"/><column width="40%"/></columns>
+<rows>
+	<row>
+			<label value="信息标题:" />
+			<textbox  id="kititle" width="98%"/>
+			<label value="发布时间:" />
+			<textbox  id="ptime" width="98%"/>
+	</row>
+	<row>
+			<label value="副标题: "/>
+			<textbox  id="kititle2" width="98%"/>
+			<label value="信息来源:" />
+			<textbox  id="kisource" width="98%" />
+	</row>
+	<row>
+			<label value="关键字:" />
+			<textbox id="kikeys" width="98%"/>
+			<label value="所属任务:"/>
+			<hbox width="99%"><textbox  width="80%" id="taskname" /><toolbarbutton image="/images/content/1/xz.gif" id="choose" width="19%"/></hbox>
+	</row>
+	<row>
+			<label>所属分类</label>
+			<textbox  id="sort" width="98%" constraint="no empty" />
+			<toolbarbutton image="/images/content/1/xz.gif" id="chooseSort"/>
+			<space/>
+	</row>
+	<row spans="4">
+		<fckeditor  height="470px" width="100%"  id="kicontent" />
+	</row>
+</rows>
+</grid>
+	
+	</west>
+	
+	<center  flex="true">
+		<vbox width="100%">
+	    <hbox>
+			<label>源网址：</label><textbox id="url" width="300px"/><space width="20px"/><button id="refresh" label="刷新"/>	
+		</hbox> 
+		<iframe width="100%" height="560px" id="preView" scrolling="auto" style="border: 1px solid gray">
+		
+		</iframe>
+		
+	  </vbox>
+	
+	</center>
+	
+</borderlayout>
+<separator/>
+	<div sclass="pop-win-b-div"  align="center" height="5%">
+		<toolbarbutton id="save"   image="/images/content/btn-save.gif"  />
+		<toolbarbutton id="saudit"  image="/images/content/btn-pub.gif" />
+		<toolbarbutton image="/images/content/btn-resetb.gif" id="reset" />
+		<toolbarbutton image="/images/content/btn-close.gif"  id="back" onClick="win.detach()" />
+	</div>
+</window>

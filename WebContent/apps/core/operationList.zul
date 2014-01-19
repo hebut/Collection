@@ -1,0 +1,34 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window  height="100%" use="com.uniwin.webkey.core.ui.OperationListWin"
+		id="operationList_Win" sclass="newin" style="overflow:auto;">
+			<div align="right" width="100%">
+				<hbox>
+					<image src="/images/common/addAct.gif" onClick="operationList_Win.addOperation()" />
+					<image src="/images/common/delAct.gif" onClick="operationList_Win.deleteOperations()"/>
+				</hbox>
+			</div>
+			<separator height="7px"></separator>
+			<panel>
+			<panelchildren>
+				<listbox fixedLayout="true" id="listbox" sclass="new_listbox" multiple="true" checkmark="true">
+					<listhead >
+						<listheader width="25px" align="center" label="" />
+						<listheader width="40px" align="center" label="${c:l('system.common.zul.number')}" style="text-align:center" />
+						<listheader label="${c:l('operation.zul.name')}" sort="auto" style="text-align:center" />
+						<listheader label="${c:l('operation.zul.code')}" sort="auto" style="text-align:center" />
+						<listheader label="${c:l('operation.zul.explain')}" sort="auto" style="text-align:center" />
+						<listheader label="${c:l('system.common.zul.operat')}" width="50px" align="center" />
+					<!-- <listheader label="${c:l('users.zul.change')}" width="40px" align="center"
+							        style="font-weight:bold;text-align:center;color:#09499a;" />
+						<listheader label="${c:l('users.zul.delete')}" width="40px" align="center"
+							        style="font-weight:bold;text-align:center;color:#09499a;" /> -->	
+					</listhead> 
+				</listbox>	
+				<paging id="userPaging" zclass="z-paging"  pageSize="11" detailed="true"/>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

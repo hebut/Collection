@@ -1,0 +1,40 @@
+
+  <window  title="wktaccessory" apply="com.uniwin.webkey.core.ui.WktaccessoryAddWin" id="wktaccessoryAddWin" >
+		 	<grid align="center">
+			<columns>
+				<column width="100px" label="Name"/>
+				<column width="100px" label="Value"/>
+			</columns>
+		<rows>
+		
+		<row>
+		<div align="right">
+			<label value="wktaccessory.KA_ID"   />
+		</div>
+     <div align="left">
+	<intbox id="KA_ID"></intbox></div></row>
+
+		<row>
+		<div align="right">
+			<label value="wktaccessory.KA_NAME"   />
+		</div>
+     <div align="left">
+
+		<textbox id="KA_NAME" ></textbox></div></row>  
+
+		<row>
+		<div align="right">
+			<label value="wktaccessory.KM_ID"   />
+		</div>
+     <div align="left">
+	<intbox id="KM_ID"></intbox></div></row>
+ 
+	<row spans="4" align="center"><div>
+						<button label="OK"
+							onClick=""  id="addwktaccessory"/><space/>
+						<button label="Cancel" onClick="wktaccessoryAddWin.detach()" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>

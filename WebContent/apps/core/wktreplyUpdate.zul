@@ -1,0 +1,60 @@
+
+ 
+  <window  title="wktreply" use="com.uniwin.webkey.core.ui.WktreplyUpdateWin" id="updateWin" width="500px">
+		<grid align="center">
+			<columns>
+				<column width="100px" label="Name"/>
+				<column width="100px" label="Value"/>
+			</columns>
+		<rows>
+		
+	
+	  	<row>
+	
+		<div align="right">
+			<label value="wktreply.KR_CONTENT:"   />
+		</div>
+	   		
+	
+	<div align="left">	<textbox id="KR_CONTENT" value="${updateWin.wktreply.KR_CONTENT}"></textbox></div>
+	 
+	 
+
+	
+		<div align="right">
+			<label value="wktreply.KR_TIME:"   />
+		</div>
+	   		
+		<div align="left"><datebox format="yyyy-MM-dd" id="KR_TIME" value="${updateWin.wktreply.KR_TIME}"></datebox></div></row>
+ 
+	 
+
+	
+	  	<row>
+	
+		<div align="right">
+			<label value="wktreply.KM_ID:"   />
+		</div>
+	   		
+	<div align="left">	<intbox id="KM_ID" value="${updateWin.wktreply.KM_ID}"></intbox></div>
+ 
+	 
+
+	
+		<div align="right">
+			<label value="wktreply.KU_ID:"   />
+		</div>
+	   		
+	<div align="left">	<intbox id="KU_ID" value="${updateWin.wktreply.KU_ID}"></intbox></div></row>
+ 
+	 
+ 
+	<row spans="4" align="center"><div>
+						<button label="OK"
+							onClick="updateWin.updatawktreply(event)" id="updatewktreply"/><space/>
+						<button label="Cancel" onClick="updateWin.detach()" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>

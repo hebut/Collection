@@ -1,0 +1,83 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window sclass="newin" width="100%" height="100%" 
+		use="com.uniwin.webkey.infoExtra.taskmanager.TaskManagerEditWindow">
+		<separator/>
+			<div width="99%" align="right">		
+						<hbox>
+							<toolbarbutton  id="save" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.save')}" />
+							<toolbarbutton id="authTask" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.cms.authChanel')}" />
+							
+						</hbox>
+			</div>
+			<separator></separator>			
+		<listbox sclass="new_listbox" fixedLayout="true" width="99%">
+			<listhead>
+				<listheader width="30%" align="left"/>
+				<listheader align="left"/>
+			</listhead>
+			<listitem>
+				<listcell>
+				    <label value="${c:l('task.zul.taskName')}:" style="word-break : keep-all" />
+				    <space />
+				</listcell>
+				<listcell>
+                    <hbox>
+					  <textbox id="tname" width="250px" constraint="no empty" />
+					  <label value="*" style="color:red;valign:center" />
+				    </hbox>
+				</listcell>
+			</listitem>
+			<!--<listitem>
+				<listcell>
+					<label value="${c:l('chanel.zul.parentChanel')}:" style="word-break : keep-all" />
+					<space />
+				</listcell>
+				<listcell>
+				  <hbox>
+					<listbox id="pselected" mold="select"  width="130px"
+					use="com.uniwin.webkey.cms.listbox.ChanelListbox">
+					</listbox>
+				 </hbox>
+				</listcell>
+			</listitem>
+			--><listitem id="selectItem">
+				<listcell>
+				    <label value="${c:l('chanel.zul.number')}:" style="word-break : keep-all" />
+					<space />
+				</listcell>
+				<listcell>
+					<hbox>
+						<intbox  id="orderno" width="250px" value="10" constraint="no empty,no zero"/>
+						<label value="*" style="color:red;valign:center" />
+					</hbox>
+				</listcell>
+			</listitem>
+			<listitem id="isAudit">
+				<listcell>
+					<label value="${c:l('chanel.zul.isAudit')}:" style="word-break : keep-all" />
+					<space />	
+				</listcell> 
+				<listcell>
+					<listbox id="audit" rows="1" mold="select" width="70px" >
+						<listitem id="ok" label="${c:l('chanel.zul.yes')}" selected="true"/>
+						<listitem id="no" label="${c:l('chanel.zul.no')}"/>
+						</listbox>
+						<label id="nothing" visible="false">无</label>				
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+				    <label value="任务描述:" style="word-break : keep-all" />
+					<space />
+				</listcell>	
+				<listcell> 
+					<hbox>
+						<textbox id="desc" width="250px" rows="2" />
+					</hbox>
+				</listcell>
+			</listitem>
+		</listbox>
+		
+	</window>
+</zk>

@@ -1,0 +1,174 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style>div.z-row-cnt { padding:0 0; }</style>
+	<window>
+		<window id="loginwin_wind" onOK="loginwin_wind.loginTosystem()"  mode="overlapped" width="1200px" height="1000px" position="center" use="com.uniwin.webkey.core.ui.LoginWin">
+			<borderlayout>
+				<north size="400px" style="background-color:#d9f3ff">
+					<vbox width="100%" height="110px" spacing="0">
+						<hbox width="100%" height="80px">
+						<image src="/css/default/images/logo/0L.jpg" height="80px" width="995px"  ></image>
+						</hbox>
+						<grid style="border:0gpx">
+							<columns>
+								<column align="right" width="200px" />
+								<column align="left" width="700px" />
+								<column align="left" />
+							</columns>
+							<rows>
+								<row
+									style="padding:0;border-width:medium 0px 0px">
+									<menubar>
+										<menuitem id="loguser" />
+									</menubar>
+									<menubar id="onebar" />
+									<menubar>
+										<menuitem id="loginOut"
+											label="注销" />
+									</menubar>
+								</row>
+							</rows>
+						</grid>
+					</vbox>
+					
+				</north>
+				<west id="westLeft" size="400px" border="0" flex="true" splittable="true" margins="0,5,0,0">
+                      <div>
+                      <panel>
+                         <panelchildren>
+                         <vbox>
+                            <toolbarbutton label="Home" />
+                            <toolbarbutton label="Sitemap" />
+                            <toolbarbutton label="Statement of Direction" />
+                            <toolbarbutton label="ZK Team" />
+                            <toolbarbutton label="Releases" />
+                            <toolbarbutton label="Calender" />
+                        </vbox>
+                       </panelchildren>
+                      </panel>
+                                   <panel width="100%" border="normal" title="Why ZK ? ">
+                    <panelchildren>
+                        <html><![CDATA[ 
+                            <ul> 
+                                <li>Productivity</li> 
+                                <li>Security</li>
+                                <li>Performance</li>
+                                <li>Totally Control</li>
+                                <li>Auto Testing</li>
+                                <li>Scalability</li>
+                                <li>Flexibility</li>
+                            </ul> 
+                        ]]></html>
+                    </panelchildren>
+                        </panel>
+                        </div>
+			    </west>
+				<center flex="true" size="400px">
+				<div>
+                      <panel>
+                         <panelchildren>
+                         <vbox>
+                            <toolbarbutton label="Home" />
+                            <toolbarbutton label="Sitemap" />
+                            <toolbarbutton label="Statement of Direction" />
+                            <toolbarbutton label="ZK Team" />
+                            <toolbarbutton label="Releases" />
+                            <toolbarbutton label="Calender" />
+                        </vbox>
+                       </panelchildren>
+                      </panel>
+                                   <panel width="100%" border="normal" title="Why ZK ? ">
+                    <panelchildren>
+                        <html><![CDATA[ 
+                            <ul> 
+                                <li>Productivity</li> 
+                                <li>Security</li>
+                                <li>Performance</li>
+                                <li>Totally Control</li>
+                                <li>Auto Testing</li>
+                                <li>Scalability</li>
+                                <li>Flexibility</li>
+                            </ul> 
+                        ]]></html>
+                    </panelchildren>
+                        </panel>
+                        </div>
+				</center>
+				<east>
+				<div>
+                      <panel>
+                         <panelchildren>
+                         <vbox>
+                           <hbox>
+                             <label value="用户名:"/>
+                             <textbox id="loginName"    action="onClick:selectThis(this)"
+									maxlength="20" width="150px" height="18px"/>
+                           </hbox>
+                           <hbox>
+                             <label value="密码:"/>
+                             <textbox id="password"   action="onClick:selectThis(this)"
+									type="password" width="150px" height="18px"/>
+                           </hbox>
+                           <hbox>
+                             <label value="验证码"  style="color:black;font-weight:bold"
+									sclass="code" zclass="code"/>
+						     <textbox value="" action="onClick:selectThis(this)"
+									id="loginCode"  width="150px" height="18px"/>
+                           </hbox>
+                           <hbox>
+                               <image src="${c:l('login.zul.loginimage')}"  hover="${c:l('login.zul.loginhoverimage')}" 
+									onClick="loginwin_wind.loginTosystem()">
+								</image>
+								<space width="30px"></space>
+								<image src="${c:l('login.zul.resetimage')}" hover="${c:l('login.zul.resethoverimage')}" 
+									onClick="loginwin_wind.resetTosystem()">
+								</image>
+                           </hbox>
+                         </vbox>
+                       </panelchildren>
+                      </panel>
+                                   <panel width="100%" border="normal" title="Why ZK ? ">
+                    <panelchildren>
+                        <html><![CDATA[ 
+                            <ul> 
+                                <li>Productivity</li> 
+                                <li>Security</li>
+                                <li>Performance</li>
+                                <li>Totally Control</li>
+                                <li>Auto Testing</li>
+                                <li>Scalability</li>
+                                <li>Flexibility</li>
+                            </ul> 
+                        ]]></html>
+                    </panelchildren>
+                        </panel>
+                        </div>
+				</east>
+				<south>
+					<vbox>
+						<separator spacing="1px" />
+						<hbox pack="start" width="100%">
+							<space spacing="1px" width="160px" />
+							<hbox>
+								<label id="loginTime" />
+								<button id="resetSessionCount"
+									label="获取在线人数" visible="false" disabled="false">
+								</button>
+								<separator spacing="20" width="160px" />
+								<label id="lastIP" visible="false" />
+								<label
+									value="本站建议使用IE浏览器       分辨率1024×768" />
+								<space width="90px"></space>
+
+								<button id="resetEhcache" label="重置缓存"
+									visible="false" disabled="true">
+								</button>
+							</hbox>
+						</hbox>
+						<separator spacing="1px" />
+					</vbox>
+				</south>
+			</borderlayout>
+		</window>
+	</window>
+</zk>

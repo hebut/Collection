@@ -1,0 +1,49 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window border="normal" title=" 查看邮件" width="770px" use="com.uniwin.webkey.infoExtra.email.ReceiveMailViewWindow" closable="true">
+		<grid width="100%">
+			<columns>
+				<column width="12%" align="center" />
+			</columns>
+			<rows>
+				<row>
+					<label value="标题:" />
+					<hbox>
+						<label id="emailSubject" width="440px" />
+					</hbox>
+				</row>
+				<row>
+					<label value="发件人:" />
+					<hbox>
+						<label id="emailFrom" width="440px" />
+					</hbox>
+				</row>
+				<row>
+					<label value="时间:" />
+					<hbox>
+						<label id="emailDate" width="440px" />
+					</hbox>
+				</row>
+				<row >
+					<label value="收件人:" />
+					<hbox>
+						<label id="emailReceive" width="440px" />
+					</hbox>
+				</row>
+				
+				<row height="150px">
+					<label value="正文:" />
+					<hbox>
+						<html id="emailContent"></html>
+					</hbox>
+				</row>
+				
+			</rows>
+		</grid>
+		<hbox width="100%" pack="center">
+			<hbox>				
+				<button id="concel" label="关闭" />
+			</hbox>
+		</hbox>
+	</window>
+</zk>

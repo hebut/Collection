@@ -1,0 +1,76 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="w"  border="normal" width="800px"  height="460px;"  use="com.uniwin.webkey.infoExtra.task.TaskAuthEditWindow">
+		<caption image="/css/img/win-ico.gif" />
+		<grid>
+			<columns>
+				<column width="10%" />
+				<column width="70%" />
+				<column width="20%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="任务列表" />
+					<textbox id="ktname" width="90%" />
+					<toolbarbutton image="/images/content/1/xz.gif"  id="taskChoose" />
+				</row>
+				<row>
+					<label value="角色列表" />
+					<hbox>
+						<combobox id="ktrole" use="com.uniwin.webkey.infoExtra.combobox.RoleCombobox" autodrop="true"  width="100"/>
+						<separator width="5" />
+						<label value="部门列表" />
+						<combobox id="ktdept" use="com.uniwin.webkey.infoExtra.combobox.DeptCombobox" autodrop="true" width="100"/>
+						　　　　
+						<separator width="55px" />
+						<label value="IP设定" />
+					</hbox>
+					<label value="当前权限" />
+				</row>
+			</rows>
+		</grid>
+
+		<hbox>
+			<listbox id="rolelist" height="320px" width="190px"
+				multiple="true" use="com.uniwin.webkey.infoExtra.listbox.DeptRoleListbox">
+			</listbox>
+			<listbox id="deptlist" use="com.uniwin.webkey.infoExtra.listbox.DeptListbox"
+				height="320px" width="190px" multiple="true">
+			</listbox>
+			<vbox pack="center" width="160px" align="center">
+				<textbox id="authIp" />
+				<checkbox label="管理权限" id="managerAuth" />
+				<checkbox label="审核权限" id="auditAuth" />
+				<toolbarbutton image="/css/img/addAct.gif" id="addAuth" />
+				<toolbarbutton image="/css/img/delAct.gif" id="deleteAuth"/>
+				<toolbarbutton image="/images/content/1/qkk.jpg" id="clearAuth"/>
+			</vbox>
+			<listbox id="hasAuth" width="230px" multiple="true"
+				height="320px" rows="18"
+				use="com.uniwin.webkey.infoExtra.listbox.WebsiteAuthListbox">
+
+			</listbox>
+		</hbox>
+		<hbox>
+			<label value="当前权限：" />
+			<label id="curauth" />
+		</hbox>
+			<div align="center" sclass="pop-win-b-div">
+			<radiogroup>
+				<radio label="完全设置" id="totalSet" checked="true"/>
+				<radio label="增量设置" id="addSet"  />
+			</radiogroup>
+			<toolbarbutton id="submit" image="/css/img/btn-save.gif" />						
+	                    <toolbarbutton id="reset" image="/css/img/btn-resetb.gif" />
+                     	<toolbarbutton id="close" image="/css/img/btn-close.gif"/>
+        </div>
+	</window>
+	<style>
+.comb_text{
+ 
+}
+.comb_text td{
+   padding-left:8px; 
+}
+</style>
+</zk>

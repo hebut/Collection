@@ -1,0 +1,105 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title=" " contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="" border="normal" sclass="newin"
+		use="com.uniwin.webkey.core.ui.UserroleWin" id="userrole_win" width="720px" closable="true" height="470px">
+		<hbox>
+			<groupbox mold="3d" width="100%">
+				<caption label="${c:l('role.zul.notuseduser')}"
+					action="onClick:function a(){}">
+					<bandbox id="organizationId" width="120px"
+						onChange="userrole_win.clearUserUser(event)">
+						<bandpopup>
+							<tree id="parentData" width="133px" use="com.uniwin.webkey.tree.ui.OrganizationTree">
+							</tree>
+						</bandpopup>
+					</bandbox>
+				</caption>
+				<listbox fixedLayout="true" multiple="true" rows="10" mold="paging" pageSize="10" 
+					checkmark="true" sclass="new_listbox" id="users_listbox">
+					<listhead>
+						<listheader width="25px" label="" />
+						<listheader label="${c:l('role.zul.username')}"
+							sort="auto" />
+						<listheader label="${c:l('role.zul.loginname')}"
+							sort="auto" />
+					</listhead>
+					<listitem forEach="${userrole_win.users }"
+						value="${each }">
+						<listcell />
+						<listcell label="${each.name }" />
+						<listcell label="${each.loginName }" />
+					</listitem>
+				</listbox>
+			</groupbox>
+			<vbox>
+				<separator />
+				<separator />
+				<separator />
+				<separator />
+				<separator />
+				<separator />
+				<separator />
+				<separator />
+				<separator />
+				<separator />
+				<separator />
+				<toolbarbutton width="50px" 
+					image="/images/resource/allArrowRight.gif"
+					hoverImage="/images/resource/allArrowRightHover.gif"
+					onClick="userrole_win.allToRight()">
+				</toolbarbutton>
+				<toolbarbutton width="50px" 
+		            image="/images/resource/resourceArrowRight.gif"
+				    hoverImage="/images/resource/resourceArrowRightHover.gif"
+					onClick="userrole_win.toRight()">
+				</toolbarbutton>
+				<toolbarbutton width="50px" 
+				    image="/images/resource/arrowLeft.gif"
+				    hoverImage="/images/resource/arrowLeftHover.gif"
+					onClick="userrole_win.toLeft()">
+				</toolbarbutton>
+				<toolbarbutton width="50px" 
+				    image="/images/resource/allArrowLeft.gif"
+				    hoverImage="/images/resource/allArrowLeftHover.gif"
+					onClick="userrole_win.allToLeft()">
+				</toolbarbutton>
+				
+			</vbox>
+			<groupbox mold="3d" width="100%">
+				<caption label="${c:l('role.zul.useduser')}"
+					action="onClick:function a(){}">
+					<bandbox id="organizationUse" width="120px"
+						onChange="userrole_win.clearUser(event)">
+						<bandpopup>
+							<tree width="133px" id="organizations"
+								use="com.uniwin.webkey.tree.ui.OrganizationTree">
+							</tree>
+						</bandpopup>
+					</bandbox>
+				</caption>
+				<listbox fixedLayout="true" multiple="true" rows="10"  mold="paging" pageSize="10"
+					checkmark="true" sclass="new_listbox" id="userrole_listbox">
+					<listhead>
+						<listheader width="25px" label="" />
+						<listheader label="${c:l('role.zul.username')}"
+							sort="auto" />
+						<listheader label="${c:l('role.zul.loginname')}"
+							sort="auto" />
+					</listhead>
+					<listitem forEach="${userrole_win.userroleUsers }"
+						value="${each }">
+						<listcell />
+						<listcell label="${each.name }" />
+						<listcell label="${each.loginName }" />
+					</listitem>
+				</listbox>
+			</groupbox>
+		</hbox>
+		<separator />
+		<div align="center" width="100%">
+			<image type="save" onClick="userrole_win.save()"></image>
+		</div>
+	</window>
+</zk>

@@ -1,0 +1,11 @@
+<?page title=" " contentType="text/html;charset=UTF-8" id="page"?>
+<zk>
+	<window title="${c:l('wkaccessory.zul.fjList')}" border="Normal"
+		use="com.uniwin.webkey.core.ui.WktaccessoryWin"
+		id="wktaccessoryWin" width="80%">
+		<listbox id="listbox" mold="paging" fixedLayout="true" sclass="new_listbox"
+			pageSize="10" height="200px" width="100%">
+			<listhead id="listhead" sizable="true"></listhead>
+		</listbox>
+	</window>
+</zk>

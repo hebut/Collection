@@ -1,0 +1,12 @@
+/*  
+Theme Name: default
+Description: Default ZK CSS from norm.css.dsp
+Author: ---
+Author URI: http://---------
+*/ 
+
+/* 首页快捷导航样式*/
+.new-north tr.z-vbox-sep{display:none;}
+.nav-bar{background:url(images/system/top_navbg.jpg) repeat-x;width:100%;height:31px;overflow:hidden;white-space:nowrap;}
+.nav-bar button{font-size:12px;}
+

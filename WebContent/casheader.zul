@@ -1,0 +1,95 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<script type="text/javascript">
+
+	function lblPassImg(lbl,id)
+	{
+		var img=document.getElementById(id);
+		
+	}
+</script>
+	<style >
+		.fontSize{ font-size:10pt;font-style:normal;color:#113F95; }
+		.toolBar{margin:5px 0px 0px 0px;}
+	</style>
+	<window height="100%" use="com.uniwin.webkey.system.ui.CasHeaderWin"
+		id="headerWin_info">
+		<div
+			style="background-image:url('${c:l('webindex.zul.webkey5-26_02image')}');">
+			<hbox align="left" id="firstMenu">
+				<image src="${c:l('webindex.zul.webkey5-26_01image')}"
+					align="left" />
+				<space />
+				<space />
+				<space />
+				<space />
+				<space />
+				<space />
+				<space />
+				<space />
+				<image src="${c:l('webindex.zul.webkey_04image')}"
+					hover="${c:l('webindex.zul.webkey5-26_04image')}" onClick="headerWin_info.test()" />
+				<image src="${c:l('webindex.zul.webkey_05image')}"
+					hover="${c:l('webindex.zul.webkey5-26_05image')}"
+					onClick="headerWin_info.showUsersUpdatePassword()" />
+				<image src="${c:l('webindex.zul.webkey_06image')}"
+					hover="${c:l('webindex.zul.webkey5-26_06image')}"
+					onClick="headerWin_info.showUsersInfo()" />
+				<image src="${c:l('webindex.zul.webkey_07image')}"
+					hover="${c:l('webindex.zul.webkey5-26_07image')}"
+					onClick="headerWin_info.showFavorite()" />
+				<image src="${c:l('webindex.zul.webkey_08image')}" id="img_loginOff"
+					hover="${c:l('webindex.zul.webkey5-26_08image')}"
+					onClick="headerWin_info.loginOff()" />
+			</hbox>
+		</div>
+		<toolbar width="100%">
+			<hbox align="left" width="100%" style="width:100%;">
+				<div style="margin-top:5px;" width="100%">
+
+					<label style="font-size:10pt;" value="${c:l('webindex.zul.currentsite')}"
+						sclass="fontSize" />
+					<combobox value="RBAC${c:l('webindex.zul.comprehensivepresentation')}"
+						style="font-size:10pt;">
+						<comboitem label="RBAC${c:l('webindex.zul.comprehensivepresentation')}" />
+					</combobox>
+				</div>
+				<div align="right">
+					<hbox align="end">
+						<div id="simeMap_div" width="100%" align="left"
+							style="margin-left:0px;">
+						</div>
+						<space />
+						<space />
+						<space />
+						<div>
+							<label style="font-size:10pt;"
+								sclass="fontSize" id="userInfo_label" value="" />
+							<space />
+							<label style="font-size:10pt;"
+								sclass="fontSize" id="roleInfo_label" />
+						</div>
+						<space />
+						<space />
+						<space />
+						<image src="${c:l('webindex.zul.skinoneimage')}" sclass="toolBar"
+					hover="${c:l('webindex.zul.skinthreeimage')}" onClick="headerWin_info.showSkin()" />
+						
+						<space />
+					</hbox>
+				</div>
+			</hbox>
+		</toolbar>
+		<menupopup id="menupopup">
+			<menuitem label="${c:l('webindex.zul.default')}" value="defult"
+				onClick="headerWin_info.changeSkin(event)" />
+			<menuitem label="${c:l('webindex.zul.purple')}" value="zkthemerSkinPurple"
+				onClick="headerWin_info.changeSkin(event)" />
+			<menuitem label="${c:l('webindex.zul.res')}" value="zkthemerSkinRed"
+				onClick="headerWin_info.changeSkin(event)" />
+			<menuitem label="${c:l('webindex.zul.block')}" value="zkthemerSkinBlack"
+				onClick="headerWin_info.changeSkin(event)" />
+		</menupopup>
+	</window>
+</zk>

@@ -1,0 +1,12 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="文本查看框" border="normal" use="com.uniwin.webkey.infoExtra.tasktemp.Reader" closable="true" height="300px" width="400px" contentStyle="overflow:auto">
+<!--<html id="text"  height="280px" width="380px">
+
+</html>-->
+
+<textbox id="text"  height="300px" width="380px" multiline="true">
+
+</textbox>
+</window>
+</zk>

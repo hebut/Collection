@@ -1,0 +1,22 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style src="${c:l('webindex.zul.css')}${themeName}${c:l('webindex.zul.cssfile')}"></style>
+	<script type="text/javascript">
+		var imgs=new Array(); function passImg(img) {
+		as=img.getElementsByTagName("a");
+		as[0].style.background='url(${c:l('webindex.zul.downimage')})';
+		as[0].style.backgroundRepeat="no-repeat";
+		imgs[imgs.length]=as[0]; for(var i=0;i!=imgs.length-1;i++) {
+		if(imgs[i]!=as[0]) {
+		imgs[i].style.background='url(${c:l('webindex.zul.rightimage')})';
+		imgs[i].style.backgroundRepeat="no-repeat"; } } }
+	</script>
+	<window height="100%" use="com.uniwin.webkey.system.ui.LeftPageWin" style="margin:0">
+		<tabbox mold="accordion" height="100%" width="200px" id="treeTab" sclass="new-acord" style="border:0px" >
+			<tabs id="firstMenu" style="border:0px" align="center" ></tabs>
+			<tabpanels height="100%" id="firstTree" style="border:0px" >
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

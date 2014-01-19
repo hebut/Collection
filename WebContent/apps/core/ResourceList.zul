@@ -1,0 +1,36 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<?page title="${c:l('resource.zul.resourcemanager')}" id="resourceListPage" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window height="100%" id="resourceList_win" width="100%" use="com.uniwin.webkey.core.ui.ResourceListWin">
+		<borderlayout sclass="wihte-border-layout">
+			<west title="${c:l('resource.zul.menu')}" id="leftPage"  width="180px" flex="true" collapsible="true">
+				<vbox width="180px">
+					<div align="left" width="200px">
+						<tree id="parentData" width="100%" height="90%" rows="19" zclass="z-filetree" sclass="new-tree" style="border:0;background:#FFFFFF;"
+								  use="com.uniwin.webkey.tree.ui.ResourceTree">
+						</tree>
+					</div>
+			   </vbox>
+			</west>
+			<center id="center" flex="true" sclass="z-panel-children">
+				<include id="updataPage"></include>
+			</center>
+			<east id="east" width="35%" title="${c:l('resource.zul.resourcelicense')}" flex="true"  collapsible="true">
+				<include id="permission_include"></include>
+			</east>
+		</borderlayout>
+		<zscript><![CDATA[
+			if (Sessions.getCurrent().getAttribute("themeName").toString().equals("defult")) {
+				center.setStyle("border:1px solid #9ECAD8;overflow:hidden;border-left-width:1px;border-top-width:1px;border-right-width:1px;border-width:1px 1px 1px 1xp;");
+			}
+		]]></zscript>
+		<style if="${themeName=='defult'}">
+			.z-west-header {
+			background:url("images/system/layoutbankground.jpg")
+			repeat-x scroll 0 0 transparent; padding:2px 0px 4px 6px;
+			border-bottom:0px solid #9ECAD8; }
+		</style>
+	</window>
+
+</zk>

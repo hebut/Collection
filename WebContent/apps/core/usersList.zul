@@ -1,0 +1,58 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="${c:l('users.zul.usermanager')}" id="userList" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window height="100%" sclass="newin" use="com.uniwin.webkey.core.ui.UsersListWin" id="wind"  style="overflow:auto;">		
+		<script>function selectThis(o){ o.select(); }</script>
+	
+		<div align="right" width="100%">
+			  <hbox>	
+				<label value="${c:l('users.zul.organization')}:"/>
+				<bandbox id="organizationId" readonly="true" width="120px" height="15px">
+						<bandpopup>
+							<tree id="parentData" width="133px" use="com.uniwin.webkey.tree.ui.OrganizationTree"></tree>
+						</bandpopup>
+				</bandbox>						
+				<space></space>
+				<label value="${c:l('users.zul.name')}:"/>
+				<textbox id="name" action="onClick:selectThis(this)" width="120px" height="15px"></textbox>
+						
+				<space></space>
+				<label value="${c:l('users.zul.systemLoginName')}:"/>
+				<textbox id="loginName" action="onClick:selectThis(this)" width="120px" height="15px"></textbox>
+				<space></space>
+			<!--	<image visible="${ulop.SELECT }" type="search" onClick="wind.searchUsers()"></image>
+			 	<image type="add" if="${ulop.ADD}" onClick="wind.addUser(event)"></image>
+				<image type="del" if="${ulop.DEL }" onClick="wind.deleteCheckedUsers()"></image>	 -->
+				 <toolbarbutton   label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.search')}" onClick="wind.searchUsers()"/>
+				 <toolbarbutton   label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.add')}" onClick="wind.addUser(event)"/>
+				 <toolbarbutton  label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.delete')}" onClick="wind.deleteCheckedUsers()"/>	
+			</hbox>		
+		</div>
+		<separator></separator>
+	
+		<listbox id="usersData" fixedLayout="true"   sclass="new_listbox"  
+					multiple="true" checkmark="true">
+					<listhead>
+						<listheader  label="" width="3%"/>
+						<listheader label="${c:l('system.common.zul.number')}"
+							sort="auto"  width="5%" align="center"/>
+						<listheader label="${c:l('users.zul.name')}"
+							sort="auto" width="10%" align="center"/>
+					
+						<listheader
+							label="${c:l('users.zul.organization')}" sort="auto" width="30%" style="text-align:center"/>
+						<listheader
+							label="${c:l('users.zul.userstatus')}" sort="auto" width="8%" align="center"/>
+						<listheader
+							label="${c:l('users.zul.systemLoginName')}" sort="auto" width="15%" align="center"/>
+						<listheader
+							label="${c:l('users.zul.authorizationrole')}" width="21%" style="text-align:center"/>
+						<listheader label="${c:l('system.common.zul.operat')}"  width="7%" style="text-align:center"/>
+					</listhead>
+				</listbox>
+				<paging id="userPaging" zclass="z-paging" pageSize="12" detailed="true" />
+			
+	</window>
+
+</zk>

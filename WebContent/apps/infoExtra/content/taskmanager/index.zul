@@ -1,0 +1,20 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="taskManageWin" style="overflow:auto;" sclass="newin"	height="100%" width="100%"
+		use="com.uniwin.webkey.infoExtra.task.TasktypeTreeManage" >
+		<borderlayout height="100%" sclass="wihte-border-layout" width="100%">
+			<west id="taskWest" size="19%"  flex="true" collapsible="true"  title="${c:l('chanel.zul.index.chanel')}" sclass="main-west">
+					
+					     <tree id="managetree" width="100%" height="100%" zclass="z-filetree" sclass="new-tree" 
+							 rows="16" mold="paging" multiple="true" pageSize="16"/>
+					
+			</west>
+			<center id="taskMCen" flex="true">
+			</center>
+			<east id="taskEast" width="35%" title="${c:l('permission.zul.addlicense')}"  flex="true"  collapsible="true">
+			</east> 
+		</borderlayout>
+		
+		
+	</window>
+</zk>

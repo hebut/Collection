@@ -1,0 +1,147 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page contentType="text/html;charset=UTF-8" id="updata"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window id="resourceUpdata_wind" sclass="newin" use="com.uniwin.webkey.core.ui.ResourceUpdataWin" height="100%" width="100%">
+		<separator/>
+		<div width="99%" align="right">
+							<hbox>
+								<image src="/images/common/actSave.gif" if="${ResourceMap.ADD}"
+									   onClick="resourceUpdata_wind.updataResource()">
+								</image>
+								
+								<image src="/images/common/delAct.gif" if="${ResourceMap.DEL}"
+									   onClick="resourceUpdata_wind.resourceDelete()">
+								</image>
+								
+								<image src="/images/common/addAct.gif"
+									onClick="resourceUpdata_wind.resourceAdd()"
+									if="${ResourceMap.ADD}">
+								</image>
+								
+								<image src="/images/resource/authResource.gif" id="authorizeResouce" onClick="resourceUpdata_wind.addAuthorizeResouce()"/>
+							</hbox>
+		</div>
+		<separator></separator>
+		<listbox sclass="new_listbox" fixedLayout="true" width="99%">
+			<listhead>
+				<listheader width="30%" align="left"/>
+				<listheader align="left"/>
+			</listhead>
+			<listitem>
+				<listcell>
+				    <label value="${c:l('resource.zul.resourcename')}:"/>
+				</listcell>
+				<listcell>
+					<textbox id="name" width="220px" maxlength="50"
+						value="${resourceUpdata_wind.resource.name}"
+						action="onClick:selectThis(this)">
+					</textbox>
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+					<label id="resourceType_label" value="${c:l('resource.zul.resourcetype')}:"/>
+				</listcell>
+				<listcell>
+					<combobox id="resourceType" width="203px" readonly="true"
+						onChange="resourceUpdata_wind.viewChangeByresoucetype()">
+						<comboitem label="${c:l('resource.zul.type.menu')}" value="00"></comboitem>
+						<comboitem label="${c:l('resource.zul.type.help')}" value="02"></comboitem>
+						<comboitem label="${c:l('resource.zul.type.pt')}" value="01"></comboitem>
+						<comboitem label="${c:l('resource.zul.type.yu')}" value="03"></comboitem>
+						<comboitem label="${c:l('resource.zul.type.function')}" value="04"></comboitem>
+					</combobox>
+				</listcell>
+			</listitem>
+			<listitem id="selectItem">
+				<listcell>
+				    <label id="parentRec" value="${c:l('resource.ui.parentRec')}:"/>
+				</listcell>
+				<listcell>
+					<listbox id="rSelect" mold="select" width="225px"
+						use="com.uniwin.webkey.cms.listbox.ResourceListbox">
+					</listbox>
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+					<label  value="${c:l('resource.zul.runningnumber')}:"/>
+				</listcell> 
+				<listcell>
+					<intbox id="weizhi" width="220px" maxlength="100"
+					        value="${resourceUpdata_wind.resource.weizhi }"/>					
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+				    <label id="url_label" value="${c:l('resource.zul.url')}:"/>
+				</listcell>	
+				<listcell> 
+					<textbox id="url" width="220px" maxlength="100"
+						value="${resourceUpdata_wind.resource.url }"
+						action="onClick:selectThis(this)" />
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+				    <label id="helpURl_label" value="${c:l('resource.zul.helpadd')}:"/>
+				</listcell>
+				<listcell>  
+					<textbox id="helpUrl" width="220px" maxlength="250"
+						value="${resourceUpdata_wind.resource.helpUrl }"
+						action="onClick:selectThis(this)" />
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+				    <label value="${c:l('resource.zul.description')}:"/>
+				</listcell> 
+				<listcell>  
+					<textbox id="description" width="220px" maxlength="250"
+						value="${resourceUpdata_wind.resource.description }"  rows="5"
+						cols="30"
+						action="onFocus: clearDefault(this);onBlur: resetDefault(this)" />
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+				    <label value="${c:l('resource.zul.activationicon')}:" id="activeLabel" />
+				</listcell> 
+				<listcell>   
+				    <div>
+						<image src="${c:l('resource.zul.uploadAddimage')}" hover="${c:l('resource.zul.uploadAddhoverimage')}"   id="upFileActive">
+							<attribute name="onClick">
+								resourceUpdata_wind.addImage("activeImageurl");
+							</attribute>
+						</image>
+						<image id="activeImage" 
+							width="30px" height="30px">
+						</image>
+					</div>					
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+					<label value="${c:l('resource.zul.noactivationicon')}:" id="inactiveLabel" />
+				</listcell>
+				<listcell>
+					<div>
+						<image
+							src="${c:l('resource.zul.uploadAddimage')}" hover="${c:l('resource.zul.uploadAddhoverimage')}" 
+							id="upFileInactive">
+							<attribute name="onClick">
+								resourceUpdata_wind.addImage("inactiveImageurl");
+							</attribute>
+						</image>
+						<image id="inactiveImage"
+							width="30px" height="30px" />
+					</div>
+				</listcell>
+			</listitem>
+			
+		</listbox>
+		
+	</window>
+</zk>

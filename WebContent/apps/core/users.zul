@@ -1,0 +1,44 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="${c:l('users.zul.userinfo')}" id="userList" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="${c:l('users.zul.userinfo')}" border="normal" sclass="newin"  height="230px" width="300px"
+		use="com.uniwin.webkey.core.ui.UsersWin" id="userWind_info">
+		<div align="center">
+			<grid align="center" zclass="pop-grid">
+				<columns>
+					<column align="right" width="35%"></column>
+					<column width="3%"></column>
+					<column align="left"></column>
+				</columns>
+				<rows>
+					<row height="25px" zclass="pop-grid-rows">
+						<label value="${c:l('users.zul.name')}:" style="font-weight:bold"/>
+						<separator></separator>
+					    <label id="name" value="${userWind_info.user.name }" />
+					</row>
+					<row height="25px" zclass="pop-grid-rows">
+						<label value="${c:l('users.zul.organization')}:" style="font-weight:bold"/>
+						<separator></separator>
+					    <label id="organizationName" value="${userWind_info.user.organizationName }" />
+					</row>
+					<row height="25px" zclass="pop-grid-rows">
+						<label value="${c:l('users.zul.status')}:" style="font-weight:bold"/>
+						<separator></separator>
+					    <label id="state" value="${userWind_info.user.state }" />
+					</row>
+					<row height="25px" zclass="pop-grid-rows">
+						<label value="${c:l('users.zul.loginname')}:" style="font-weight:bold"/>
+						<separator></separator>
+					    <label id="loginName" value="${userWind_info.user.loginName }" />
+					</row>
+					<row height="25px" zclass="pop-grid-rows">
+						<label value="${c:l('users.zul.role')}:" style="font-weight:bold"/>
+						<separator></separator>
+					    <label id="roleName" value="${userWind_info.user.roleName }" />
+					</row>
+				</rows>
+			</grid>	
+		</div>	
+	</window>
+</zk>

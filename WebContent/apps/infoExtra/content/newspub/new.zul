@@ -1,0 +1,72 @@
+<zk>
+<window id="win" title="发布信息" border="normal"  width="920px"   contentStyle="overflow:auto" use="com.uniwin.webkey.infoExtra.newspub.NewsNewWindow" >
+<vbox>
+<hbox >
+<label value="标题:" width="70px" />
+<space width="20px"/>
+<textbox   width="320px"  id="kititle" constraint="no empty" />
+<label value="*" style="color:red;valign:center" />
+<space width="20px"/>
+<label value="副标题:"  width="70px" />
+
+<textbox width="320px" id="kititle2"/>
+</hbox>
+
+<hbox>
+<label value="发布频道:" width="66px"/>
+<textbox  id="taskname"  width="250px"/>
+<space />
+<toolbarbutton image="/images/content/1/xz.gif" id="choose"/>
+<space width="30px"/>
+<label value="来源:" />
+<space width="10px"/>
+<textbox width="320px"  id="kisource"/>
+</hbox>
+<hbox>
+<label value="关键字:" width="70px"/>
+<space width="7px"/>
+<textbox width="320px" id="kikeys"/>
+<space width="20px"/>
+<label value="失效日期:"/>
+<datebox id="kivaliddate" width="130px"/>
+
+</hbox>
+<hbox >
+<label value="信息分类:" width="70px"/>
+<textbox width="650px" id="kiSort" Readonly="true" constraint="no empty"/>
+<toolbarbutton image="/images/content/1/xz.gif" id="chooseSort"/>
+</hbox>
+<hbox width="900px"  id="wdnews" >
+<label value="文档内容:" />
+<div>
+<fckeditor  height="340px" width="790px" id="kicontent" /> <!-- toolbarSet="webkeyCms" -->
+</div>
+</hbox>
+<hbox id="fjnews"> 
+<space width="100px"/>
+ <label value="附件:" width="100px"/>
+ <space/>
+<toolbarbutton id="up" image="/images/content/tianjiafujian.png">
+				       <attribute name="onClick">
+				         <![CDATA[{
+				           	Object media = Fileupload.get();
+                            	if(media!=null){
+                              	    win.getModelList().add(media);
+								} else {
+									Messagebox.show("您没有选择要上传的文件！", "提示！", Messagebox.OK, Messagebox.INFORMATION);				
+								}       
+                         }]]></attribute>
+				    </toolbarbutton> <space width="160px"/>
+<label value="附件列表:" width="70px"/>
+<listbox mold="select"  rows="1" width="250px" id="upList" />
+ <toolbarbutton image="/images/content/delAct.gif" id="deUpload"/>
+</hbox>
+<div  align="center">
+<toolbarbutton id="save"  image="/images/content/btn-save.gif"  />
+<toolbarbutton id="saudit"  image="/images/content/btn-pub.gif" />
+<toolbarbutton image="/images/content/btn-resetb.gif" id="reset" />
+<toolbarbutton image="/images/content/btn-close.gif"  id="back" onClick="win.detach()" />
+</div>
+</vbox>
+</window>
+</zk>

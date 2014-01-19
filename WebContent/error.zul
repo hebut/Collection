@@ -1,0 +1,6 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="提示" border="normal" width="40%">
+系统发生错误，请重试。
+</window>
+</zk>

@@ -1,0 +1,4 @@
+<#global cache=JspTaglibs["/WEB-INF/taglib/oscache.tld"]>
+<#global bean=JspTaglibs["/WEB-INF/taglib/struts-tags.tld"]>
+<#import "/styles/public.ftl" as pub>
+<#import "/styles/PageCtrl.ftl" as pc>

@@ -1,0 +1,21 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="HTML标记编辑器" border="normal" use="com.uniwin.webkey.infoExtra.tasktemp.HtmlSign" closable="true" width="600px" height="400px" id="signWin">
+<box>
+<listbox height="250px" width="100%" id="signList">
+<listhead><listheader label="标记名称"/><listheader label="标记值"/></listhead>
+
+</listbox>
+</box>
+<grid>
+	<rows>
+	<row><label>标记名称</label><label>标记值</label></row>
+	<row><textbox id="signName" width="99%"/><textbox id="signValue" width="99%"/></row>
+	</rows>
+</grid>
+<separator/>
+<hbox><space width="370px"/><button label="新建" id="newSign"/><button label="保存" id="saveSign"/><button label="删除" id="delete"/><button label="上移" id="moveUp"/><button label="下移" id="moveDown"/></hbox>
+<separator/><hbox><space width="500px"/><button label="确定" id="OK"/><button label="取消" id="cancel"/></hbox>
+
+</window>
+</zk>

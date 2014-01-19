@@ -1,0 +1,79 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window id="winnd"  border="normal"  width="910px"   contentStyle="overflow:auto" use="com.uniwin.webkey.infoExtra.newspub.NewsDetailWindow" closable="true">
+<caption  label="查看信息" />
+<vbox>
+<hbox >
+<label value="标题:" width="70px" />
+<space width="20px"/>
+<textbox   width="320px" id="kititle" constraint="no empty"/>
+<label value="*" style="color:red;valign:center" />
+<space width="19px"/>
+<label value="副标题:"  width="70px" />
+
+<textbox width="320px" id="kititle2"/>
+
+</hbox>
+
+<hbox>
+<label value="发布频道:" width="66px"/>
+<textbox  width="270px" id="taskname"/>
+<toolbarbutton image="/images/content/1/xz.gif" id="choose"/>
+<space width="25px"/>
+<label value="来源:" width="70px"/>
+<space width="10px"/>
+<textbox width="320px"  id="kisource" />
+</hbox>
+<hbox >
+<label value="关键字:" width="70px"/>
+<space width="7px"/>
+<textbox width="700px" id="kikeys" value="Music time"/>
+
+<label value="失效日期:" width="70px" visible="false"/>
+<datebox  width="120px" id="kivaliddate" visible="false"/>
+</hbox>
+<hbox >
+<label value="信息分类:" width="70px"/>
+<textbox width="650px" id="kiSort" Readonly="true"/>
+<toolbarbutton image="/images/content/1/xz.gif" id="chooseSort"/>
+</hbox>
+<hbox  id="wdnews">
+<label value="文档内容:" />
+<fckeditor   height="340px" width="790px"  id="kicontent" /> 
+</hbox>
+<hbox id="tupian">
+ <space width="100px"/>
+ <label value="附件:" width="70px"/>
+<toolbarbutton id="up" image="/images/content/tianjiafujian.png">
+				       <attribute name="onClick">
+				         <![CDATA[{
+				        	  	Object media = Fileupload.get();
+                            	if(media!=null){
+                              	    win.getModelList().add(media);
+								} else {
+									Messagebox.show("您没有选择要上传的文件！", "提示！", Messagebox.OK, Messagebox.INFORMATION);				
+								}       
+                         }]]></attribute>
+				    </toolbarbutton>
+				     <space width="160px"/>
+<label value="附件列表:" width="70px"/>
+<listbox  width="200px" id="upList"  mold="select" />
+<space/>
+<toolbarbutton image="/images/content/delAct.gif" id="deUpload"/>
+<toolbarbutton image="/images/content/1/xz_.gif" id="down"/>
+</hbox>
+<separator />
+<hbox id="suggest">
+<label value="处理意见:" width="70px"/>
+<textbox width="720px" id="advice"/> 
+</hbox>
+</vbox>
+<div  align="center">
+<toolbarbutton id="save"   image="/images/content/btn-save.gif"  />
+<toolbarbutton id="saudit"  image="/images/content/btn-pub.gif" />
+<toolbarbutton image="/images/content/btn-resetb.gif" id="reset" />
+<toolbarbutton id="delete" image="/images/content/btn-del.gif"/>
+<toolbarbutton image="/images/content/btn-close.gif"  id="back" onClick="win.detach()" />
+</div>
+</window>
+</zk>

@@ -1,0 +1,23 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window border="normal" use="com.uniwin.webkey.infoExtra.registeraudit.RegisterListWindow" >
+<toolbar align="end" visible="false">
+<toolbarbutton label="审核通过" id="pass"/>
+<toolbarbutton label="删除" id="delete"/>
+</toolbar>
+<listbox   sclass="new_listbox" id="registerListbox"  multiple="true" checkmark="true"  mold="paging"  pageSize="10">
+		<listhead>
+		 <listheader width="3%" />	
+			<listheader label="序号" width="5%" align="center"/>
+			<listheader label="用户姓名" align="center" width="12%" />
+			<listheader label="登录名" width="12%" align="center"/>
+			<listheader label="性别" width="8%" align="center"/>
+			<listheader label="所属部门" width="15%" align="center"/>
+			<listheader label="电子邮箱" width="15%" align="center"/>
+			<listheader label="联系电话" width="12%" align="center"/>
+			<listheader label="注册时间" width="10%" align="center"/>
+		    <listheader label="操作" width="8%" align="center"/>
+		</listhead>		
+	</listbox>	
+</window>
+</zk>

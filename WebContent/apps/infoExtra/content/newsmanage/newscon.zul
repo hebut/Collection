@@ -1,0 +1,57 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window  id="newsconWindow" border="normal"  width="900px"   contentStyle="overflow:auto"  use="com.uniwin.webkey.infoExtra.newsmanage.NewsConEditWindow" closable="true">
+<caption  label="查看信息" />
+<vbox>
+<hbox >
+<label value="信息标题:" width="70px" />
+<textbox   width="320px" id="kititle"  readonly="true"/>
+<label value="*" style="color:red;valign:center" />
+<space width="19px"/>
+<label value="副标题:" />
+<space width="7px"/>
+<textbox width="320px" id="kititle2"  readonly="true"/>
+<space width="15px"/>
+</hbox>
+<hbox>
+<label value="信息来源:" width="70px"/>
+<textbox width="320px"  id="kisource"  readonly="true"/>
+<space width="30px"/>
+<label value="发布时间:" />
+<textbox width="320px"  id="ptime"  readonly="true"/>
+
+</hbox>
+<hbox>
+<label value="关键字:" width="70px"  />
+<space width="7px"/>
+<textbox width="320px" id="kikeys"  readonly="true"/>
+</hbox>
+<hbox >
+<label value="摘要信息:" width="70px"/>
+<textbox width="790px" id="kimemo"  readonly="true"/>
+</hbox>
+<hbox  id="wdnews">
+<space width="380px"/>
+<label value="文档内容:" width="70px" style="font-size:20px;color:blue"/>
+</hbox>
+<separator bar="true" id="sep1" visible="true"/>
+<hbox>
+<space/>
+<html id="kicontent"  height="500px"><![CDATA[
+    					]]></html>
+<space/>
+</hbox>
+<separator bar="true" id="sep2" visible="true"/>
+<hbox id="tupian">
+<label value="附件列表:" width="70px"/>
+<listbox  width="200px" id="upList"  mold="select" />
+<space/>
+<toolbarbutton image="/images/content/1/xz_.gif" id="down"/>
+</hbox>
+</vbox>
+<div sclass="pop-win-b-div" align="center">
+<toolbarbutton id="delete" image="/images/content/btn-del.gif" />
+<toolbarbutton image="/images/content/btn-close.gif"  id="back" />
+</div>
+</window>
+</zk>

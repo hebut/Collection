@@ -1,0 +1,57 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="${c:l('permission.zul.addlicense')}" width="40%" border="normal" mode="overlapped" height="65%" sclass="newin"
+		id="permissionAdd_wind"  use="com.uniwin.webkey.core.ui.PermissionAddWin">
+		<tabbox width="100%" height="95%">
+			<tabs width="80px" id="tabs">
+				<tab label="${c:l('permission.zul.permissionmessage')}" id="tab1"/>
+				<tab label="${c:l('permission.zul.selectop')}" id="tab2" />
+			</tabs>
+			<tabpanels >
+				<tabpanel >
+				 <div sclass="win_grid_bac"><label value="${c:l('permission.zul.inputmessage')}"></label></div>					
+					<separator />
+					<space width="80px" />
+					<label value="${c:l('permission.zul.licensename')}:" style="font-weight:bold"></label>					
+					<textbox sclass="colors" maxlength="80" id="name" action="onClick:selectThis(this)"></textbox>
+					<separator />					
+					<space width="80px" />
+					<label value="${c:l('permission.zul.code')}:" style="font-weight:bold"></label>
+					<textbox sclass="colors" maxlength="80" id="code" action="onClick:selectThis(this)"></textbox>
+					<separator />
+					<space width="80px" />
+					<label value="${c:l('permission.zul.type')}:" style="font-weight:bold"/>
+					<combobox id="rtype" sclass="colors" readonly="true">
+						<comboitem label="${c:l('permission.zul.type.zyxk')}" value="1"></comboitem>
+						<comboitem label="${c:l('permission.zul.type.lmxk')}" value="2"></comboitem>
+					</combobox>
+					<separator />
+					<space width="80px" />
+					<label value="${c:l('permission.zul.optype')}:" style="font-weight:bold"/>
+					<combobox id="otype" readonly="true">
+						<comboitem label="${c:l('permission.zul.optype.gglx')}" value="0"></comboitem>
+						<comboitem label="${c:l('permission.zul.optype.czlx')}" value="1"></comboitem>
+					</combobox>				
+				</tabpanel>
+				<tabpanel >
+				 <div sclass="win_grid_bac"><label value="${c:l('permission.zul.oplist')}"></label></div>
+					<listbox id="opListbox" multiple="true" checkmark="true" width="100%" sclass="new_listbox" >
+						<listhead>
+							<listheader width="25px" align="center" />
+							<listheader width="40px" align="center" label="${c:l('system.common.zul.number')}" style="text-align:center" />						
+							<listheader label="${c:l('permission.zul.opname')}" align="center" />
+							<listheader label="${c:l('permission.zul.opcode')}" align="center" />
+						</listhead>
+					</listbox>	
+					<paging id="userPaging" zclass="z-paging" pageSize="7" />			
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+		<div align="center">
+			<image type="save" onClick="permissionAdd_wind.addPermission()">
+			</image>
+		</div>
+	</window>
+</zk>

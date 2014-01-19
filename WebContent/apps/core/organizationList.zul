@@ -1,0 +1,37 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" id="organizationList" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="organizationList_win" use="com.uniwin.webkey.core.ui.OrganizationListWin" height="100%" width="100%">
+		<borderlayout sclass="wihte-border-layout">
+			<west title="${c:l('organization.zul.organization')}" 
+				  id="leftPage" width="180px"  collapsible="true" flex="true">				
+				<vbox width="180px">					
+					<div align="left" width="200px">
+						<tree id="parentData" width="200px" zclass="z-filetree" sclass="new-tree" 
+								   height="100%" use="com.uniwin.webkey.tree.ui.OrganizationTree">
+						</tree>
+					</div>
+			   </vbox>
+			</west>
+			<center id="center_update" flex="true" >
+				<include id="updataPage"></include>
+			</center>
+		</borderlayout>
+		<zscript><![CDATA[
+	if (Sessions.getCurrent().getAttribute("themeName").toString().equals(
+			"defult")) {
+		center_update
+				.setStyle("border:1px solid #9ECAD8;overflow:hidden;border-left-width:1px;border-top-width:1px;border-right-width:1px;border-width:1px 1px 1px 1xp;");
+	}
+]]></zscript>
+		<style if="${themeName=='defult'}">
+			.z-west-header {
+			background:url("images/system/layoutbankground.jpg")
+			repeat-x scroll 0 0 transparent; padding:2px 0px 4px 6px;
+			border-bottom:0px solid #9ECAD8; } .z-border-layout {
+			background-color:#E9F6FF; } .z-panel-children {
+			border-color:-moz-use-text-color #B1CBD5 #B1CBD5 #B1CBD5 ;
+			 border-width:1px 1px 1px 1xp;; }
+		</style>
+	</window>
+</zk>

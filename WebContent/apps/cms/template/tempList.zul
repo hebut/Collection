@@ -1,0 +1,40 @@
+<?page id="TempList" title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+<window id="tempListWindow"  border="none" sclass="newin" height="100%" width="100%"
+        use="com.uniwin.webkey.system.parameters.template.win.TempListWindow">
+	      <div>
+         		<panel width="100%" border="none" visible="true">
+				<panelchildren style="padding:3px;" >
+					<div width="100%" align="right">
+						<separator height="4px"></separator>
+						${c:l('newspub.zul.point')}${c:l('template.ui.haveHeader')}
+						<image type="add" id="newTemple" />
+						<image type="del" id="delTemple" />
+						<separator height="4px"></separator>
+					</div>
+					       <hbox pack="center" width="100%" style="background:#F0F0F0">
+					      	   <listbox id="templeListbox"	mold="paging" pageSize="11" multiple="true" checkmark="true" width="100%" sclass="new_listbox">
+									<listhead>
+										<listheader align="center" width="5%" />
+										<listheader label="${c:l('newspub.zul.number')}" align="center" width="5%" />
+										<listheader label="${c:l('template.ui.tempName')}" align="center" width="20%" />
+										<listheader label="${c:l('template.ui.tempDesp')}" align="center" width="35%" />
+										<listheader label="${c:l('template.ui.lastUpdater')}" align="center" width="10%" />
+										<listheader label="${c:l('template.ui.lastUpdTime')}" align="center" width="25%" />
+									</listhead>
+								</listbox>
+						    </hbox>
+							<separator></separator>
+							<hbox pack="end" width="100%">
+								<hbox>
+									<textbox id="groupName"/>
+									<button id="addGroup" label="添加分组"  />
+								</hbox>
+							</hbox>
+             	    </panelchildren>
+               	</panel>
+              	</div>
+</window>
+</zk>

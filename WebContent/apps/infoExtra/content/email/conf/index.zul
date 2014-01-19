@@ -1,0 +1,65 @@
+<?page title="邮箱设置" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+<window title="邮箱设置" border="normal" width="720px" use="com.uniwin.webkey.infoExtra.email.AllInfoWindow">
+
+		<grid>
+			<columns>
+				<column align="left"></column>
+				<column align="left"></column>
+			</columns>
+			<rows>
+				<row>
+				<hbox>
+				    <label value="发送邮箱地址*" />
+				    <textbox  id="sendusername" constraint="no empty" width="120px" />
+				</hbox>
+				<hbox>
+				    <label value="接收邮箱地址*" />
+					<textbox  id="receiveusername" constraint="no empty" width="120px" />
+				</hbox>
+				</row>
+				<row>
+				<hbox>
+				    <label value="发送邮箱密码*" />
+					<textbox  width="120px" constraint="no empty" id="sendpassword"   />
+				</hbox>
+				<hbox>
+				   <label value="接收邮箱密码*" />
+				   <textbox  id="receivepassword" constraint="no empty" width="120px" />
+				</hbox>
+				</row>
+				<row>
+				<hbox>
+				   <label value="SMTP服务器地址*" />
+				   <textbox id="smtp" constraint="no empty" width="120px" />
+				</hbox>
+				<hbox>
+				    <label value="POP3服务器地址*" />
+					<textbox id="pop" constraint="no empty" width="120px" />
+				</hbox>
+				</row>
+				<row spans="2">
+				  <hbox>
+				     <label value="邮件推送范围:"/>
+				     <textbox id="eUser" width="500px"/>
+				     <button label="添加收件人" id="addUser" />
+				  </hbox> 
+				</row>
+				<row spans="2">
+				  <hbox>
+				      <label value="定时推送(每隔):"/>
+				      <intbox id="todTime" width="100px"/>
+				      <label value="天"/>
+				  </hbox>
+				</row>
+			</rows>
+		</grid>
+		<div align="center">
+			<hbox>
+				<toolbarbutton image="/css/default/images/actSave.gif" id="submit" />
+			</hbox>
+		</div>
+
+</window>
+</zk>

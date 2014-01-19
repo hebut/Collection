@@ -1,0 +1,84 @@
+<?page id="tempListEdit" title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+<window id="tempListEditWindow" title="${c:l('template.ui.tempEdit')}"  border="normal"  sclass="wndcyan" style="text-align:left" width="980px" height="450px"
+			use = "com.uniwin.webkey.system.parameters.template.win.TempListEditWindow">
+	<grid>	  
+         <columns >
+			<column  width="6%"/>
+			<column  width="25%"/>
+			<column  width="7%"/>
+			<column  width="18%"/>
+			<column  width="5%"/>
+			<column  width="15%"/> 
+		</columns>
+		<rows>
+			<row >		   
+				<label value="${c:l('template.ui.tempName')}" />
+				<hbox>
+				     <textbox id="tempName"  width="130px" constraint="/^(.[A-z1-9]+)?$/:${c:l('template.ui.regularInfo')}"/>
+				    <label value="("/>
+					<label value="*${c:l('template.ui.regularInfo')}" style="color : #FF0000"/>
+					<label value=")"/>
+				</hbox>
+				<label value="${c:l('template.ui.tempDesp')}" />
+				<hbox>
+				<textbox id="tempDesc" width="160px" /><label value="*"  style="color : #FF0000"/>	
+				</hbox>
+				<label value="${c:l('template.ui.grouping')}"/>
+				 	 <hbox>						
+						<listbox mold="select"  id="groupListbox" width="140px">
+						   <listitem label="${c:l('template.ui.noGrp')}"/>
+	                  </listbox>  			
+					</hbox>			
+			</row>
+			
+			<row spans="1,5">
+				<vbox>
+			        <label value="${c:l('template.ui.fileHeader')}"/>
+			         <toolbarbutton id="cssEdit"  label="" image="/images/template/css.gif"/>
+			    </vbox>	 		 
+				<hbox width="100%">	
+					<textbox id="csscontent" rows="10" cols="120" height="100px" width="100%" context="editPopup"/>
+				</hbox>
+			</row>
+			
+			<row spans="1,5">
+				<label value="${c:l('newspub.zul.docContent')}:" />
+				<hbox width="100%">
+					<fckeditor id="mlContent"  height="190px"  toolbarSet="TempManage"/>
+				</hbox>
+			</row>
+	    	
+	    	<row spans="6">
+				<div align="center">
+				  <hbox>
+						<space />
+						<image type="save" id="save" />
+						<space/>
+						<button id="saveAndRelease" label="保存并发布"  />
+						<space/>
+						<image src="../css/default/images/btn-res.jpg" id="reset" />
+						<space/>
+						<image type="quit" id="renturn" />
+					</hbox>
+			<!--		<space />
+					<toolbarbutton id="save"  label="" image="/images/common/actSave.gif"/>	
+					<space/>
+					<toolbarbutton id="saveAndRelease"  label="" image="/images/template/bcbfb.gif"/>	
+					<space/>
+					
+				    <toolbarbutton id="reset"  label="" image="/images/template/ct.gif"/>
+				    <space/>	
+				   <toolbarbutton id="renturn"  label="" image="/images/template/fh.gif" >
+			  		<attribute name="onClick">                   
+	                       tempListEditWindow.detach();
+	                    </attribute>  	
+	               </toolbarbutton> -->
+				</div>
+		    </row>	    
+		</rows>	
+	</grid>
+</window>
+</zk>

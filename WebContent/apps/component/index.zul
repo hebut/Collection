@@ -1,0 +1,10 @@
+<?page title="Auto Generated index.zul"?>
+<?component name="listbox" extends="listbox" class="com.uniwin.webkey.component.ui.Listbox"?>
+<window title="Hello World!!" border="normal" width="100%" id="index"
+	use="test.Index">
+	<listbox editor="true" delete="true" id="listbox" 
+		onDelete="index.delete(event)" onSort="index.sort()" pageSize="5" pagingMold="default"
+		onEdit="index.delete(event)"
+		>
+	</listbox>
+</window>

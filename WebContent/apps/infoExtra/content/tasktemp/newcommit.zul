@@ -1,0 +1,53 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="winn" title="新任务列表" border="normal" width="80%">
+<caption>
+<toolbar align="end">
+<button    label="删除"/>
+<button  label="关闭" onClick="winn.detach()"/>
+</toolbar>
+</caption>
+<listbox  fixedLayout="true"   multiple="true" checkmark="true" mold="paging"  pageSize="8" rows="8"  >
+		<listhead>
+		 <listheader width="3%" />	
+			<listheader label="序号" width="5%" align="center"/>
+			<listheader label="频道名称" width="15%"/>
+			<listheader label="url地址"  />
+			<listheader label="提交用户" width="12%" align="center"/>
+		    <listheader label="提交时间" width="15%" align="center"/>
+		</listhead>	
+		<listitem>
+		<listcell label=""/>
+		<listcell label="1"/>
+		<listcell label="人民网--时政要闻">
+		<attribute name="onClick">
+					Window w=(Window) Executions.createComponents("/admin/content/task/commitedit.zul", null,null);
+					w.doHighlighted();
+					</attribute>
+		</listcell>
+		<listcell label="http://politics.people.com.cn/GB/14562/index.html">
+		<attribute name="onClick">
+		
+					
+		</attribute>
+		</listcell>
+		<listcell label="Tom"/>
+		<listcell label="2010-11-22 08:31:21"/>
+		</listitem>
+			<listitem>
+			<listcell label=""/>
+		<listcell label="2"/>
+		<listcell label="腾讯网--NBA"/>
+		<listcell label="http://sports.qq.com/basket/nba/newsboard.htm">
+		<attribute name="onClick">
+					Executions.sendRedirect("http://sports.qq.com/basket/nba/newsboard.htm");
+		</attribute>
+		</listcell>
+		<listcell label="Polo"/>
+		<listcell label="2010-11-23 11:41:21"/>
+		</listitem>
+	</listbox>	
+
+
+</window>
+</zk>

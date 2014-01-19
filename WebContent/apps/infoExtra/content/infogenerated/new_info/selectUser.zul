@@ -1,0 +1,14 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window width="900px" height="442px" closable="true" position="center" border="normal" use="com.uniwin.webkey.infoExtra.email.MessageSelectUserWindow">
+		<tabbox>
+			<tabs>
+				<tab label="全部用户" id="allUserSelectTab" />
+			</tabs>
+			<tabpanels>
+				<tabpanel />
+				<tabpanel />
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

@@ -1,0 +1,23 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window  border="normal" width="400px"  use="com.uniwin.webkey.infoExtra.task.TasktypeSortWindow">
+   <caption image="/css/img/win-ico.gif" label="分类排序:选择分类拖拽排序"/>
+   <listbox id="sortList" onDrop="move(event.dragged)" droppable="true"
+			multiple="true" rows="10">   
+   </listbox>
+ 		<div align="center" sclass="pop-win-b-div">
+   	<toolbarbutton id="submit" image="/css/img/btn-save.gif" />						
+	<toolbarbutton id="reset" image="/css/img/btn-resetb.gif" />
+     	<toolbarbutton id="close" image="/css/img/btn-close.gif"/>
+    </div>
+</window>
+<zscript>
+	void move(Component dragged) {
+		if (self instanceof Listitem) {	
+				self.parent.insertBefore(dragged, self.getNextSibling());
+		} else {
+			self.appendChild(dragged);
+		}
+	}
+ </zscript>
+</zk>

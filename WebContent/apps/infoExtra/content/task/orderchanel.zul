@@ -1,0 +1,124 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="订阅频道" border="normal" width="500px" height="390px"  contentStyle="overflow:auto" use="com.uniwin.webkey.infoExtra.task.OrderChanelWindow">
+<tabbox width="100%"> 
+<tabs style="text-align:left" >
+<tab label="推荐频道" />
+<tab label="新频道" id="writerTab" />
+</tabs>
+<tabpanels>
+<tabpanel>
+<panel>
+			<panelchildren>
+				<tree id="tree" zclass="z-dottree" multiple="true"
+					rows="11" checkmark="true"  mold="paging" fixedLayout="true" pageSize="10"/>
+			</panelchildren>
+		</panel>
+</tabpanel>
+<tabpanel>
+<tabbox  height="290px">
+<tabs>
+<tab label="普通采集" id="common"/>
+<tab label="关键词定制" id="keys"/>
+</tabs>
+
+<tabpanels>
+<tabpanel>
+<hbox>
+<label value="频道名称:"/>
+<space/>
+<textbox width="200px"/>
+</hbox>
+<separator />
+<hbox>
+<label value="所属分类:"/>
+<space/>
+<listbox width="200px" mold="select" rows="1">
+<listitem label="新浪新闻"/>
+</listbox>
+</hbox>
+<separator />
+<hbox>
+<label value="URL地址:"/>
+<space/>
+<textbox width="350px"/>
+<button label="检测"/>
+</hbox>
+<separator />
+<hbox>
+<label value="保存条数:"/>
+<space/>
+<textbox width="200px"/>
+</hbox>
+<separator />
+<hbox>
+<label value="描述:"/>
+<space width="35px"/>
+<textbox height="100px" width="350px"/>
+</hbox>
+<separator />
+<hbox>
+<checkbox label="是否自动更新"/>
+<space width="30px"/>
+<label value="时间间隔:"/>
+<listbox mold="select" rows="1">
+<listitem label="半小时"/>
+<listitem label="1小时"/>
+<listitem label="2小时"/>
+<listitem label="6小时"/>
+<listitem label="12小时"/>
+<listitem label="1天"/>
+</listbox>
+</hbox>
+</tabpanel>
+<tabpanel>
+<label value="频道名称:"/>
+<space/>
+<textbox  width="300px"/>
+<separator />
+<label value="频道关键词:"/>
+<textbox  width="300px"/>
+<separator />
+<label value="所属分类:"/>
+<space/>
+<listbox width="200px" mold="select" rows="1"  >
+<listitem label="顶级"/>
+</listbox>
+<separator />
+<label value="时间范围:"/>
+<space/>
+<listbox mold="select" rows="1"  width="200px">
+<listitem label="不限定"/>
+<listitem label="最近一天"/>
+<listitem label="最近一周"/>
+<listitem label="最近一月"/>
+<listitem label="最近一年"/>
+</listbox>
+<separator />
+<hbox>
+<label value="描述:"/>
+<space width="35px"/>
+<textbox width="300px" height="70px"/>
+</hbox>
+<separator />
+<groupbox>
+<caption label="订阅来源范围"/>
+<separator />
+<radiogroup>
+<radio label="订阅所有网站" checked="true" id="all"/>
+<radio label="选择订阅范围"  id="part"/>
+</radiogroup>
+
+</groupbox>
+</tabpanel>
+</tabpanels>
+</tabbox>
+</tabpanel>
+</tabpanels>
+</tabbox>
+	<div align="right" >
+				<toolbarbutton image="/images/content/3/qd.gif"  id="choosed" />
+				<toolbarbutton image="/css/img/btn-close.gif"  id="close" />
+			</div>
+</window>
+</zk>

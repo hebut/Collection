@@ -1,0 +1,76 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  border="normal" width="100%" style="text-align:left" use="com.uniwin.webkey.infoExtra.newsmanage.NewsManageEditWindow">
+<caption>
+<toolbar align="end">
+<toolbarbutton  id="deletenews"  image="/css/img/delAct.gif"  hoverImage="/css/img/delAct1.gif" />
+</toolbar>
+</caption>
+<separator />
+<hbox>
+<label value="起止时间:"/>
+<datebox  width="100px" />
+<label value="-至-"/>
+<datebox  width="100px" />
+<space width="50px"/>
+<label value="搜索关键字:"/>
+ <textbox  width="100px"/>
+ <space/>
+ <listbox mold="select" rows="1" width="80px">
+<listitem  label="标题"/>
+<listitem  label="内容"/>
+<listitem  label="作者"/>
+<listitem  label="摘要"/>
+</listbox>
+<space  width="50px"/>
+<label  value="来源:"/>
+<textbox  width="120px"/>
+<space width="20px"/>
+<button label="查 询"   id="searchnews"/>
+<space/>
+<button label="重 置"/>
+</hbox>
+<separator />
+<tabbox width="100%"> 
+<tabs style="text-align:left" >
+<tab label="原始信息" />
+</tabs>
+<tabpanels>
+<tabpanel >  
+<listbox  fixedLayout="true" multiple="true" checkmark="true" mold="paging"  pageSize="8" rows="8"  >
+		<listhead>
+		 <listheader width="3%" />	
+			<listheader label="序号" width="5%" align="center"/>
+			<listheader label="标题" />
+			<listheader label="发布时间" width="18%" align="center"/>
+			<listheader label="来源" width="12%" align="center"/>
+			<listheader label="采集时间" width="18%" align="center"/>
+			<listheader label="评论" width="10%" align="center" visible="false"/>
+		</listhead>	
+		<listitem>
+			<listcell label=""/>
+		<listcell label="1"/>
+		<listcell label="美国哈佛大学研究员朱晟伟来校作学术交流">
+		<attribute name="onClick">
+					Window w=(Window) Executions.createComponents("/admin/content/newspub/newsedit.zul", null,null);
+					w.doHighlighted();
+					</attribute>
+		</listcell>
+		<listcell label="2010-11-10"/>
+		<listcell label="河北工业大学"/>
+		<listcell label="2010-11-10 08:31:21"/>
+		</listitem>
+			<listitem>
+				<listcell label=""/>
+		<listcell label="2"/>
+		<listcell label="发改委主任称今年CPI可能超3%"/>
+		<listcell label="2010-11-10"/>
+		<listcell label="新浪网"/>
+		<listcell label="2010-11-10 11:41:21"/>
+		</listitem>
+	</listbox>	
+</tabpanel>
+</tabpanels>
+</tabbox>
+</window>
+</zk>

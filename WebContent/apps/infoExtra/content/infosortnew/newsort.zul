@@ -1,0 +1,35 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>	
+<zk>
+
+  <window use="com.uniwin.webkey.infoExtra.infosortnew.NewSort" border="normal"   width="500px"   contentStyle="overflow:auto" >
+  	
+  	<caption image="/css/img/win-ico.gif" label="添加分类" />
+		<grid align="center" width="480px">
+			<columns>
+				<column width="30%" />
+				<column width="70%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="分类名称" />
+					<hbox>
+						<textbox  width="250px"   id="sortname"/>
+						<label value="*" style="color:red;valign:center" />
+					</hbox>
+				</row>
+				<row>
+					<label value="父类型" />
+					<listbox id="sortlist" mold="select" width="150px"  use="com.uniwin.webkey.infoExtra.infosortnew.SortListbox"/>
+				</row>
+				
+				<row align="center" spans="2">
+					<div align="center" sclass="pop-win-b-div">
+						<toolbarbutton id="save" image="/css/img/btn-save.gif" />						
+						<toolbarbutton id="back" image="/css/img/btn-close.gif" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+		
+  </window>
+</zk>

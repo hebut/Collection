@@ -1,0 +1,7 @@
+<?page title="webkey" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style src="${c:l('webindex.zul.css')}${themeName}${c:l('webindex.zul.cssfile')}"></style>
+<window title="webkey" border="normal" width="200px" 
+	use="com.uniwin.webkey.cms.util.HtmlLoginWindow ">
+</window>
+</zk>

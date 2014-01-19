@@ -1,0 +1,194 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window title="授权:"  width="850px"  height="420px" sclass="newin" mode="modal"  closable="true"
+        use="">
+  <hbox>
+     	<vbox>
+			<hbox>
+			   <space width="30px"></space>
+			    <vbox width="180px">
+			      <label value="角色列表"/>
+				  <tree id="tree" zclass="z-filetree" sclass="new-tree" rows="6"  height="210px"  
+				        onSelect="role1.value=self.selectedItem.label; ">
+						<treecols >
+							<treecol width="150px" />
+						</treecols>
+						<treechildren>
+							<treeitem>
+								<treerow height="30px">
+									<treecell label="系统角色" />
+								</treerow>								
+							</treeitem>         
+							<treeitem>            
+								<treerow>                 
+									<treecell label="管理员" /> 
+								</treerow> 
+								<treechildren>								
+											<treeitem>
+												<treerow>                                 
+													<treecell label="测试1" />                             
+												</treerow>                         
+											</treeitem>                         
+											<treeitem>                             
+												<treerow>                                 
+													<treecell label="测试2" />                             
+												</treerow>                         
+											</treeitem>                     
+								</treechildren>									                
+							</treeitem>  
+							<treeitem>            
+								<treerow>                 
+									<treecell label="默认角色" /> 
+								</treerow>         
+							</treeitem>  
+						</treechildren> 
+					</tree>
+			    </vbox>
+			    <space width="30px"></space>
+			    <vbox width="180px">
+			      <label value="部门列表"/>
+			     <tree id="tree2" zclass="z-filetree" sclass="new-tree" rows="6"  height="210px"  
+			            onSelect="depart.value=self.selectedItem.label; ">
+						<treecols >
+							<treecol width="150px" />
+						</treecols>
+						<treechildren>
+							<treeitem>
+								<treerow height="30px">
+									<treecell label="河北中信联" />
+								</treerow>
+								<treechildren>
+									<treeitem>            
+									<treerow>                 
+										<treecell label="产品部" /> 
+									</treerow> 														                
+									</treeitem>  
+									<treeitem>            
+										<treerow>                 
+											<treecell label="销售部" /> 
+										</treerow>         
+									</treeitem>  
+									<treeitem>            
+										<treerow>                 
+											<treecell label="市场部" /> 
+										</treerow>         
+									</treeitem>  
+									<treeitem>            
+										<treerow>                 
+											<treecell label="行政部" /> 
+										</treerow>         
+									</treeitem>  
+								</treechildren>								
+							</treeitem>							
+						</treechildren> 
+					</tree>
+			    </vbox>	
+			</hbox> 	
+			<separator></separator> 
+			<hbox pack="end"  width="500px">
+			  <hbox align="end">
+				<label value="资源名称" />
+				<bandbox id="organizationId" readonly="true" width="120px" height="15px" value="RBAC系统">
+					<bandpopup>	
+						  <listbox height="100px" width="120px" mold="paging" pageSize="5" onSelect="organizationId.value=self.selectedItem.label; organizationId.close();"> 
+						         <listitem label="RBAC系统"  /> 
+						         <listitem label="所有资源"  />  
+						         <listitem label="内容系统"  /> 
+						         <listitem label="用户系统"  />           
+						  </listbox> 							
+					</bandpopup>
+				</bandbox>	
+			  </hbox>
+			</hbox>
+			<hbox pack="center" width="500px">
+			    <grid>
+				  <columns>
+				    <column />
+				    <column />
+				    <column />
+				    <column />
+				    <column />
+				    <column />				    
+				  </columns>
+				    <rows>    		        
+				        <row>
+				          <label value="资源名称：" width="80px" style="color:#0e4899;valign:center" />
+				          <textbox value="RBAC系统" id="sourceName" constraint="no empty" width="70px" />
+				          
+				          <label value="当前角色：" width="80px" style="color:#0e4899;valign:center"/>
+				          <textbox id="role1" constraint="no empty" width="60px"/>
+				          
+				          <label value="当前部门：" width="80px" style="color:#0e4899;valign:center"/>
+				          <textbox  id="depart" constraint="no empty" width="60px"/>
+				        </row>
+				        
+				        <row spans="6" align="left">
+				          <hbox align="start">
+					          <checkbox label="许可1" id="isPro"/>				          
+					          <checkbox label="许可2" id="isPro1"/>
+					          <checkbox label="许可3" id="isPro2"/>
+					          <checkbox label="许可4" id="isPro3"/>
+				          </hbox>
+				        </row>
+				    </rows>
+				</grid>
+        	    
+			</hbox>
+		</vbox> 
+		
+		<vbox align="end" spacing="20px"  height="250px" width="30px"> 
+			      <separator height="85"/>
+			      <button label="增加" id="addUser"/>
+			      <button label="删除" id="delUser"/>
+			     
+		</vbox>
+		<hbox pack="center" width="280px">
+				<style if="${themeName=='defult'}">
+					.z-paging-btn .z-paging-next {
+					background-image:url("images/button/pg-btn.png");
+					background-position:-1px -1px; } .z-paging-btn
+					.z-paging-prev {
+					background-image:url("images/button/pg-btn.png");
+					background-position:0px -22px; } .z-paging-btn
+					.z-paging-last {
+					background-image:url("images/button/pg-btn.png");
+					background-position:0px -43px; } .z-paging-btn
+					.z-paging-first {
+					background-image:url("images/button/pg-btn.png");
+					background-position:0px -64px; } .z-paging-btn
+					.z-paging-first, .z-paging-btn .z-paging-last,
+					.z-paging-btn .z-paging-next, .z-paging-btn
+					.z-paging-prev { background-repeat:no-repeat;
+					cursor:pointer; height:21px; padding:0;
+					white-space:nowrap; width:27px; } .z-panel-children{
+					background-color:#FFFFFF; }
+				</style>
+				    <vbox>
+				    	<listbox id="center1"   fixedLayout="true"   sclass="new_listbox">
+					        <listhead>       
+						        <listheader label="资源名称"/>
+						        <listheader label="角色"/>
+						        <listheader label="部门"/>
+						        <listheader label="许可"/>
+					       </listhead>
+					       <listitem height="25px">
+					           <listcell label="RBAC系统"/>
+					           <listcell label="管理员"/>
+					           <listcell label="产品部"/>
+					           <listcell label="许可1，许可2，许可1"/>
+					       </listitem>
+				     	 </listbox>
+				      	<paging id="centerPaging" zclass="z-paging" pageSize="1" detailed="true" />
+			      </vbox>
+			</hbox>
+	</hbox>    
+	<separator></separator>
+  	<hbox pack="center" width="100%">
+	    <hbox>
+		     <button label="保存" id="submit"/>
+		     <button label="重置" id="reset"/>
+		     <button label="返回" id="close"/>
+	    </hbox>
+  	</hbox>
+</window>
+</zk>

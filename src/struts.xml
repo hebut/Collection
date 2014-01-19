@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>	
+	<constant name="struts.action.extension" value="do" />
+	<package name="struts2" extends="struts-default" namespace="/">	 
+	   
+	   <!-- 2011-3-3首页登录测试 -->
+	    <action name="goLogin" class="goLoginBean" method="goLogin">
+			<result type="freemarker">/styles/blue/${templet}.ftl</result>
+		</action>
+      <action name="infonews" class="goLoginBean" method="searchInfoNewsDetail">
+		    <result name="success">/admin/index1.zul</result>
+		    <result name="error">/apps/core/login.zul</result>
+		</action> 
+      <action name="infodetail" class="goLoginBean" method="searchInfoDetail">
+		    <result name="success">/info_detail.jsp</result>
+		    <result name="error">/error.jsp</result>
+	  </action> 		
+	</package>	 
+</struts>

@@ -1,0 +1,25 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window  width="600px"  height="500px" use="com.uniwin.webkey.core.ui.ShowNews">
+                     <div>
+                      <separator height="3px"/>
+                      <panel width="99%" height="750px"  border="normal" id="news">
+                         <panelchildren>
+                           <listbox id="newsList" style="border:0px">
+                             <listhead>
+                               <listheader width="5%" align="center"/>
+                               <listheader width="63%"/>
+                               <listheader width="15%"/>
+                               <listheader width="17%"/>
+                             </listhead>
+                           </listbox>
+                         </panelchildren>
+                      </panel>
+                      <separator/>
+                      <separator/>
+                     </div>
+</window>
+</zk>

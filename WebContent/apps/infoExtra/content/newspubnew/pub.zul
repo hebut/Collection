@@ -1,0 +1,103 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="newspubEditWindowNew" border="normal" width="100%" style="text-align:left" use="com.uniwin.webkey.infoExtra.newspub.NewspubEditWindowNew" >
+
+<toolbar align="end" >
+	<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.add')}" id="addnews"/>
+	<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.delete')}"  id="deletenews" visible="false"/>
+</toolbar>
+<separator/>
+<hbox>
+<label value="起始时间:"/>
+<datebox  width="70px" id="begintime" cols="13" format="yyyy-MM-dd"/>
+<label value="--"/>
+<datebox  width="70px"  id="endtime" cols="13" format="yyyy-MM-dd"/>
+<space width="10px"/>
+<label value="关键字:"/>
+ <textbox  width="150px" id="keys"/>
+ <listbox mold="select" rows="1" width="60px">
+<listitem  label="标题" id="title" selected="true"/>
+<listitem  label="内容" id="content"/>
+</listbox>
+<space  width="10px"/>
+<label  value="来源:"/>
+<textbox  width="120px" id="source"/>
+</hbox>
+<separator />
+<div align="center">
+<hbox>
+<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.search')}" id="searchnews"/>
+<space/>
+<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.reset')}" id="resetnews"/>
+</hbox>
+</div>
+<separator />
+<tabbox width="100%"> 
+<tabs >
+<tab label="原始信息" id="orinfoTab"/>
+<tab label="撰稿中信息" id="writerTab" />
+<tab label="送审信息" id="auditTab" />
+<tab label="被退回信息" id="rebackTab" />
+</tabs>
+<tabpanels>
+<tabpanel>
+<div align="right">
+
+     <toolbarbutton id = "applyBT" label="" image="/images/sqrw.gif"/>
+</div>
+<listbox   sclass="new_listbox" id="orinfoListbox" fixedLayout="true" multiple="true" checkmark="true"  mold="paging"  pageSize="10">
+		<listhead>
+		 <listheader width="3%" />	
+			<listheader label="序号" width="7%" align="center"/>
+			<listheader label="标题" style="text-align:center"  width="44%"/>
+			<listheader label="原始发布时间" width="18%" align="center" sort="auto(koiPtime)"/>
+			<listheader label="来源" width="12%" align="center"/>
+			<listheader label="采集时间" width="16%" align="center" sort="auto(koiCtime)"/>
+		</listhead>		
+	</listbox>	
+</tabpanel>
+<tabpanel >  
+
+<listbox  sclass="new_listbox" id="writerListbox" fixedLayout="true"  multiple="true" checkmark="true" mold="paging"  pageSize="10">
+		<listhead>
+		 <listheader width="3%" />	
+			<listheader label="序号" width="7%" align="center"/>
+			<listheader label="标题"  style="text-align:center" width="39%"/>
+			<listheader label="操作时间" width="20%" align="center" sort="auto(kbDtime)"/>
+			<listheader label="来源" width="18%" align="center"/>
+			<listheader label="撰稿人" width="10%" align="center" />
+			<listheader label="点击次数" width="3%" align="center" visible="false"/>
+		</listhead>	
+	</listbox>	
+   </tabpanel>
+<tabpanel >  
+<listbox sclass="new_listbox" id="auditListbox" fixedLayout="true" multiple="true" checkmark="true" mold="paging"  pageSize="10">
+		<listhead>
+		 <listheader width="3%" />	
+		<listheader label="序号" width="7%" align="center"/>
+			<listheader label="标题"  style="text-align:center" width="39%"/>
+			<listheader label="操作时间" width="20%" align="center" sort="auto(kbDtime)"/>
+			<listheader label="来源" width="18%" align="center"/>
+			<listheader label="撰稿人" width="10%" align="center" />
+			<listheader label="点击次数" width="3%" align="center" visible="false"/>
+		</listhead>
+	</listbox>
+  </tabpanel>
+<tabpanel> 
+<listbox  sclass="new_listbox" id="rebackListbox" fixedLayout="true"  multiple="true" checkmark="true" mold="paging"  pageSize="10">
+		<listhead>
+		 <listheader width="3%" />	
+			<listheader label="序号" width="7%" align="center"/>
+			<listheader label="标题" style="text-align:center" width="39%"/>
+			<listheader label="操作时间" width="20%" align="center" sort="auto(kbDtime)"/>
+			<listheader label="来源" width="18%" align="center"/>
+			<listheader label="撰稿人" width="10%" align="center" />
+			<listheader label="点击次数" width="3%" align="center" visible="false"/>
+		</listhead>
+
+</listbox>
+  </tabpanel>
+</tabpanels>
+</tabbox>
+</window>
+</zk>

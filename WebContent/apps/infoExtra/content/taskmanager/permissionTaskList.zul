@@ -1,0 +1,25 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+<window   border="normal" height="100%" width="100%" id="perTaskWin" sclass="newin"
+		use="com.uniwin.webkey.infoExtra.taskmanager.PermissionTaskWindow">
+		
+		<div align="right" width="100%">
+			<hbox>
+				<image type="add" onClick="perTaskWin.addPermission()"></image>
+				<image type="del" onClick="perTaskWin.delAllPermission()"></image>
+			</hbox>
+		</div>
+		<space height="1px"></space>
+		<listbox id="perTaskListbox" width="100%" sclass="new_listbox" 
+			checkmark="true" multiple="true" mold="paging" pageSize="11">
+			<listhead>
+				<listheader width="8%" align="center"></listheader>
+				<listheader label="${c:l('chanel.zul.permissionChanelList.permissionName')}"  width="40%"  style="text-align:center"/>
+				<listheader label="${c:l('chanel.zul.permissionChanelList.permissionOption')}"  width="30%" style="text-align:center"/>
+				<listheader label="${c:l('chanel.zul.permissionChanelList.option')}"  width="20%"  align="center"/>				
+			</listhead>
+		</listbox>
+	</window>
+</zk>

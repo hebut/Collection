@@ -1,0 +1,190 @@
+/*==默认==*/
+body {
+	background-color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	scrollbar-3dlight-color: #F0F0EE;
+	scrollbar-arrow-color: #676662;
+	scrollbar-base-color: #F0F0EE;
+	scrollbar-darkshadow-color: #DDDDDD;
+	scrollbar-face-color: #E0E0DD;
+	scrollbar-highlight-color: #F0F0EE;
+	scrollbar-shadow-color: #F0F0EE;
+	scrollbar-track-color: #F5F5F5;
+         padding:0px;
+         margin:0px;
+}
+
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+pre {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.example1 {
+	font-weight: bold;
+	font-size: 14px
+}
+
+.example2 {
+	font-weight: bold;
+	font-size: 12px;
+	color: #FF0000
+}
+.example3 {
+    font-family: 仿宋_GB2312;
+	font-weight: bold;
+	font-size: 40px;
+	color: #FF0000
+}
+
+.tablerow1 {
+	background-color: #BBBBBB;
+}
+
+.mceLink a:visited {
+	color: #666666;
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+.mceLink a:active {
+	color: #666666;
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+.mceLink a:hover {
+	color: #666666;
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+.mceLink a:link {
+	color: #666666;
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+.mceLink a {
+	color: #666666;
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+.mceVisualAid {
+	border: 1px dashed #BBBBBB;
+}
+/* Fix for MS Office style paragraphs (MsoNormal) */
+p {
+	margin: 0;
+	padding: 0;
+}
+
+/* Fix for MS Office unindeted lists */
+.unIndentedList {
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+}
+
+.unIndentedList li {
+	padding: 0;
+}
+
+/* Fix for MS Office UL lists */
+ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.sy_top{
+        background-image: url(Image/sy_top21.jpg);
+        background-repeat: no-repeat;
+        background-position: right;
+
+}
+.sy_top1{
+        background-image: url(Image/sy_top5.jpg);
+        background-repeat: repeat-x;
+        background-position: center;      
+        font-size:14px;
+        color:#807E7E;
+        font-weight: bold;
+        padding-left:45px;
+}
+.sy_top2{
+        background-image: url(Image/sy_top20.jpg);
+        background-repeat: no-repeat;
+        background-position: right;
+}
+.sy_top3{
+        background-image: url(Image/sy_top4.jpg);
+        background-repeat: no-repeat;
+        background-position: right;
+
+}
+.sy_top4{
+        background-image: url(Image/sy_top22.jpg);
+        background-repeat: repeat-x;
+        background-position: center;      
+}
+.sy_top5{
+        background-image: url(Image/sy_top24.jpg);
+        background-repeat: no-repeat;
+        background-position: right;      
+}
+.sy_top6{
+        font-size:13px;
+        color:#000000;     
+}
+.sy_left2{
+        background-image: url(Image/sy_leftbg2.jpg);
+        background-repeat: no-repeat;
+        background-position: left bottom;
+
+}
+.sy_leftwz{
+        background-image: url(Image/sy_leftbg3.jpg);
+        background-repeat: no-repeat;
+        text-align: center;
+        vertical-align: middle;
+        font-size:13px;
+        color:#000000;  
+}
+.sy_right1{
+        font-family:"宋体";        
+        font-size:13px;
+        color:#3B3B3B;
+        line-height:22px;
+}
+.sy_right2{
+        font-family:"宋体";        
+        font-size:16px;
+        font-weight:bold;
+        color:#ff0000;
+}
+.sy_bottom{
+        background-image: url(Image/sy_bottom00.jpg);
+        background-repeat: no-repeat;
+        background-position: left;
+
+}
+.sy_bottom1{
+        background-image: url(Image/sy_bottom.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        padding-left:40px;
+        padding-top:10px;
+        background-position: right;
+
+}
+.sy_bottom2{
+        font-family:"宋体";        
+        font-size:13px;
+        color:#3B3B3B;
+        line-height:20px;
+}

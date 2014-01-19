@@ -1,0 +1,99 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="" border="normal" height="100%" width="100%" use="com.uniwin.webkey.infoExtra.newscenter.InfoCenter">
+	<borderlayout width="100%" height="100%">
+		<north>
+	<groupbox>
+	<caption label="检索模块" />
+		<space width="30px"/>
+		<label>搜索关键字：</label>
+		<textbox id="keyword" width="300px"/><space width="10px"/>
+		<listbox mold="select" id="choose">
+			<!--<listitem label="全部" value="all" selected="true" />
+			-->
+			<listitem label="标题"  id="title" selected="true"/>
+			<listitem label="内容"  id="content"/>
+		</listbox>
+		<space width="10px"/>
+		<label>起止时间：</label>
+		<datebox   id="begintime" cols="10" format="yyyy-MM-dd"  constraint="no empty" />--<datebox  id="endtime" cols="10" format="yyyy-MM-dd" constraint="no empty" />
+		<space width="10px"/>
+		<toolbarbutton   image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.search')}"   id="search"/>
+	</groupbox>
+	</north>
+	<center>
+	<tabbox height="100%">
+	<tabs>
+	<!--	<tab label="全部新闻" id="allTab"/>
+		<tab label="栏目新闻" id="chanelTab"/>  -->
+		<tab label="分类新闻" id="sortTab"/>
+	</tabs>
+	<tabpanels>
+	<!-- 	<tabpanel>
+			
+			<listbox id="infoListbox" multiple="true" mold="paging" pageSize="15" checkmark="true" fixedLayout="true" sclass="new_listbox">
+				<listhead sizable="true">
+					<listheader label="序号" width="8%"/><listheader label="标题"/>
+					<listheader label="采集时间" width="20%"/>
+				</listhead>
+				
+			</listbox>
+			
+		</tabpanel>
+		<tabpanel  height="100%" width="100%">
+			<borderlayout height="100%" width="100%">
+				<west size="18%"  flex="true" collapsible="true" sclass="main-west">
+			 			<tree id="siteTree"  zclass="z-filetree" sclass="new-tree" 
+						 rows="15" mold="paging" pageSize="15" />
+				</west>
+				<center>
+					<listbox id="chanelListbox" width="100%" height="100%"  mold="paging" pageSize="12" fixedLayout="true" checkmark="true" multiple="true" sclass="new_listbox">
+			 			<listhead>
+			 				<listheader label="序号" width="8%"/><listheader label="标题"/>
+							<listheader label="采集时间" width="20%"/>
+			 			</listhead>
+			 		</listbox>			
+				</center>
+			</borderlayout>
+			
+		</tabpanel> -->
+
+	<tabpanel>
+		<vbox>
+			<grid width="100%" height="100%" fixedLayout="true"
+				id="infoSortGrid" mold="paging" pageSize="8">
+				<auxhead id="sortHead">
+
+				</auxhead>
+				<columns></columns>
+				<rows id="domainRows" draggable="true"
+					droppable="true">
+
+				</rows>
+			</grid>
+
+			<listbox id="sortListbox" checkmark="true" mold="paging"
+				pageSize="8" multiple="true" sclass="new_listbox" rows="9">
+				<listhead>
+					<listheader label="序号" width="7%" />
+					<listheader label="标题" style="text-align:center"  width="53%"/>
+					<listheader label="来源" style="text-align:center"  width="15%"/>
+					<listheader label="作者" style="text-align:center"  width="10%"/>
+					<listheader label="发布时间" width="15%" style="text-align:center"/>
+				</listhead>
+			</listbox>
+			<hbox>
+				
+				<label value="提示:" style="color:red"/>
+					<label pre="true" value="1、分类名称为绿色的为已定制，可查看新闻详细内容;   2、分类名称为灰色的为未定制，仅可查看新闻标题;   3、分类名称访问之后为红色;" />
+			</hbox>
+		</vbox>
+	</tabpanel>
+	</tabpanels>
+	
+</tabbox>
+</center>
+	</borderlayout>
+	
+</window>
+</zk>

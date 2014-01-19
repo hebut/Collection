@@ -1,0 +1,75 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="${c:l('website.zul.currWebsite')}" id="currentWebsitePage" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window id="currSiteWin" title="${c:l('website.zul.currWebsite')}" border="normal" width="450px" height="400px" sclass="newin"
+			use="com.uniwin.webkey.content.website.win.CurrentWebsiteWindow " closable="true">
+		<grid width="500px" zclass="pop-grid">
+			<columns>
+				<column align="right" width="20%"/>
+				<column width="80%"/>
+			</columns>
+			<rows>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('website.zul.enterpriseName')}:"/>
+					<hbox>
+						<textbox id="enterpriseName" width="300px"/>
+						<label value="*" style="color:red"/>
+					</hbox>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('website.zul.legalPerson')}:"/>
+					<textbox id="legalPerson" width="300px"/>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('website.zul.telephone')}:"/>
+					<textbox id="telephone" 
+						constraint="no negative,no zero" width="300px"/>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('website.zul.fax')}:" />
+					<textbox id="fax" 
+						constraint="no negative,no zero" width="300px"/>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('website.zul.email')}:" />
+					<textbox id="email" width="300px"/>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('website.zul.address')}:" />
+					<textbox id="address" width="300px"/>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('website.zul.postCoder')}:" />
+					<textbox id="postCoder" width="300px"/>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					
+					<label value="${c:l('website.zul.style')}:" />
+			 	 <hbox>						
+					<listbox id="style" mold="select" width="100px">
+                  </listbox>  
+                  <checkbox id="application" label="${c:l('website.zul.application')}" />			
+				</hbox>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+				  
+					<label value="${c:l('website.zul.location')}:" />
+					<hbox>
+					<textbox id="location" width="200px"/>
+					<label value="${c:l('website.zul.example')}:html\123" />
+				   </hbox>
+				</row>
+			</rows>
+		</grid>
+		<separator></separator>
+		<div width="100%" align="center">
+			<hbox>
+				<image src="/images/common/actSave.gif" onClick="currSiteWin.onClick$save() "></image>
+				<image src="/images/template/ct.gif" onClick="currSiteWin.onClick$reset() "></image>
+				<button id="clearCache" label="${c:l('website.zul.clearCache')}"></button>
+			</hbox>
+		</div>
+	</window>
+</zk>

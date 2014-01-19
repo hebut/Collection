@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dwr ="http://www.directwebremoting.org/schema/spring-dwr" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.directwebremoting.org/schema/spring-dwr
+		http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+
+
+	<!-- DWR 配置开始 -->    
+	<dwr:configuration>    
+	     <dwr:convert class = "ww.support.web.dwr.validate.FieldValidateInfo"  type= "bean" >    
+	     </dwr:convert>    
+	</dwr:configuration>
+	<dwr:controller id="dwrController" debug="false"/>
+	<!-- DWR 配置结束 -->
+	
+	<!-- Freemarker配置开始 -->
+	<bean id="freemarkerConfig" 
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/styles/blue/"/>
+    </bean>
+    <bean id="viewResolver" 
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass">
+            <value> 
+                org.springframework.web.servlet.view.freemarker.FreeMarkerView 
+            </value>
+        </property>
+        <property name="prefix">
+            <value>/</value>
+        </property>
+        <property name="suffix">
+            <value>.ftl</value>
+        </property>
+    </bean>
+	<!-- Freemarker配置结束 -->
+	
+	<bean id="baseService" class="com.uniwin.webkey.cms.service.BaseServiceImpl" abstract="true">
+		  <property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		  </property>
+		  <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	  </bean>
+
+	<!-- Spring bean 配置 -->
+	
+		<!-- DWR bean -->
+	<bean id="channelList" class="com.uniwin.webkey.cms.service.ChannelList" parent="baseService">
+	   <dwr:remote javascript="channelList">    
+	   		<dwr:include method="getList"/>  
+	   		<dwr:include method="findCh"/>  
+	   </dwr:remote>  
+   	</bean>
+  	<bean id="channelListService"  parent="baseTxProxy">
+    	<property name="target">
+     		<ref local="channelList"/>
+    	</property>
+  	</bean>
+  		<!-- DWR bean -->
+   
+	<bean id="userTarget" class="com.uniwin.webkey.core.service.UsersManagerImpl">
+		<property name="usersDAO" ref="usersDAO" />
+	</bean>
+	<bean id="userService" parent="baseTxProxy">
+		<property name="target">
+			<ref local="userTarget" />
+		</property>
+	</bean>
+	<bean id="newsTarget" class="com.uniwin.webkey.cms.service.NewsServiceImpl"
+		parent="baseService">
+	</bean>
+	<bean id="newsService" parent="baseTxProxy">
+		<property name="target">
+			<ref local="newsTarget" />
+		</property>
+	</bean>
+	
+
+	<bean id="authTarget" class="com.uniwin.webkey.cms.service.AuthServiceImpl"
+		parent="baseService">
+	</bean>
+	<bean id="authService" parent="baseTxProxy">
+		<property name="target">
+			<ref local="authTarget" />
+		</property>
+	</bean>
+
+	<bean id="departmentTarget"
+		class="com.uniwin.webkey.cms.service.DepartmentServiceImpl"
+		parent="baseService">
+	</bean>
+	<bean id="departmentService" parent="baseTxProxy">
+		<property name="target">
+			<ref local="departmentTarget" />
+		</property>
+	</bean>
+
+	<bean id="roleTarget" class="com.uniwin.webkey.core.service.RoleManagerImpl">
+		<property name="roleDAO" ref="roleDAO"/>
+	</bean>
+	<bean id="roleService" parent="baseTxProxy">
+		<property name="target">
+			<ref local="roleTarget" />
+		</property>
+	</bean>
+	<bean id="chanelTarget"
+		class="com.uniwin.webkey.cms.service.ChanelServiceImpl"
+		parent="baseService">
+	</bean>
+	<bean id="chanelService" parent="baseTxProxy">
+		<property name="target">
+			<ref local="chanelTarget" />
+		</property>
+	</bean>
+	<bean id="websiteTarget"
+		class="com.uniwin.webkey.cms.service.WebsiteServiceImpl"
+		parent="baseService">
+	</bean>
+	<bean id="websiteService" parent="baseTxProxy">
+		<property name="target">
+			<ref local="websiteTarget" />
+		</property>
+	</bean>
+	
+	<bean id="urlUtil" class="com.uniwin.webkey.common.util.UrlUtil">
+		<property name="websiteService" ref="websiteService"></property>		
+	</bean>
+
+	<bean id="commentsTarget"
+		class="com.uniwin.webkey.cms.service.CommentsServiceImpl"
+		parent="baseService">
+	</bean>
+	<bean id="commentsService" parent="baseTxProxy">
+		<property name="target">
+			<ref local="commentsTarget" />
+		</property>
+	</bean>
+	
+ 	<bean id="goLoginBean" class="com.uniwin.webkey.control.WelcomeAction">
+ 		<property name="newsService">
+			<ref bean="newsService"/>
+		</property>
+		<property name="chanelService">
+			<ref bean="chanelService"/>
+		</property>
+		<property name="websiteService">
+			<ref bean="websiteService"/>
+		</property>
+		
+		<property name="authManager">
+			<ref bean="authManager"/>
+		</property>
+		<property name="usersManager" ref="usersManager" />
+		<property name="usersfavorateManager">
+			<ref bean="usersfavorateManager"/>
+		</property>		
+		<property name="resourceManager">
+			<ref bean="resourceManager"/>
+		</property>		
+		<property name="roleManager">
+			<ref bean="roleManager"/>
+		</property>	
+		<property name="userroleManager">
+			<ref bean="userroleManager"/>
+		</property>		
+		<property name="organizationManager">
+			<ref bean="organizationManager"/>
+		</property>							
+		
+	</bean>
+
+
+ 	
+ 	<bean id="chListBean" class="com.uniwin.webkey.cms.action.ChListAction">
+		<property name="chanelService">
+			<ref bean="chanelService"/>
+		</property>
+	</bean>
+ 	
+	<bean id="docListBean" class="com.uniwin.webkey.cms.action.DocListAction">
+		<property name="newsService">
+			<ref bean="newsService"/>
+		</property>
+		<property name="userService">
+			<ref bean="userService"/>
+		</property>
+	</bean>
+	
+	<bean id="countBean" class="com.uniwin.webkey.cms.action.CountAction">
+		<property name="websiteService">
+			<ref bean="websiteService"/>
+		</property>
+	</bean>
+	
+	<bean id="userListBean" class="com.uniwin.webkey.cms.action.LoginAction">
+		<property name="userService">
+			<ref bean="userService"/>
+		</property>
+	</bean>
+	
+	<bean id="loginUserSumbitBesan" class="com.uniwin.webkey.cms.action.LoginAction">
+		<property name="userService">
+			<ref bean="userService"/>
+		</property>
+	</bean>
+	
+	<bean id="loginUserBackBesan" class="com.uniwin.webkey.cms.action.LoginAction">
+		<property name="userService">
+			<ref bean="userService"/>
+		</property>				
+	</bean>
+	
+	<bean id="commListBackBesan" class="com.uniwin.webkey.cms.action.CommListAction">				
+	</bean>
+
+
+	<!-- webkey_UI的Bean配置 -->
+	<bean id="userdetailDAO" class="com.uniwin.webkey.core.dao.UserdetailDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userdetailManager" class="com.uniwin.webkey.core.service.UserdetailManagerImpl">
+		<property name="userdetailDAO" ref="userdetailDAO" />
+	</bean>
+	<bean id="authDAO" class="com.uniwin.webkey.core.dao.AuthDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="authManager" class="com.uniwin.webkey.core.service.AuthManagerImpl">
+		<property name="authDAO" ref="authDAO" />
+		<property name="roleDAO" ref="roleDAO" />
+		<property name="usersDAO" ref="usersDAO" />
+		<property name="permissionDAO" ref="permissionDAO" />
+		<property name="resourceDAO" ref="resourceDAO" />
+		<property name="operationDAO" ref="operationDAO" />
+		<property name="wktchanelDAO" ref="wktchanelDAO" />
+		<property name="organizationDAO" ref="organizationDAO" />
+		
+		<property name="wkttaskDAO" ref="wkttaskDAO"/>
+				
+	</bean>
+	
+	<bean id="wkttaskDAO" class="com.uniwin.webkey.infoExtra.dao.WkTTaskDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	
+	<bean id="wktchanelDAO" class="com.uniwin.webkey.cms.dao.WkTChanelDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userroleDAO" class="com.uniwin.webkey.core.dao.UserroleDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userroleManager" class="com.uniwin.webkey.core.service.UserroleManagerImpl">
+	    <property name="userroleDAO" ref="userroleDAO" />
+	</bean>
+
+	<bean id="treeDaoUtil" class="com.uniwin.webkey.component.dao.TreeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- UsersFavorate-->
+	<bean id="usersfavorateDAO" class="com.uniwin.webkey.core.dao.UsersfavorateDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="usersfavorateManager" class="com.uniwin.webkey.core.service.UsersfavorateManagerImpl">
+		<property name="usersfavorateDAO" ref="usersfavorateDAO" />
+	</bean>
+
+
+	<!-- OPERATION-->
+	<bean id="operationDAO" class="com.uniwin.webkey.core.dao.OperationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="operationManager" class="com.uniwin.webkey.core.service.OperationManagerImpl">
+		<property name="operationDAO" ref="operationDAO" />
+	</bean>
+	<!-- welcome-->
+	<bean id="welcomeDAO" class="com.uniwin.webkey.core.dao.WelcomeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="welcomeManager" class="com.uniwin.webkey.core.service.WelcomeManagerImpl">
+		<property name="welcomeDAO" ref="welcomeDAO" />
+	</bean>
+
+	<!--<bean id="alarmclockDAO" class="com.uniwin.webkey.core.dao.AlarmclockDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="alarmclockManager" class="com.uniwin.webkey.core.service.AlarmclockManagerImpl">
+		<property name="alarmclockDAO" ref="alarmclockDAO" />
+	</bean>
+	-->
+	<!-- SCA -->
+	<bean id="wktmlogDAO" class="com.uniwin.webkey.core.dao.WktmlogDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="wktmlogManager" class="com.uniwin.webkey.core.service.WktmlogManagerImpl">
+		<property name="wktmlogDAO" ref="wktmlogDAO" />
+	</bean>
+
+	<!-- wktmessages -->
+	<bean id="wktmessagesDao" class="com.uniwin.webkey.core.dao.WktmessagesDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="wktmessagesManager" class="com.uniwin.webkey.core.service.WktmessagesManagerImpl">
+		<property name="wktmessagesDAO" ref="wktmessagesDao"></property>
+	</bean>
+	
+	<!-- wktaccessory -->
+	<bean id="wktaccessoryDao" class="com.uniwin.webkey.core.dao.WktaccessoryDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="wktaccessoryManager" class="com.uniwin.webkey.core.service.WktaccessoryManagerImpl">
+		<property name="wktaccessoryDAO" ref="wktaccessoryDao"></property>
+	</bean>
+	
+	
+	<bean id="usersDAO" class="com.uniwin.webkey.core.dao.UsersDAOImpl"  >
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="usersManager" class="com.uniwin.webkey.core.service.UsersManagerImpl">
+		<property name="usersDAO" ref="usersDAO" />
+		<property name="welcomeDao" ref="welcomeDAO"></property>
+		<property name="roleManager" ref="roleManager" />
+		<property name="organizationManager" ref="organizationManager" />
+	</bean>
+	<bean id="roleDAO" class="com.uniwin.webkey.core.dao.RoleDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="roleManager" class="com.uniwin.webkey.core.service.RoleManagerImpl">
+		<property name="roleDAO" ref="roleDAO" />
+		<property name="usersManager" ref="usersManager" />
+
+	</bean>
+	<bean id="organizationDAO"
+		class="com.uniwin.webkey.core.dao.OrganizationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="organizationManager"
+		class="com.uniwin.webkey.core.service.OrganizationManagerImpl">
+		<property name="organizationDAO" ref="organizationDAO" />
+		<property name="usersManager" ref="usersManager" />
+
+	</bean>
+	<bean id="resourceDAO" class="com.uniwin.webkey.core.dao.ResourceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="resourceManager"
+		class="com.uniwin.webkey.core.service.ResourceManagerImpl">
+		<property name="resourceDAO" ref="resourceDAO" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="usersManager" ref="usersManager" />
+	</bean>
+	<bean id="permissionDAO" class="com.uniwin.webkey.core.dao.PermissionDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="permissionManager"
+		class="com.uniwin.webkey.core.service.PermissionManagerImpl">
+		<property name="permissionDAO" ref="permissionDAO" />
+		<property name="permissionoperationDAO" ref="permissionoperationDAO" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="usersManager" ref="usersManager" />
+	</bean>	
+	<bean id="operationdefaultDAO" class="com.uniwin.webkey.core.dao.OperationdefaultDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="operationdefaultManager" 
+		class="com.uniwin.webkey.core.service.OperationdefaultManagerImpl">
+		<property name="operationdefaultDAO" ref="operationdefaultDAO"/>
+		<property name="operationDAO" ref="operationDAO"/>
+	</bean>
+	
+	<bean id="permissionoperationDAO" class="com.uniwin.webkey.core.dao.PermissionOperationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+
+	</bean>
+	<bean id="permissionOperationManager"
+		class="com.uniwin.webkey.core.service.PermissionOperationManagerImpl">
+		<property name="permissionoperationDAO" ref="permissionoperationDAO" />
+		<property name="permissionDAO" ref="permissionDAO" />
+
+	</bean>
+	
+	<!-- webkey_UI的Bean配置结束-->
+</beans>

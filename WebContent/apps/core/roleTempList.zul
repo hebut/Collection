@@ -1,0 +1,31 @@
+<?page id="TempList" title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window id="tempListWindow"  border="none" sclass="newin" height="100%" width="100%"
+        use="com.uniwin.webkey.core.ui.RoleTempListWin">
+	      <div> 
+         	<panel id = "roleListPanel" width="100%" border="normal" visible="true">
+			     <panelchildren >
+                     <space height="3px"></space>
+			         <div align="right">
+						<hbox align="end">											 
+							<toolbarbutton id="newRole"  label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.add')}" />	
+							<toolbarbutton id="delRole"  label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.delete')}"/>
+					    </hbox>
+					 </div>	
+                     <space height="3px"></space>   	
+		      	     <listbox id="roleListbox"	mold="paging" pageSize="11" multiple="true" checkmark="true" sclass="new_listbox">
+						<listhead>
+						    <listheader width="3%" align="center"/>	
+							<listheader label="${c:l('role.zul.xuhao')}" width="8%" align="center"/>
+							<listheader label="${c:l('role.zul.rolename')}" width="35%" style="text-align:center" sort="auto(roleName)" />
+							<listheader label="${c:l('role.zul.rolestate')}" width="20%" style="text-align:center" />
+							<listheader label="${c:l('role.zul.roledefault')}" width="15%" style="text-align:center" />
+							<listheader label="${c:l('role.zul.roleoption')}" width="20%" align="center" />			          
+						</listhead>
+					 </listbox>		         	  	
+            	   </panelchildren>
+                </panel>                 
+             </div>
+</window>
+</zk>

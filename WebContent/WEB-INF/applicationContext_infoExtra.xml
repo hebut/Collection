@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dwr ="http://www.directwebremoting.org/schema/spring-dwr" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.directwebremoting.org/schema/spring-dwr
+		http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+	
+	<bean id="baseService1" class="com.uniwin.webkey.infoExtra.service.BaseServiceImpl" abstract="true">
+		  <property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		  </property>
+	  </bean>
+  <bean id="orinewsTarget2" class="com.uniwin.webkey.infoExtra.service.OriNewsServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="info_orinewsService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="orinewsTarget2"/>
+    </property>
+  </bean>
+	
+  <bean id="infoGeneratedService2" class="com.uniwin.webkey.infoExtra.service.InfoGenServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="infoGeneratedService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="infoGeneratedService2"/>
+    </property>
+  </bean>
+  
+  <bean id="newsTarget2" class="com.uniwin.webkey.infoExtra.service.NewsServicesImpl" parent="baseService1">
+  </bean>
+  <bean id="info_newsService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="newsTarget2"/>
+    </property>
+  </bean>
+  
+  <bean id="roleTarget2" class="com.uniwin.webkey.infoExtra.service.RoleServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="info_roleService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="roleTarget2"/>
+    </property>
+  </bean>
+  
+  <bean id="authTarget2" class="com.uniwin.webkey.infoExtra.service.AuthServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="info_authService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="authTarget2"/>
+    </property>
+  </bean>
+  
+  <bean id="chanelTarget2" class="com.uniwin.webkey.infoExtra.service.ChanelServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="info_chanelService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="chanelTarget2"/>
+    </property>
+  </bean>
+  
+  <bean id="organTarget2" class="com.uniwin.webkey.infoExtra.service.DepartmentServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="info_departmentService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="organTarget2"/>
+    </property>
+  </bean>
+	
+	<!-- 抽取的service配置  -->
+    <bean id="showTask" class="com.uniwin.webkey.infoExtra.service.TaskServiceImpl" parent="baseService1">
+    </bean>
+  <bean id="taskService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="showTask"/>
+    </property>
+  </bean>
+	<bean id="showTree" class="com.uniwin.webkey.infoExtra.service.TreeServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="treeService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="showTree"/>
+    </property>
+  </bean>
+
+<bean id="guide" class="com.uniwin.webkey.infoExtra.service.GuideServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="guideService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="guide"/>
+    </property>
+  </bean>
+
+<bean id="pick" class="com.uniwin.webkey.infoExtra.service.PickServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="pickService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="pick"/>
+    </property>
+  </bean>
+	
+	<bean id="link" class="com.uniwin.webkey.infoExtra.service.LinkServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="linkService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="link"/>
+    </property>
+  </bean>	
+	
+	<bean id="info" class="com.uniwin.webkey.infoExtra.service.InfoServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="infoService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="info"/>
+    </property>
+  </bean>	
+  
+  	<bean id="send" class="com.uniwin.webkey.infoExtra.service.SendMailServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="SendMailService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="send"/>
+    </property>
+  </bean>
+  
+  <bean id="receive" class="com.uniwin.webkey.infoExtra.service.ReceiveMailServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="ReceiveMailService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="receive"/>
+    </property>
+  </bean>
+  
+  <bean id="users" class="com.uniwin.webkey.infoExtra.service.UserServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="UserService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="users"/>
+    </property>
+  </bean>
+	
+	<bean id="sign" class="com.uniwin.webkey.infoExtra.service.SignServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="signService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="sign"/>
+    </property>
+  </bean>
+  
+  
+  <bean id="replace" class="com.uniwin.webkey.infoExtra.service.ReplaceServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="replaceService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="replace"/>
+    </property>
+  </bean>
+  
+	
+	 <bean id="mlogTarget" class="com.uniwin.webkey.infoExtra.service.MLogServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="info_mlogService" parent="baseTxProxy">
+      <property name="target">
+          <ref local="mlogTarget"/>
+      </property>
+  </bean>
+  
+  <bean id="infosort" class="com.uniwin.webkey.infoExtra.service.InfoSortServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="infosortService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="infosort"/>
+    </property>
+  </bean>
+  <bean id="subjectTermSort" class="com.uniwin.webkey.infoExtra.service.SubjectTermSortServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="subjectTermSortService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="subjectTermSort"/>
+    </property>
+  </bean>
+  <bean id="subjectTerm" class="com.uniwin.webkey.infoExtra.service.SubjectTermServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="subjectTermService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="subjectTerm"/>
+    </property>
+  </bean>
+  <bean id="personTopicS" class="com.uniwin.webkey.infoExtra.service.PersonTopicServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="persontopicService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="personTopicS"/>
+    </property>
+  </bean>
+  
+  <bean id="topicIdAndDomainid" class="com.uniwin.webkey.infoExtra.service.TopicIdAndDomainIdImpl" parent="baseService1">
+  </bean>
+  <bean id="topicIdAndDomainIdService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="topicIdAndDomainid"/>
+    </property>
+  </bean>
+  
+   <bean id="infodomain" class="com.uniwin.webkey.infoExtra.service.InfoDomainServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="infodomainService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="infodomain"/>
+    </property>
+  </bean>
+	
+	 <bean id="infosubject" class="com.uniwin.webkey.infoExtra.service.InfoSubjectServiceImpl" parent="baseService1">
+  </bean>
+  <bean id="infosubjectService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="infosubject"/>
+    </property>
+  </bean>
+	
+  <bean id="infoIdAndDomainId" class="com.uniwin.webkey.infoExtra.service.InfoIdAndDomainIdImpl" parent="baseService1">
+  </bean>
+  <bean id="infoIdAndDomainIdService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="infoIdAndDomainId"/>
+    </property>
+  </bean>
+  
+  <bean id="userIdAnddomainId" class="com.uniwin.webkey.infoExtra.service.UserIdAnddomainIdImpl" parent="baseService1">
+     
+  </bean>
+  <bean id="userIdAnddomainIdService" parent="baseTxProxy">
+    <property name="target">
+      <ref local="userIdAnddomainId"/>
+    </property>
+  </bean>
+	
+	<bean id="page" class="com.uniwin.webkey.cms.service.PageTemplateManagerImpl" parent="baseService1">
+	</bean>
+	<bean id="pageTemp" parent="baseTxProxy">
+		<property name="target">
+			<ref local="page"/>
+		</property>
+	</bean>
+	
+</beans>

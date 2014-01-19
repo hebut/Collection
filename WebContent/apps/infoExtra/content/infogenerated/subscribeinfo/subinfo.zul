@@ -1,0 +1,47 @@
+<?page id="messEdit"  contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="subscribeInfoWindow" width="830px" style="text-align:left"
+		sclass="eagel-window" use="com.uniwin.webkey.infoExtra.infogenerated.SubscribeInfo">
+		<panel>
+			<panelchildren>
+ 	    <groupbox width="99%">
+             <caption label="检索"></caption>
+	         <div width="99%" align="center">
+				 <hbox  >						
+					<space></space>
+					<label value="标题"/>
+					<textbox id="title"  width="120px" height="15px"></textbox>
+					<space></space>
+					<label value="来源"/>
+					<textbox id="source"  width="120px" height="15px"></textbox>
+					<space></space>
+					<space></space>				
+					 <toolbarbutton   label=""  image="/images/common/searAct.gif" id="search"/>
+					 <space></space>
+					 <space></space>	
+					 <space></space>			 
+					 <space></space> 	   
+			   </hbox>	
+			</div>
+         </groupbox>
+		<separator></separator>  
+		<listbox id="infolistbox" mold="paging" pageSize="10"
+	          pagingPosition="bottom" checkmark="true" multiple="true" width="99%">
+			<listhead>
+				<listheader width="4%" />
+				<listheader label="序号" width="8%" align="center" />
+				<listheader label="标题" width="40%"
+					align="center" id="titleHeader" maxlength="20" />
+				<listheader label="原始发布时间" width="20%"
+					align="center" id="pubtimeHeader" sort="auto(kiPtime)"/>
+				<listheader label="信息来源" width="20%"
+					align="center" id="sourceHeader1" />								
+				<listheader label="操作" width="18%"
+					align="center" id="operateHeader" />
+			</listhead>
+	  </listbox>  
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

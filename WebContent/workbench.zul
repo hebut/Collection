@@ -1,0 +1,22 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="Auto Generated index.zul" id="workbench" ?>
+<zk>
+<style src="${c:l('webindex.zul.css')}${themeName}${c:l('webindex.zul.cssfile')}" ></style>
+<style if="${themeName=='defult'}">  
+	.z-west-splt-index{				
+		background:url("../images/defult/leftback.jpg") no-repeat scroll left center #EBF5FF;
+	}
+</style>
+<tabbox id="workbench" sclass="new-tabbox" height="100%"
+	tabscroll="true" use="com.uniwin.webkey.system.ui.WorkbenchWin" >
+	<tabs id="indextab">
+		<tab label="${c:l('webindex.zul.welcome')}" />
+	</tabs>
+	<tabpanels>
+		<tabpanel id="welcome_tab"  >
+			<include src="/welcome.zul" width="100%" height="100%">
+			</include>
+		</tabpanel>
+	</tabpanels>
+</tabbox>
+</zk>

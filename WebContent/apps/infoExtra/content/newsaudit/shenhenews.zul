@@ -1,0 +1,118 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="win" border="normal" width="935px" height="600px"
+		use="com.uniwin.webkey.infoExtra.newsaudit.NewsauditDetailWindow"
+		closable="true">
+		<caption label="查看信息" />
+		<vbox>
+			<hbox>
+				<label value="标题:" width="70px" />
+				<space width="20px" />
+				<textbox width="320px" id="kititle"
+					constraint="no empty" />
+				<label value="*" style="color:red;valign:center" />
+				<space width="20px" />
+				<label value="副标题:" width="70px" />
+				<textbox width="320px" id="kititle2" />
+			</hbox>
+			<hbox>
+				<label value="发布栏目:" width="66px" />
+				<textbox id="taskname" width="250px" />
+				<space />
+				<toolbarbutton image="/images/content/1/xz.gif"
+					id="choose" />
+				<space width="45px" />
+				<label value="来源:" width="70px" />
+				<textbox width="320px" id="kisource" />
+			</hbox>
+			<hbox>
+				<label value="主题词:" width="70px" />
+				<space width="7px" />
+				<textbox width="650px" id="subjectTerm" value=""
+					Readonly="true" />
+				<toolbarbutton image="/images/content/1/xz.gif"
+					id="chooseSubjectTerm" />
+			</hbox>
+			<hbox>
+				<label value="关键字:" />
+				<space width="7px" />
+				<textbox width="300px" id="kikeys" />
+				<label value="原始发布日期:" />
+				<space width="7px" />
+				<textbox width="300px" id="kiorigtime" />
+				<label value="失效日期:" width="70px" visible="false" />
+				<datebox width="130px" id="kivaliddate" visible="false" />
+				<space width="20px" />
+			</hbox>
+			
+			<hbox>
+				<label value="信息分类:" width="66px" />
+				<textbox width="650px" id="kiSort" Readonly="true"
+					constraint="no empty" />
+				<toolbarbutton image="/images/content/1/xz.gif"
+					id="chooseSort" />
+			</hbox>
+
+			<hbox id="wdnews">
+				<label value="新闻内容:" />
+			</hbox>
+			<separator bar="true" id="sep1" visible="false" />
+			<hbox>
+				<space width="25px" />
+				<fckeditor height="320px" width="840px"
+					id="kicontent">
+				</fckeditor>
+				<html id="content" height="300px" width="685px"
+					visible="false" />
+			</hbox>
+			<separator bar="true" id="sep2" visible="false" />
+			<hbox id="tupian">
+				<space width="50px" />
+				<label value="附件:" width="70px" />
+				<toolbarbutton id="up"
+					image="/images/content/tianjiafujian.png">
+					<attribute name="onClick">
+				         <![CDATA[
+	{
+		Object media = Fileupload.get();
+		if (media != null) {
+			win.getModelList().add(media);
+		} else {
+			Messagebox.show("您没有选择要上传的文件！", "提示！", Messagebox.OK,
+					Messagebox.INFORMATION);
+		}
+	}
+]]></attribute>
+				</toolbarbutton>
+				<space width="160px" />
+				<label value="附件列表:" width="70px" />
+				<listbox width="200px" id="upList" mold="select" />
+				<space />
+				<toolbarbutton image="/images/content/delAct.gif"
+					id="deUpload" />
+				<toolbarbutton image="/images/content/1/xz_.gif"
+					id="down" />
+			</hbox>
+
+			<hbox id="adv">
+				<label value="处理意见:" width="70px" />
+				<textbox width="760px" id="kflmemo" />
+			</hbox>
+		</vbox>
+		<separator />
+		<div sclass="pop-win-b-div" align="center">
+			<toolbarbutton image="/images/content/btn-save.gif"
+				id="save" />
+			<toolbarbutton image="/images/content/btn-pub.gif"
+				id="pass" />
+			<toolbarbutton image="/images/content/btn-back.gif"
+				id="reback" />
+			<toolbarbutton image="/images/content/btn-resetb.gif"
+				id="reset" />
+			<toolbarbutton image="/images/content/btn-del.gif"
+				id="delete" />
+			<toolbarbutton image="/images/content/btn-close.gif"
+				id="back" onClick="win.detach()" />
+		</div>
+	</window>
+</zk>

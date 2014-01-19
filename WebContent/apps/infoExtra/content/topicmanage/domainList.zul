@@ -1,0 +1,26 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+	<window use="com.uniwin.webkey.infoExtra.topicmanage.DomainTreeComposer" height="500px" width="100%">
+		<toolbar align="end">
+			<toolbarbutton id="save" image="/css/img/btn-save.gif" />
+		</toolbar>
+		<borderlayout sclass="wihte-border-layout" height="435px">
+		   <center flex="true" id="topicCen" >
+			</center>
+			<south >
+				<groupbox closable="true">
+					<hbox>
+						<label style="color:red" value="提示:" />
+						<vbox>
+							<label pre="true"
+								value="1、定制分类时，先选中某一分类，然后进行保存(右上角的保存)" />
+							<label pre="true"
+								value="2、已定制的分类可以到个人专题，选中某一专题，右键编辑进行查看，点击专题名称可查看定制的新闻" />
+						</vbox>
+					</hbox>
+				</groupbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

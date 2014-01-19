@@ -1,0 +1,23 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  sclass="newin" use="com.uniwin.webkey.core.ui.FavoriteWin"
+		id="favoriteWin_info" >
+		
+		<listbox width="80%" sclass="new_listbox">
+			<listitem>
+				<listcell>
+					<panel>
+						<panelchildren id="treeDiv">
+						</panelchildren>
+					</panel>
+				</listcell>
+			</listitem>
+		</listbox>
+		<separator />
+		<div align="center" width="80%">
+			<image src="/images/common/actSave.gif" onClick="favoriteWin_info.saveOrUpdataFavorate()" />
+		
+		</div>
+
+	</window>
+</zk>

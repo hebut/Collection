@@ -1,0 +1,16 @@
+<?page title="收件箱" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window width="760px" title="收件箱" style="text-align:left" use="com.uniwin.webkey.infoExtra.email.EmailReceiveWindow">
+
+				<listbox id="noticeList" mold="paging" pageSize="10" pagingPosition="bottom" checkmark="true" multiple="true">
+					<listhead>
+						<listheader width="5%" />
+						<listheader label="序号" width="6%" align="center" />
+						<listheader label="发件人" width="20%" style="padding-left: 12px;" sort="auto(xmSubject)" id="titleHeader" align="center" />
+						<listheader label="主题"  align="left" id="keywordHeader" sort="auto(xmKeyword)" />
+						<listheader label="日期" width="20%" align="center" id="timeHeader" sort="auto(xmSndtime)" />
+					</listhead>
+				</listbox>
+	</window>
+</zk>

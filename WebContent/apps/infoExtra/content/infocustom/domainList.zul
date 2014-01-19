@@ -1,0 +1,34 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+	<window use="com.uniwin.webkey.infoExtra.infocustom.DomainList" height="500px" width="100%">
+		<toolbar align="end">
+			<toolbarbutton id="save" image="/css/img/btn-save.gif" />
+		</toolbar>
+		<borderlayout sclass="wihte-border-layout">
+		   <center flex="true">
+				<grid fixedLayout="true" id="domainGrid" mold="paging"
+					pageSize="15" sclass="new_listbox">
+					<columns>
+						<column width="50%" />
+						<column width="50%" />
+					</columns>
+					<rows id="domainRows"></rows>
+				</grid>
+			</center>
+			<south >
+				<groupbox closable="true">
+					<hbox>
+						<label style="color:red" value="提示:" />
+						<vbox>
+							<label pre="true"
+								value="1、分类中的各个领域前打勾的为已定制，反之为未定制。" />
+							<label pre="true"
+								value="2、已定制可查看新闻详细内容，未定制仅可查看新闻标题。" />
+						</vbox>
+					</hbox>
+				</groupbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

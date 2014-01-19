@@ -1,0 +1,40 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window  border="normal"    width="500px"  id="sortedit"  contentStyle="overflow:auto" use="com.uniwin.webkey.infoExtra.infosortnew.DomainEdit">
+	<caption image="/css/img/win-ico.gif" label="编辑分类" />
+		<grid align="left" width="480px">
+			<columns>
+				<column width="30%" />
+				<column width="70%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="分类名称" />
+					<hbox>
+						<textbox  width="250px"   id="name"/>
+						<label value="*" style="color:red;valign:center" />
+					</hbox>
+				</row>
+				<row>
+					<label value="分类代码" />
+					<hbox>
+						<textbox  width="250px"   id="code"/>
+						<label value="*" style="color:red;valign:center" />
+					</hbox>
+				</row>
+					<row>
+					<label value="备注(限200字)" />
+					<hbox>
+						<textbox  width="250px"   id="issue" rows="5"  maxlength="200"/>
+					</hbox>
+				</row>
+				<row align="center" spans="2">
+					<div align="center" sclass="pop-win-b-div">
+						<toolbarbutton id="save" image="/css/img/btn-save.gif" />						
+						<toolbarbutton id="back" image="/css/img/btn-close.gif" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

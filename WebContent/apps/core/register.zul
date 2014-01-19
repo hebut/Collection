@@ -1,0 +1,182 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="regeditWin"  border="normal"  sclass="newin" width="430px" closable="true" use="com.uniwin.webkey.core.ui.RegisterWin">
+     	<caption image="/css/img/win-ico.gif" label="用户注册" ></caption>
+       
+	<separator></separator>
+
+	<vbox style="text-align:center"  width="100%">
+	   <listbox width="400px"  sclass="new_listbox" fixedLayout="true" multiple="true">	  
+	       <listhead>
+	       		<listheader width="40%"/>
+	       		<listheader width="60%"/>
+	       </listhead>
+			
+		    <listitem>
+			     <listcell>		   
+				   <label value="登录名（不少于6位）:" width="60px"/>
+				  </listcell>
+				  <listcell>
+				  <hbox>
+				   <textbox  id="kuLid"  width="200px" />
+				    <label value="*" style="color:red;valign:center" />
+				    </hbox>
+				 </listcell>
+			</listitem>
+			   <listitem>
+			     <listcell>		   
+				   <label value="登录密码:" width="60px"/>
+				  </listcell>
+				  <listcell>
+				  <hbox>
+				   <textbox  id="password"  width="200px" type="password"/>
+				    <label value="*" style="color:red;valign:center" />
+				    </hbox>
+				 </listcell>
+			</listitem>
+			   <listitem>
+			     <listcell>		   
+				   <label value="确认密码:" width="60px"/>
+				  </listcell>
+				  <listcell>
+				  <hbox>
+				   <textbox  id="surepass"  width="200px" type="password"/>
+				    <label value="*" style="color:red;valign:center" />
+				    </hbox>
+				 </listcell>
+			</listitem>
+		
+			<listitem>
+				<listcell>
+					<label value="${c:l('users.zul.kuQuestion')}:" width="60px"/>
+				</listcell>
+				<listcell>
+					<textbox id="kuQuestion"  width="200px" />
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+					<label value="${c:l('users.zul.kuAnswer')}:" width="60px"/>
+				</listcell>
+				<listcell>
+					<textbox id="kuAnswer"  width="200px"  />			
+				</listcell>
+			</listitem>
+				<listitem>
+				 <listcell>
+				   <label value="${c:l('users.zul.userName1')}:" width="60px" />
+				  </listcell>
+				  <listcell>
+				   <hbox>
+				   <textbox id="kuName"  width="200px" />	
+				   <label value="*" style="color:red;valign:center" />
+				   </hbox>				
+				</listcell>
+			</listitem>
+				<listitem>
+				<listcell>
+					<label value="${c:l('users.zul.kuSex')}:" width="60px"/>
+				</listcell>
+				<listcell>
+					<radiogroup id="kuSex">
+				    	 <radio id="man" label="${c:l('users.zul.man')}" checked="true"/>
+	                     <radio id="woman" label="${c:l('users.zul.woman')}"/>
+					</radiogroup>		
+				</listcell>
+			</listitem>
+			<listitem>	
+				<listcell>
+					<label value="${c:l('users.zul.kuEmail')}:" width="60px" />
+				</listcell>
+				<listcell>
+					<hbox>
+					<textbox id="kuEmail"  width="200px" constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address"/>
+					<label value="*" style="color:red;valign:center" />
+					</hbox>
+				</listcell>
+			</listitem>
+			<listitem>
+				<listcell>
+					<label value="${c:l('users.zul.kuPhone')}:" width="60px"/>
+				</listcell>
+				<listcell>
+					<hbox>
+					<textbox id="kuPhone"  width="200px" />	
+					<label value="*" style="color:red;valign:center" />
+					</hbox>		
+				</listcell>
+			</listitem>
+			<listitem>	
+				<listcell>
+					<label value="${c:l('users.zul.kuBirthday')}:" width="60px"/>
+				</listcell>
+				<listcell>
+					<datebox id="kuBirthday" focus="true" width="180px" />
+				</listcell>
+			</listitem>
+		<listitem>	
+				<listcell>		   		
+						 <label value="${c:l('users.zul.kuCompany')}:" width="60px"/>
+				</listcell>
+				<listcell>
+						 <textbox  id="kuCompany"  width="200px"  />							
+				</listcell>
+			</listitem>
+			<listitem>	
+				<listcell>		   		
+						 <label value="所属部门:" width="60px"/>
+				</listcell>
+				<listcell>
+				 <hbox>
+					<bandbox id="organizationId" width="180px" height="15px" readonly="true">
+											<bandpopup>
+												<tree id="parentData" width="180px" use="com.uniwin.webkey.tree.ui.OrganizationTree">
+												</tree>
+											</bandpopup>
+										</bandbox>			
+										 <label value="*" style="color:red;valign:center" />
+										</hbox>			
+				</listcell>
+			</listitem>
+		<listitem>	
+				<listcell>		   		
+						 <label value="从事专业:" width="60px"/>
+				</listcell>
+				<listcell>
+						 <textbox  id="kumajor"  width="200px"  />							
+				</listcell>
+			</listitem>
+			<listitem>	
+				<listcell>		   		
+						 <label value="职位:" width="60px"/>
+				</listcell>
+				<listcell>
+						 <textbox  id="kuduty"  width="200px"  />							
+				</listcell>
+			</listitem>
+			<listitem>	
+				<listcell>		   		
+						 <label value="职称:" width="60px"/>
+				</listcell>
+				<listcell>
+						 <textbox  id="kulevel"  width="200px"  />							
+				</listcell>
+			</listitem>
+			
+			
+		</listbox>
+	
+		<separator></separator>
+		<div align="center" width="80%" >
+			<hbox>
+			<space width="150px"></space>
+				<image src="/images/common/actSave.gif" onClick="regeditWin.onClick$save()" ></image>
+			   <space></space>
+				<toolbarbutton image = "/images/template/ct.gif" id="reset" onClick="regeditWin.onClick$reset()"></toolbarbutton>
+			</hbox>	  
+		</div>
+	</vbox>		
+	
+  </window>
+
+</zk>

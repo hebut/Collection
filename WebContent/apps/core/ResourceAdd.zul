@@ -1,0 +1,102 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8" id="add"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window id="resourceAdd_wind" sclass="newin" use="com.uniwin.webkey.core.ui.ResourceAddWin" height="100%">
+	  <separator height="40px"></separator>
+		<grid align="center" zclass="pop-grid">
+			<columns>
+				<column width="25%" align="right"></column>
+				<column width="25px"></column>
+				<column width="70%" align="left"></column>
+			</columns>
+			<rows>
+				<row height="30px" zclass="pop-grid-rows">
+				    <label value="${c:l('resource.zul.resourcename')}:">
+				    </label>
+				    <space width="25px" />
+					<textbox id="name" width="220px" maxlength="50">
+					</textbox>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label id="resourceType_label" value="${c:l('resource.zul.resourcetype')}:">
+					</label>
+					<space width="25px" />
+					<combobox id="resourceType" width="203px" readonly="true"
+						onChange="resourceAdd_wind.viewChange()">
+						<comboitem label="${c:l('resource.zul.type.menu')}" value="00"></comboitem>
+						<comboitem label="${c:l('resource.zul.type.help')}" value="02"></comboitem>
+						<comboitem label="${c:l('resource.zul.type.pt')}" value="01"></comboitem>
+						<comboitem label="${c:l('resource.zul.type.yu')}" value="03"></comboitem>
+						<comboitem label="${c:l('resource.zul.type.function')}" value="04"></comboitem>
+					</combobox>
+				</row>
+				<row height="30px" zclass="pop-grid-rows" id="selectRow">
+				    <label id="parentRec" value="${c:l('resource.ui.parentRec')}:"></label>
+				    <space width="25px" />
+					<listbox id="rSelect" mold="select" width="225px"
+						use="com.uniwin.webkey.cms.listbox.ResourceListbox">
+					</listbox>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label  value="${c:l('resource.zul.runningnumber')}:"></label>
+					<space width="25px" />
+					<intbox id="weizhi" width="220px" maxlength="100"/>					
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+				    <label id="url_label" value="${c:l('resource.zul.url')}:"></label>
+				    <space width="25px" />
+					<textbox id="url" width="220px" maxlength="100" />
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+				    <label id="helpURl_label" value="${c:l('resource.zul.helpadd')}:"></label>
+				    <space width="25px" />
+					<textbox id="helpUrl" width="220px" maxlength="250" />
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+				    <label value="${c:l('resource.zul.description')}:">
+				    </label>
+				    <space width="25px" />
+					<textbox id="description" width="220px" maxlength="250" rows="5" cols="30"/>
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+				    <label value="${c:l('resource.zul.activationicon')}:" id="activeLabel">
+				    </label>
+				    <space width="25px" />
+				    <div>
+						<image src="${c:l('resource.zul.uploadAddimage')}" hover="${c:l('resource.zul.uploadAddhoverimage')}" id="upFileActive">
+							<attribute name="onClick">
+								resourceAdd_wind.addImage("activeImageurl");
+							</attribute>
+						</image>
+						<image id="activeImage" width="30px" height="30px">
+						</image>
+					</div>					
+				</row>
+				<row height="30px" zclass="pop-grid-rows">
+					<label value="${c:l('resource.zul.noactivationicon')}:" id="inactiveLabel">
+					</label>
+					<space width="25px" />
+					<div>
+						<image
+							src="${c:l('resource.zul.uploadAddimage')}"
+							hover="${c:l('resource.zul.uploadAddhoverimage')}"
+							id="upFileInactive">
+							<attribute name="onClick">
+								resourceAdd_wind.addImage("inactiveImageurl");
+							</attribute>
+						</image>
+						<image id="inactiveImage" width="30px" height="30px" />
+					</div>
+				</row>
+				<row spans="3" height="30px" zclass="pop-grid-rows">
+					<div align="center">
+						<image src="/images/common/actSave.gif" if="${ResourceMap.ADD}"
+							   onClick="resourceAdd_wind.addResource()">
+						</image>
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:zksp="http://www.zkoss.org/2008/zkspring"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.1.xsd
+                        http://www.zkoss.org/2008/zkspring http://www.zkoss.org/2008/zkspring/zkspring.xsd">
+	
+    <http auto-config='true'>
+      
+    </http>
+    <global-method-security secured-annotations="enabled">
+	</global-method-security>
+    <authentication-provider>
+        <password-encoder hash="md5"/>
+        <jdbc-user-service data-source-ref="dataSource"
+            users-by-username-query="select  KU_LID as loginname,KU_PASSWD as password,KU_ENABLE as enabled
+                                       from wk_t_users
+                                      where KU_LID=?"
+            authorities-by-username-query="select u.KU_LID as loginname ,p.KP_CODE as authority
+                                             from wk_t_users u
+                                             join wk_t_user_role ur
+                                               on u.KU_ID=ur.ku_userid
+                                             join wk_t_role r
+                                               on r.kr_roleid = ur.kr_roleid
+                                              join wk_t_permission_role pr 
+                                               on pr.kpr_roleid=r.kr_roleid
+                                               join wk_t_permission p
+                                               on p.kp_id=pr.kpr_roleid
+                                            where u.KU_LID=?"/>
+    </authentication-provider>
+  
+	
+</beans:beans>

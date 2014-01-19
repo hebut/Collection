@@ -1,0 +1,30 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="${c:l('welcome.zul.tablelist')}" border="normal" sclass="newin" height="400px"
+		use="com.uniwin.webkey.core.ui.WelcomeaddListWin" id="welcomeaddList_Win">
+		
+		<panel width="600px" height="250px">
+			<panelchildren>
+					<listbox mold="paging" pageSize="10" sclass="new_listbox">
+						<listhead>
+							<listheader label="${c:l('welcome.zul.name')}" sort="auto" style="text-align:center" />
+							<listheader label="${c:l('welcome.zul.application')}" sort="auto" style="text-align:center" />
+						</listhead>
+						<listitem forEach="${welcomeaddList_Win.welcomeList}" value="${each }">
+							<listcell label="${each.name }" />
+							<listcell>
+								<toolbarbutton id="toolbar${each.id }" label="${c:l('welcome.zul.applynow')}" onClick="welcomeaddList_Win.addWelcomeApp(event)"  />
+								<div id="div${each.id }" visible="false">
+									<checkbox checked="true"/>
+									<label value="${c:l('welcome.zul.added')}">
+									</label>
+								</div>
+							</listcell>
+						</listitem>
+					</listbox>		
+			</panelchildren>
+		</panel>
+		
+	</window>
+</zk>

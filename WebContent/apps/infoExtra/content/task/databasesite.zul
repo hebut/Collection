@@ -1,0 +1,42 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  border="normal" width="400px" height="245px" id="date">
+   <caption image="/css/img/win-ico.gif" label="数据库连接设置"/>
+<groupbox >
+<caption label="选择或输入数据库路径"/>
+	<separator />
+<label value="数据库"/>
+	<separator />
+<hbox>
+<textbox width="290px"/>
+<space/>
+<button label="浏览..."/>
+</hbox>
+</groupbox>
+	<separator />
+<groupbox >
+<caption label="验证信息"/>
+	<separator />
+<checkbox label="需要身份验证">
+<attribute name="onCheck">
+name.setDisabled(false);
+pass.setDisabled(false);
+</attribute>
+</checkbox>
+	<separator />
+<hbox >
+<label value="用户名"/>
+<textbox width="120px" id="name" disabled="true"/>
+<space/><space/>
+<label value="密码"/>
+<textbox width="120px" id="pass" disabled="true"/>
+</hbox>
+</groupbox>
+	<separator />
+<div align="right">
+<button label="测试连接"/>
+<button label="确定"/>
+<button label="取消"  onClick="date.detach()"/>
+</div>
+</window>
+</zk>

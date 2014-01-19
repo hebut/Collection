@@ -1,0 +1,38 @@
+<?page title=" " contentType="text/html;charset=UTF-8" id="page"?>
+<zk>
+	<window use="com.uniwin.webkey.core.ui.WktmessagesWin" sclass="newin" id="wktmessagesWin">
+		<style if="${themeName=='defult'}" src="/css/default/default.css" />
+		<listbox id="listbox" fixedLayout="true" height="340px" width="100%" sclass="new_listbox">
+			<listhead id="listhead" sizable="true">
+				<listheader label="标题" align="center" height="25px"
+					style="padding:0px;vertical-align: middle;line-height:25px;">
+				</listheader>
+				<listheader label="帮助资源类型" align="center"
+					style="padding:0px;vertical-align: middle;line-height:25px;">
+				</listheader>
+				<listheader label="反馈时间" align="center"
+					style="padding:0px;vertical-align: middle;line-height:25px;">
+				</listheader>
+				<listheader label="反馈人" align="center"
+					style="padding:0px;vertical-align: middle;line-height:25px;">
+				</listheader>
+				<listheader label="状态" align="center" width="45px"
+					style="padding:0px;vertical-align: middle;line-height:25px;">
+				</listheader>
+				<listheader label="回复" align="center" width="35px"
+					style="padding:0px;vertical-align: middle;line-height:25px;">
+				</listheader>
+				<listheader label="删除" align="center" width="35px"
+					style="padding:0px;vertical-align: middle;line-height:25px;">
+				</listheader>
+				<listheader label="浏览" align="center" width="35px"
+					style="padding:0px;vertical-align: middle;line-height:25px;">
+				</listheader>
+			</listhead>
+		</listbox>
+		<div align="center" style="background-color:#e9f6ff;">
+			<paging id="messagePaging" style="height:25;background-color:#e9f6ff;text-align:left;"
+				    pageSize="12" detailed="true" totalSize="50" />
+		</div>
+	</window>
+</zk>

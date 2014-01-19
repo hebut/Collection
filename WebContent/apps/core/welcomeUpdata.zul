@@ -1,0 +1,40 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window title="${c:l('welcome.zul.updateforum')}" border="normal" sclass="newin" width="300px" height="180px" 
+		use="com.uniwin.webkey.core.ui.WelcomeUpdataWin" id="welcomeUpdata_Win">
+		<script>
+			function selectThis(o){
+				o.select();		
+			}
+		</script>
+		<div align="center">		
+		    <vbox>
+			     <separator></separator>						
+					<hbox >	
+						<label value="${c:l('welcome.zul.name')}:" style="font-weight:bold" />
+						<textbox id="name" value="${welcomeUpdata_Win.welcome.name }" width="200px" action="onClick:selectThis(this)" />
+				    </hbox>
+				
+					<hbox>
+						<label value="URL:" style="font-weight:bold" />
+						<textbox id="url" value="${welcomeUpdata_Win.welcome.url }" width="200px" action="onClick:selectThis(this)" />
+					</hbox>
+				<hbox>
+					    <space width="27px"></space>
+						<checkbox id="move"
+							checked="${welcomeUpdata_Win.welcome.visible==0}"
+							label="${c:l('welcome.zul.isAllowscustomization')}">
+						</checkbox>
+				</hbox>
+				
+				<div align="center">
+						<image type="save"
+							onClick="welcomeUpdata_Win.updataWelcome()" id="updataWelcome">
+						</image>
+				</div>
+			</vbox>
+			</div>
+	</window>
+</zk>

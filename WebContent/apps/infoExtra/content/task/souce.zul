@@ -1,0 +1,77 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="ss" title="源文件查看器" border="normal" width="800px" height="500px">
+<borderlayout>
+<north height="60px">
+<div>
+<menubar width="100%">
+	<menu label="【文件】">
+	<menupopup>
+			<menuitem label="打开" />
+			<menuitem label="另存为" />
+			</menupopup>
+	</menu>
+	<menu label="【编码】">
+			<menupopup>
+		<menu label="地址编码">
+		  <menupopup >
+		<menuitem label="gb2312"/>
+		<menuitem label="utf—8"/>
+		</menupopup>
+		</menu>
+			<menu label="内容编码">
+		  <menupopup >
+		<menuitem label="自动识别"/>
+		<menuitem label="gb2312"/>
+		<menuitem label="utf—8"/>
+		</menupopup>
+		</menu>
+		</menupopup>
+	</menu>
+	<menu label="【帮助】">
+		<menupopup>
+			<menuitem label="说明" />
+			<menuitem label="关于" />
+		</menupopup>
+	</menu>
+		<menuitem label="【退出】"  onClick="ss.detach()"/>
+</menubar>
+<label value="地址:"/>
+<textbox width="650px"/>
+<button label="转到"/>
+</div>
+</north>
+<center border="0">
+    <borderlayout> 
+<west border="normal"  title="需要隐藏的标记" size="17%" flex="true" maxsize="250" 
+             splittable="true" collapsible="true"> 
+             <div>
+             <vbox>
+             <checkbox label="头部"/>
+             <separator/>
+              <checkbox label="注释"/>
+              <separator/>
+               <checkbox label="脚本"/>
+               <separator/>
+                <checkbox label="样式"/>
+                <space height="250px"/>
+                <hbox>
+                <button label="全 选"/> 
+                <space/>
+                <button label="全不选"/>
+                </hbox>
+             </vbox>
+             </div>
+
+</west>
+ <center>
+ <div>
+ <textbox rows="1000" width="640" height="400"/>
+ </div>
+ </center>
+
+</borderlayout>
+</center>
+</borderlayout>
+</window>
+</zk>

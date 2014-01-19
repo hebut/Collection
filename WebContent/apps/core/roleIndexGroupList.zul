@@ -1,0 +1,66 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="image" extends="image" class="com.uniwin.webkey.component.ui.Image"?>
+<zk>
+	<window id="tempListWindow" height="100%" width="100%" border="none" sclass="newin" 
+		use="com.uniwin.webkey.core.ui.RowIndexGroupListWin">
+		<style>
+			td.z-list-cell { border:1px solid } tr.z-listbox-odd
+			td.z-list-cell { border:1px solid }
+		</style>
+				<div>
+					<panel id = "roleGroupListPanel" width="100%" border="normal" visible="true">
+			     <panelchildren >			       
+                     <space height="3px"></space>
+			         <div align="right">
+						<hbox align="end">											 
+							<toolbarbutton id="newRoleGroup"  label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.add')}" />	
+							<toolbarbutton id="delRoleGroup"  label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.delete')}" />	
+					    </hbox>
+					 </div>	
+                     <space height="3px"></space>    				       
+		      	     <listbox id="roleGroupListbox"  mold="paging" pageSize="11" checkmark="true" multiple="true" sclass="new_listbox" >
+						<listhead>
+						    <listheader width="3%" align="center"/>	
+							<listheader label="${c:l('role.zul.xuhao')}" width="8%" align="center"/>
+							<listheader label="${c:l('role.zul.rolename')}" width="35%" style="text-align:center" sort="auto(roleName)"/>
+							<listheader label="${c:l('role.zul.rolestate')}" width="20%" style="text-align:center" />
+							<listheader label="${c:l('role.zul.roledefault')}" width="15%" style="text-align:center" />
+							<listheader label="${c:l('role.zul.roleoption')}" width="20%" align="center"/>			          
+						</listhead>
+				      </listbox>
+            	    </panelchildren>
+               </panel>            
+           
+               <panel id = "roleListPanel" width="100%" border="normal" visible="false">
+			     <panelchildren >	
+                     <space height="3px"></space>
+			         <div align="right">
+						<hbox align="end">											 
+							<toolbarbutton id="newRole"  label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.add')}"/>	
+							<toolbarbutton id="delRole"  label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.delete')}" />	
+							<toolbarbutton id="renturn"  label="" image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.return')}" >
+								<attribute name="onClick">
+									roleListPanel.setVisible(false);
+									roleGroupListPanel.setVisible(true);
+								</attribute>	
+							</toolbarbutton>
+					    </hbox>
+					 </div>	
+                     <space height="3px"></space>   	
+		      	     <listbox id="roleListbox" mold="paging" pageSize="11" multiple="true" checkmark="true" sclass="new_listbox">
+					   <listhead>
+						    <listheader width="3%" align="center"/>	
+							<listheader label="${c:l('role.zul.xuhao')}" width="8%" align="center"/>
+							<listheader label="${c:l('role.zul.rolename')}" width="35%" style="text-align:center" sort="auto"/>
+							<listheader label="${c:l('role.zul.rolestate')}" width="20%" style="text-align:center" sort="auto"/>
+							<listheader label="${c:l('role.zul.roledefault')}" width="15%" style="text-align:center" sort="auto"/>
+							<listheader label="${c:l('role.zul.roleoption')}" width="20%" align="center" sort="auto"/>			          
+						</listhead>
+					 </listbox>		         	  	
+            	    </panelchildren>
+                </panel>                 
+			</div>
+	</window>
+</zk>

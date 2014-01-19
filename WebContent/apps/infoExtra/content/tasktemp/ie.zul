@@ -1,0 +1,84 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="信息规则获取窗口" border="normal" use="com.uniwin.webkey.infoExtra.core.IeExtract" closable="true" width="900px" height="550px"
+ position="top" maximizable="true">
+
+<hbox height="20px" width="880px">
+<grid>
+	<columns><column width="10%"/><column width="63%"/><column/></columns>
+	<rows>
+	<row>
+	<label>请输入网址：</label><textbox id="url" width="550px"/>
+	<hbox><button label="显示" id="show"/><button label="清除" id="clear"/></hbox>
+	</row>
+	</rows>
+</grid>
+</hbox>
+<tabbox>
+	<tabs>
+	<tab label="查看网页源码"/>
+	<tab label="ie预览提取"/>
+	</tabs>
+	<tabpanels>
+		
+	<tabpanel>
+		<borderlayout height="450px">
+			<west collapsible="true">
+				<vbox>
+				<listbox width="180px">
+				<auxhead><auxheader label="需要隐藏的Html标签" align="left"/></auxhead>
+					<listhead sizable="true"><listheader></listheader></listhead>
+					<listitem><listcell><checkbox label="头部" id="head"/></listcell></listitem>
+					<!--<listitem><listcell><checkbox label="注释" id="remark"/></listcell></listitem>
+					--><listitem><listcell><checkbox label="脚本" id="script"/></listcell></listitem>
+					<listitem><listcell><checkbox label="样式" id="style"/></listcell></listitem>
+					<listitem><listcell><hbox><button label="全选" id="all"/><space width="20px"/>
+					<button label="全不选" id="notAll"/></hbox></listcell></listitem>
+				</listbox>
+				
+				<separator/><separator/><separator/><separator/>
+				<listbox width="180px">
+				<auxhead><auxheader label="辅助工具" align="left"/></auxhead>
+				<listhead sizable="true"><listheader/></listhead>
+				<!-- <listbox width="180px">
+				<auxhead><auxheader label="需要显示的Html标签" align="left"/></auxhead>
+					<listhead sizable="true"><listheader/></listhead>
+					<listitem><listcell><label>输入标签名：</label></listcell></listitem>
+					<listitem><listcell><textbox  width="170px" style="color:red" id="tag"/></listcell></listitem>
+					<listitem><listcell><hbox align="right"><button label="显示" id="showTags"/><space width="20px"/><button label="重载" id="clearTag"/></hbox></listcell></listitem>
+				</listbox>
+				-->
+				<listitem><listcell><textbox id="key" constraint="no empty"/></listcell></listitem>
+				<listitem><listcell>
+				<hbox><button label="搜索" id="search"/><button label="下一个" id="nextOne"/><button label="上一个" id="beforeOne"/></hbox>
+				</listcell></listitem>
+				</listbox>
+				</vbox>
+			</west>
+			<center>
+				
+			<textbox width="670px" height="440px" multiline="true" id="source" style="overflow:auto" readonly="true" />
+			</center>
+		</borderlayout>
+	</tabpanel>
+	
+	<tabpanel>
+	
+<borderlayout height="450px">
+
+<center>
+	<iframe width="100%"  height="500px" id="hiddenWin" scrolling="auto" style="border: 1px solid gray">
+	</iframe>
+</center>
+
+</borderlayout>
+</tabpanel>
+	
+	
+	</tabpanels>
+	
+</tabbox>
+
+</window>
+</zk>

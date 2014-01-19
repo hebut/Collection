@@ -1,0 +1,12 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="温馨提示" border="normal" width="1024px" height="100%" 
+contentStyle="overflow:auto" >
+		系统找不到你请求的资源。
+		<borderlayout>
+			<north title="a"  ><include src="error.zul"></include> </north>
+			<center title="ae"  ><include src="error.zul" height="100%" width="1024px"></include></center>
+			<south title="a"  ><include src="error.zul" width="2000px"></include></south>
+		</borderlayout>
+	</window>
+</zk>

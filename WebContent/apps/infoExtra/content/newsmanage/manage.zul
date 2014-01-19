@@ -1,0 +1,58 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  use="com.uniwin.webkey.infoExtra.newsmanage.NewsManageEditWindow" border="normal" width="100%" style="text-align:left" closable="false">
+	<toolbar align="end" >
+	<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.delete')}" id="deletenews"/>
+	<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.cms.export')}" id="expert"/>
+</toolbar>
+<separator />
+<hbox>
+<label value="起始时间:"/>
+<datebox  width="80px" id="begintime" cols="13" format="yyyy-MM-dd"/>
+<label value="-"/>
+<datebox  width="80px" id="endtime" cols="13" format="yyyy-MM-dd"/>
+<space width="10px"/>
+<label value="关键字:"/>
+ <textbox  width="150px" id="keys"/>
+ <listbox mold="select" rows="1" width="60px">
+<listitem  label="标题" id="title" selected="true"/>
+<listitem  label="内容" id="content"/>
+</listbox>
+<space  width="10px"/>
+<label  value="来源:"/>
+<textbox  width="120px" id="source"/>
+</hbox>
+<separator />
+<div align="center">
+<hbox >
+<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.search')}"   id="searchnews"/>
+<space/>
+<toolbarbutton image="${c:l('webindex.zul.css')}${themeName}${c:l('newspub.zul.common.reset')}" id="resetnews"/>
+</hbox>
+</div>
+<separator />
+<tabbox  width="100%">
+<tabs style="text-align:left">
+<tab label="原始信息" height="280px"/>
+</tabs>
+<tabpanels>
+<tabpanel >
+<vbox>
+<listbox id="infomanagelist"  fixedLayout="true" multiple="true" sclass="new_listbox" checkmark="true" mold="paging" pageSize="10">
+		<listhead>
+		    <listheader width="3%" />	
+			<listheader label="序号" width="5%" align="center"/>
+			<listheader label="状态" width="4%" align="center"  />
+			<listheader label="标题" style="text-align:center"  />
+			<listheader label="发布时间" width="18%" align="center"  sort="auto(koiPtime)"/>
+			<listheader label="来源" width="12%" align="center"  />
+			<listheader label="采集时间" width="18%" align="center"  sort="auto(koiCtime)"/>
+			<listheader label="评论" width="10%" align="center" visible="false"/>
+		</listhead>	
+</listbox>
+ </vbox>		
+   </tabpanel> 
+</tabpanels>
+</tabbox>
+</window>
+</zk>

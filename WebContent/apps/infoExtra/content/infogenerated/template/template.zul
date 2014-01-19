@@ -1,0 +1,34 @@
+<?page id="messEdit"  contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="templateWindow" width="825px" style="text-align:left"
+		sclass="eagel-window" use="com.uniwin.webkey.infoExtra.infogenerated.TemplateManage">
+		<panel>
+			<caption>
+				<hbox align="end">
+					<toolbarbutton id="addTemplate"
+						image="/images/common/addAct.gif" />
+					<toolbarbutton id="deleteInfo"
+						image="/images/common/delAct.gif" />
+				</hbox>
+			</caption>
+			<panelchildren>
+				<!-- <listbox id="templatelistbox" mold="paging" pageSize="14" pagingPosition="bottom" checkmark="true" multiple="true" width="99%"> -->
+				<listbox  sclass="new_listbox" id="templatelistbox" fixedLayout="true"  multiple="true" checkmark="true" mold="paging"  pageSize="14">
+					<listhead>
+						<listheader width="4%" />
+						<listheader label="序号" width="8%" align="center" />
+						<listheader label="名称" width="25%"
+							align="center" id="titleHeader" maxlength="20" />
+						<listheader label="日期" width="26%"
+							align="center" id="timeHeader" />
+						<listheader label="操作" width="10%"
+							align="center" id="operateHeader" />	
+						<listheader label="id" width="10%"
+						align="center" id="id" visible="false" />							
+					</listhead>
+				</listbox>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

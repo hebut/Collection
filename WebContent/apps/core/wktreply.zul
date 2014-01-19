@@ -1,0 +1,15 @@
+<?page title=" " contentType="text/html;charset=UTF-8" id="page"?>
+	<zk>
+	<window title="WktreplyList" border="Normal"  
+		use="com.uniwin.webkey.core.ui.WktreplyWin" id="wktreplyWin" >
+		<toolbar>
+		<hbox align="left" width="100%">
+			<button label="ADD" id="add" onClick="wktreplyWin.add()"/>
+		</hbox>
+		</toolbar>
+		<listbox id="listbox" mold="paging" fixedLayout="true" pageSize="8" height="200px" sclass="new_listbox"
+			width="100%">
+			<listhead id="listhead" sizable="true"></listhead>
+		</listbox>
+	</window>
+</zk>
